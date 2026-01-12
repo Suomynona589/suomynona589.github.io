@@ -1,7 +1,6 @@
 // --- CONFIG ---
 // You can change these freely:
-const requiredChars = "A9QZ2";   // all characters they must find
-const finalSolution = "Z9QA2";   // the exact unscrambled answer
+const finalSolution = window.__secret || "";
 
 // --- HELPERS ---
 function normalize(str) {
