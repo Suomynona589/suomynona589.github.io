@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="box">
+    <h2>Welcome!</h2>
+    <p id="userEmail"></p>
+    <button id="logoutBtn" style="background:#d9534f;">Log Out</button>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+    import { 
+      getAuth, 
+      signOut,
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCT8uB4fTOPFsTuVQfUkrI55247iKAxiLQ",
+      authDomain: "sign-in-thing-7f106.firebaseapp.com",
+      projectId: "sign-in-thing-7f106",
+      storageBucket: "sign-in-thing-7f106.firebasestorage.app",
+      messagingSenderId: "215017768496",
+      appId: "1:215017768496:web:e71afda540582184bb8ff5"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const logoutBtn = document.getElementById("logoutBtn");
+    const userEmail = document.getElementById("userEmail");
+
+    onAuthStateChanged(auth, user => {
+      if (!user) {
+        window.location.href = "index.html";
+      } else {
+        userEmail.textContent = "Logged in as: " + user.email;
+      }
+    });
+
+    logoutBtn.onclick = () => {
+      signOut(auth);
+    };
+  </script>
+
+</body>
+</html>
