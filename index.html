@@ -3,43 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Login System</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f0f0f0;
-      padding: 40px;
-    }
-    .box {
-      background: white;
-      padding: 20px;
-      width: 300px;
-      margin: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    input {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    button {
-      width: 100%;
-      padding: 10px;
-      background: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    #message {
-      margin-top: 10px;
-      color: red;
-      font-weight: bold;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -54,70 +18,11 @@
     <input id="loginPassword" type="password" placeholder="Password">
     <button id="loginBtn">Log In</button>
 
-    <button id="logoutBtn" style="background:#d9534f; display:none;">Log Out</button>
+    <button id="logoutBtn" class="logout">Log Out</button>
 
     <div id="message"></div>
   </div>
 
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
-    import { 
-      getAuth, 
-      createUserWithEmailAndPassword, 
-      signInWithEmailAndPassword,
-      signOut,
-      onAuthStateChanged
-    } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyCT8uB4fTOPFsTuVQfUkrI55247iKAxiLQ",
-      authDomain: "sign-in-thing-7f106.firebaseapp.com",
-      projectId: "sign-in-thing-7f106",
-      storageBucket: "sign-in-thing-7f106.firebasestorage.app",
-      messagingSenderId: "215017768496",
-      appId: "1:215017768496:web:e71afda540582184bb8ff5"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-
-    const signupBtn = document.getElementById("signupBtn");
-    const loginBtn = document.getElementById("loginBtn");
-    const logoutBtn = document.getElementById("logoutBtn");
-    const message = document.getElementById("message");
-
-    signupBtn.onclick = () => {
-      const email = document.getElementById("signupEmail").value;
-      const password = document.getElementById("signupPassword").value;
-
-      createUserWithEmailAndPassword(auth, email, password)
-        .then(() => message.textContent = "Account created!")
-        .catch(err => message.textContent = err.message);
-    };
-
-    loginBtn.onclick = () => {
-      const email = document.getElementById("loginEmail").value;
-      const password = document.getElementById("loginPassword").value;
-
-      signInWithEmailAndPassword(auth, email, password)
-        .then(() => message.textContent = "Logged in!")
-        .catch(err => message.textContent = err.message);
-    };
-
-    logoutBtn.onclick = () => {
-      signOut(auth);
-    };
-
-    onAuthStateChanged(auth, user => {
-      if (user) {
-        message.textContent = "Logged in as: " + user.email;
-        logoutBtn.style.display = "block";
-      } else {
-        message.textContent = "";
-        logoutBtn.style.display = "none";
-      }
-    });
-  </script>
-
+  <script type="module" src="script.js"></script>
 </body>
 </html>
