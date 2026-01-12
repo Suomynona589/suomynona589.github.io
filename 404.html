@@ -14,6 +14,7 @@ body {
   color: black;
   font-family: 'VCR OSD Mono';
 }
+
 .glitch {
   font-size: 8rem;
   font-weight: 700;
@@ -140,4 +141,39 @@ body {
 
 <body>
     <div class="center-stack"> <div class="glitch">404</div> <div class="message"> This page could not be found. Please check the link for a typo. </div> <a class="home-btn" href="/">Return Home</a> </div>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+
+  // Create a MutationObserver to watch for attribute changes
+  const observer = new MutationObserver(mutations => {
+    mutations.forEach(mutation => {
+      if (
+        mutation.type === "attributes" &&
+        mutation.attributeName.toLowerCase() === "contenteditable"
+      ) {
+        const current = body.getAttribute("contenteditable");
+
+        if (current && current.toLowerCase() === "true") {
+          body.setAttribute("contenteditable", "false");
+          alert("Don't try to edit my page! ~Suomynona589");
+        }
+      }
+    });
+  });
+
+  // Start observing the body for attribute changes
+  observer.observe(body, {
+    attributes: true,
+    attributeFilter: ["contenteditable"]
+  });
+
+  // Also check immediately on load
+  const initial = body.getAttribute("contenteditable");
+  if (initial && initial.toLowerCase() === "true") {
+    body.setAttribute("contenteditable", "false");
+    alert("Don't try to edit my page! ~Suomynona589");
+  }
+});
+</script>
 </body></html>
