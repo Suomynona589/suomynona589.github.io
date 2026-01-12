@@ -1,5 +1,5 @@
 // --- CONFIG ---
-// You can change these freely:
+const requiredChars = window.__required || "";
 const finalSolution = window.__secret || "";
 
 // --- HELPERS ---
