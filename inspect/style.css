@@ -1,0 +1,18 @@
+body {
+  font-family: monospace;
+  padding: 20px;
+}
+
+input {
+  margin: 5px 0;
+  width: 250px;
+  padding: 5px;
+}
+
+button {
+  padding: 5px 10px;
+}
+
+#result1, #result2 {
+  margin-top: 10px;
+}
