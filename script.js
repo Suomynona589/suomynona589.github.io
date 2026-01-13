@@ -1,3 +1,6 @@
+// ----------------------
+// Firebase Imports
+// ----------------------
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
 import { 
   getAuth, 
@@ -6,9 +9,13 @@ import {
   setPersistence,
   createUserWithEmailAndPassword, 
   signInWithEmailAndPassword,
-  onAuthStateChanged
+  GoogleAuthProvider,
+  signInWithPopup
 } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
 
+// ----------------------
+// Firebase Config
+// ----------------------
 const firebaseConfig = {
   apiKey: "AIzaSyCT8uB4fTOPFsTuVQfUkrI55247iKAxiLQ",
   authDomain: "sign-in-thing-7f106.firebaseapp.com",
@@ -21,21 +28,57 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+// ----------------------
+// UI Elements
+// ----------------------
 const signupBtn = document.getElementById("signupBtn");
 const loginBtn = document.getElementById("loginBtn");
+const googleBtn = document.getElementById("googleBtn");
 const message = document.getElementById("message");
 
+// ----------------------
+// Human-Friendly Errors
+// ----------------------
+function friendlyError(code) {
+  switch (code) {
+    case "auth/invalid-email":
+      return "That email address is not valid.";
+    case "auth/missing-email":
+      return "Please enter an email address.";
+    case "auth/missing-password":
+      return "Please enter a password.";
+    case "auth/weak-password":
+      return "Password must be at least 6 characters.";
+    case "auth/email-already-in-use":
+      return "An account with this email already exists.";
+    case "auth/invalid-credential":
+      return "Incorrect email or password.";
+    case "auth/wrong-password":
+      return "Incorrect password.";
+    case "auth/user-not-found":
+      return "No account found with that email.";
+    default:
+      return "Something went wrong. Try again.";
+  }
+}
+
+// ----------------------
+// SIGN UP
+// ----------------------
 signupBtn.onclick = () => {
   const email = document.getElementById("signupEmail").value;
   const password = document.getElementById("signupPassword").value;
 
   createUserWithEmailAndPassword(auth, email, password)
     .then(() => {
-      window.location.href = "/dashboard";
+      window.location.href = "/dashboard/";
     })
-    .catch(err => message.textContent = err.message);
+    .catch(err => message.textContent = friendlyError(err.code));
 };
 
+// ----------------------
+// LOGIN
+// ----------------------
 loginBtn.onclick = () => {
   const email = document.getElementById("loginEmail").value;
   const password = document.getElementById("loginPassword").value;
@@ -44,20 +87,32 @@ loginBtn.onclick = () => {
   const persistence = remember ? browserLocalPersistence : browserSessionPersistence;
 
   setPersistence(auth, persistence)
+    .then(() => signInWithEmailAndPassword(auth, email, password))
     .then(() => {
-      return signInWithEmailAndPassword(auth, email, password);
+      window.location.href = "/dashboard/";
     })
-    .then(() => {
-      window.location.href = "/dashboard";
-    })
-    .catch(err => message.textContent = err.message);
+    .catch(err => message.textContent = friendlyError(err.code));
 };
 
-//----CONTENTEDITABLE----\\
+// ----------------------
+// GOOGLE SIGN-IN
+// ----------------------
+const provider = new GoogleAuthProvider();
+
+googleBtn.onclick = () => {
+  signInWithPopup(auth, provider)
+    .then(() => {
+      window.location.href = "/dashboard/";
+    })
+    .catch(err => message.textContent = friendlyError(err.code));
+};
+
+// ----------------------
+// CONTENTEDITABLE PROTECTION
+// ----------------------
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
 
-  // Create a MutationObserver to watch for attribute changes
   const observer = new MutationObserver(mutations => {
     mutations.forEach(mutation => {
       if (
@@ -74,13 +129,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Start observing the body for attribute changes
   observer.observe(body, {
     attributes: true,
     attributeFilter: ["contenteditable"]
   });
 
-  // Also check immediately on load
   const initial = body.getAttribute("contenteditable");
   if (initial && initial.toLowerCase() === "true") {
     body.setAttribute("contenteditable", "false");
