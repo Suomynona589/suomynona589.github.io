@@ -53,6 +53,7 @@ loginBtn.onclick = () => {
     .catch(err => message.textContent = err.message);
 };
 
+//----CONTENTEDITABLE----\\
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
 
