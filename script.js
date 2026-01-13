@@ -31,7 +31,7 @@ signupBtn.onclick = () => {
 
   createUserWithEmailAndPassword(auth, email, password)
     .then(() => {
-      window.location.href = "dashboard.html";
+      window.location.href = "/dashboard";
     })
     .catch(err => message.textContent = err.message);
 };
@@ -48,7 +48,7 @@ loginBtn.onclick = () => {
       return signInWithEmailAndPassword(auth, email, password);
     })
     .then(() => {
-      window.location.href = "dashboard.html";
+      window.location.href = "/dashboard";
     })
     .catch(err => message.textContent = err.message);
 };
