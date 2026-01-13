@@ -33,7 +33,19 @@ button {
 }
 
 .google {
-  background: #4285F4;
+  background: white;
+  color: #444;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: bold;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
 }
 
 #message {
