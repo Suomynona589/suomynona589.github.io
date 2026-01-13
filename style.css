@@ -32,6 +32,10 @@ button {
   margin-top: 10px;
 }
 
+.google {
+  background: #4285F4;
+}
+
 #message {
   margin-top: 10px;
   color: red;
