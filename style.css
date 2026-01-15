@@ -61,3 +61,15 @@
       margin-top: 8px;
       min-height: 18px;
     }
+    .google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+   .google-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
