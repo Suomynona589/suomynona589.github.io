@@ -83,3 +83,42 @@ body {
     .admin-only {
       display: none;
     }
+
+.quiz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.quiz-card {
+  display: block;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.quiz-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.quiz-thumb {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.quiz-info {
+  padding: 14px;
+}
+
+.quiz-info h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
