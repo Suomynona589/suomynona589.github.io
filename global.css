@@ -1,0 +1,32 @@
+.github-link {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  color: #0b2339;
+  font-size: 15px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.github-link:hover {
+  color: #cccccc;
+}
+
+.home-link {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #0b2339;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.15s ease;
+}
+
+.home-link:hover {
+  background: #cccccc;
+  color: #0b2339;
+}
