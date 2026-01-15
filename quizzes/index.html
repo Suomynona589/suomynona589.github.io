@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Quizzes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f3f4f6;
+      min-height: 100vh;
+    }
+    header {
+      background: #4f46e5;
+      color: #fff;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+    header .user-info {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+    main {
+      max-width: 800px;
+      margin: 24px auto;
+      padding: 0 16px 32px;
+    }
+    .quiz-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .quiz-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 14px 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .quiz-card h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+    .quiz-card a {
+      margin-top: 8px;
+      align-self: flex-start;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: #4f46e5;
+      color: #fff;
+    }
+    .empty {
+      font-size: 14px;
+      color: #6b7280;
+      margin-top: 12px;
+    }
+    .top-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .btn {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .btn-primary {
+      background: #10b981;
+      color: #fff;
+    }
+    .btn-secondary {
+      background: #e5e7eb;
+      color: #111827;
+    }
+    .admin-only {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Your Quizzes</h1>
+    <div class="user-info" id="userInfo">Not signed in</div>
+  </header>
+
+  <main>
+    <div class="top-actions">
+      <button id="logoutBtn" class="btn btn-secondary">Sign out</button>
+      <button id="builderBtn" class="btn btn-primary admin-only">Build your own quiz!</button>
+    </div>
+
+    <section>
+      <h2 style="font-size:18px; margin-bottom:8px;">Available quizzes</h2>
+      <div id="quizList" class="quiz-list"></div>
+      <div id="emptyMsg" class="empty" style="display:none;">No quizzes yet. Add some in <code>quizzes/data.json</code>.</div>
+    </section>
+  </main>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+    import {
+      getAuth,
+      onAuthStateChanged,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDDHKqrPamXSvMI9U8L1ZWrE-WL8ltj3EY",
+      authDomain: "suomynona589-github-io.firebaseapp.com",
+      projectId: "suomynona589-github-io",
+      storageBucket: "suomynona589-github-io.firebasestorage.app",
+      messagingSenderId: "1048880083720",
+      appId: "1:1048880083720:web:fc2b84d1dcfbb8d36c32bd"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const ADMIN_EMAIL = "suomynona589@gmail.com";
+
+    const userInfoEl = document.getElementById("userInfo");
+    const logoutBtn = document.getElementById("logoutBtn");
+    const builderBtn = document.getElementById("builderBtn");
+    const quizListEl = document.getElementById("quizList");
+    const emptyMsgEl = document.getElementById("emptyMsg");
+
+    logoutBtn.addEventListener("click", async () => {
+      await signOut(auth);
+      window.location.href = "/";
+    });
+
+    builderBtn.addEventListener("click", () => {
+      window.location.href = "/builder/";
+    });
+
+    async function loadQuizzes() {
+      try {
+        const res = await fetch("/quizzes/data.json?cachebust=" + Date.now());
+        if (!res.ok) throw new Error("Failed to load quizzes");
+        const quizzes = await res.json();
+        quizListEl.innerHTML = "";
+
+        if (!quizzes || quizzes.length === 0) {
+          emptyMsgEl.style.display = "block";
+          return;
+        }
+
+        emptyMsgEl.style.display = "none";
+
+        quizzes.forEach(q => {
+          const card = document.createElement("div");
+          card.className = "quiz-card";
+
+          const title = document.createElement("h3");
+          title.textContent = q.title || "(Untitled quiz)";
+
+          const link = document.createElement("a");
+          const slug = q.slug || "";
+          link.href = slug ? `/quiz/${slug}.html` : "#";
+          link.textContent = "Open quiz";
+
+          card.appendChild(title);
+          card.appendChild(link);
+          quizListEl.appendChild(card);
+        });
+      } catch (err) {
+        emptyMsgEl.style.display = "block";
+        emptyMsgEl.textContent = "Error loading quizzes.";
+      }
+    }
+
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        window.location.href = "/";
+        return;
+      }
+
+      const email = user.email || "(anonymous)";
+      userInfoEl.textContent = `Signed in as ${email}`;
+
+      if (email === ADMIN_EMAIL) {
+        builderBtn.classList.remove("admin-only");
+      }
+
+      loadQuizzes();
+    });
+  </script>
+</body>
+</html>
