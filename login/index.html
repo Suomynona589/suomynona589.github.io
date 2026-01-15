@@ -1,1 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login to Quiz Builder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="images/question-mark.png">
+</head>
+<body>
+  <div class="card">
+    <h1>Sign in</h1>
 
+    <label for="email">Email</label>
+    <input id="email" type="email" autocomplete="email">
+
+    <label for="password">Password</label>
+    <input id="password" type="password" autocomplete="current-password">
+
+    <button id="emailSignInBtn">Sign in with Email</button>
+    <button id="googleSignInBtn" class="secondary google-btn">
+  <img src="/images/google.png" alt="" class="google-icon">
+  Sign in with Google
+    </button>
+    <button id="anonSignInBtn" class="secondary">Continue as Guest</button>
+
+    <div class="error" id="error"></div>
+    <div class="small">After signing in, you’ll be taken to your quizzes.</div>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
