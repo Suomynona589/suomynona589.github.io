@@ -13,32 +13,39 @@
     <div class="user-info" id="userInfo">Checking auth…</div>
   </header>
 
+  <div class="disabled-overlay" id="blockedOverlay">
+    <div>
+      <p>You are not allowed to use the quiz builder.</p>
+      <button id="goHomeBtn" class="btn btn-secondary" style="margin-top:10px;">Back to quizzes</button>
+    </div>
+  </div>
+
   <main>
-    <div class="row">
+    <div class="top-row">
       <button id="backBtn" class="btn btn-secondary">← Back to quizzes</button>
+      <button id="addQuestionBtn" class="btn btn-primary">+ Add question</button>
     </div>
 
-    <div class="row">
+    <section>
       <label for="quizTitle">Quiz title</label>
       <input id="quizTitle" type="text" placeholder="e.g. Animal Trivia">
-    </div>
-
-    <div class="row">
-      <label for="quizCode">Quiz code</label>
-      <textarea id="quizCode" placeholder="Paste or write your quiz code here..."></textarea>
       <div class="note">
-        When you click “Send to my email”, this will be sent as <code>{{quiz_code}}</code> and the title as <code>{{quiz_title}}</code>.
+        This will be sent as <code>{{quiz_title}}</code> in your EmailJS template.
       </div>
-    </div>
+    </section>
 
-    <div class="row">
-      <button id="sendBtn" class="btn btn-primary">Send to my email</button>
-    </div>
+    <section class="questions-container" id="questionsContainer"></section>
 
-    <div id="status" class="status"></div>
+    <section style="margin-top:20px;">
+      <button id="sendBtn" class="btn btn-primary">Generate JSON and send to my email</button>
+      <div class="note">
+        The generated JSON will be sent as <code>{{quiz_code}}</code>. Each question has 2–5 choices.
+      </div>
+      <div id="status" class="status"></div>
+      <pre id="preview" class="preview" style="display:none;"></pre>
+    </section>
   </main>
 
-  <!-- EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
   <script type="module" src="script.js"></script>
