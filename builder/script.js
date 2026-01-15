@@ -18,7 +18,7 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-    emailjs.init("YOUR_PUBLIC_KEY_HERE"); // put your EmailJS public key here
+    emailjs.init("GoREpH1TXayH6G9Tw"); // put your EmailJS public key here
 
     const userInfoEl = document.getElementById("userInfo");
     const blockedOverlay = document.getElementById("blockedOverlay");
