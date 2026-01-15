@@ -152,6 +152,8 @@
 
       addChoice();
       addChoice();
+      addChoice();
+      addChoice();
 
       const correctLabel = document.createElement("label");
       correctLabel.textContent = "Correct answer";
