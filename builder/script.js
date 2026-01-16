@@ -18,7 +18,7 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-    emailjs.init("GoREpH1TXayH6G9Tw"); // put your EmailJS public key here
+    emailjs.init("GoREpH1TXayH6G9Tw");
 
     const userInfoEl = document.getElementById("userInfo");
     const blockedOverlay = document.getElementById("blockedOverlay");
@@ -32,11 +32,11 @@
     const quizTitleInput = document.getElementById("quizTitle");
 
     goHomeBtn.addEventListener("click", () => {
-      window.location.href = "/quizzes/";
+      window.location.href = "/home/";
     });
 
     backBtn.addEventListener("click", () => {
-      window.location.href = "/quizzes/";
+      window.location.href = "/home/";
     });
 
     function setStatus(msg, ok = false) {
