@@ -4,6 +4,15 @@
       onAuthStateChanged
     } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
 
+if (!isAdmin) {
+  document.body.innerHTML = `
+    <p>Quiz Builder is not yet available for regular users</p>
+    <button id="goHomeBtn" class="btn btn-secondary" style="margin-top:10px;">Back to home</button>
+  `;
+  document.getElementById("goHomeBtn").onclick = () => {
+    window.location.href = "/home/";
+  };
+}
     const firebaseConfig = {
       apiKey: "AIzaSyDDHKqrPamXSvMI9U8L1ZWrE-WL8ltj3EY",
       authDomain: "suomynona589-github-io.firebaseapp.com",
