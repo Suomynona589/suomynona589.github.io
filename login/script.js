@@ -42,7 +42,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebas
       }
       try {
         await signInWithEmailAndPassword(auth, email, password);
-        window.location.href = "/quizzes/";
+        window.location.href = "/home/";
       } catch (err) {
         showError(err.message);
       }
@@ -52,7 +52,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebas
       showError("");
       try {
         await signInWithPopup(auth, provider);
-        window.location.href = "/quizzes/";
+        window.location.href = "/home/";
       } catch (err) {
         showError(err.message);
       }
@@ -62,7 +62,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebas
       showError("");
       try {
         await signInAnonymously(auth);
-        window.location.href = "/quizzes/";
+        window.location.href = "/home/";
       } catch (err) {
         showError(err.message);
       }
@@ -71,8 +71,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebas
     onAuthStateChanged(auth, (user) => {
       if (user) {
         // Already signed in → go straight to quizzes
-        if (!window.location.pathname.startsWith("/quizzes")) {
-          window.location.href = "/quizzes/";
+        if (!window.location.pathname.startsWith("/home")) {
+          window.location.href = "/home/";
         }
       }
     });
