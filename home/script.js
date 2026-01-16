@@ -1,92 +1,110 @@
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
-    import {
-      getAuth,
-      onAuthStateChanged,
-      signOut
-    } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+import {
+  getAuth,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
 
 if (localStorage.getItem("loggedIn") !== "true") {
   window.location.href = "/login/";
 }
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyDDHKqrPamXSvMI9U8L1ZWrE-WL8ltj3EY",
-      authDomain: "suomynona589-github-io.firebaseapp.com",
-      projectId: "suomynona589-github-io",
-      storageBucket: "suomynona589-github-io.firebasestorage.app",
-      messagingSenderId: "1048880083720",
-      appId: "1:1048880083720:web:fc2b84d1dcfbb8d36c32bd"
-    };
+const firebaseConfig = {
+  apiKey: "AIzaSyDDHKqrPamXSvMI9U8L1ZWrE-WL8ltj3EY",
+  authDomain: "suomynona589-github-io.firebaseapp.com",
+  projectId: "suomynona589-github-io",
+  storageBucket: "suomynona589-github-io.firebasestorage.app",
+  messagingSenderId: "1048880083720",
+  appId: "1:1048880083720:web:fc2b84d1dcfbb8d36c32bd"
+};
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
-    const ADMIN_EMAIL = "suomynona589@gmail.com";
+const ADMIN_EMAIL = "suomynona589@gmail.com";
 
-    const userInfoEl = document.getElementById("userInfo");
-    const logoutBtn = document.getElementById("logoutBtn");
-    const builderBtn = document.getElementById("builderBtn");
-    const quizListEl = document.getElementById("quizList");
-    const emptyMsgEl = document.getElementById("emptyMsg");
+const userInfoEl = document.getElementById("userInfo");
+const logoutBtn = document.getElementById("logoutBtn");
+const builderBtn = document.getElementById("builderBtn");
+const quizListEl = document.getElementById("quizList");
+const emptyMsgEl = document.getElementById("emptyMsg");
 
-    logoutBtn.addEventListener("click", async () => {
-      await signOut(auth);
-      localStorage.removeItem("loggedIn");
-      window.location.href = "/";
-    });
+logoutBtn.addEventListener("click", async () => {
+  await signOut(auth);
+  localStorage.removeItem("loggedIn");
+  window.location.href = "/";
+});
 
-    builderBtn.addEventListener("click", () => {
-      window.location.href = "/builder/";
-    });
+builderBtn.addEventListener("click", () => {
+  window.location.href = "/builder/";
+});
 
-    async function loadQuizzes() {
-      try {
-        const res = await fetch("/quizzes/data.json?cachebust=" + Date.now());
-        if (!res.ok) throw new Error("Failed to load quizzes");
-        const quizzes = await res.json();
-        quizListEl.innerHTML = "";
+async function loadQuizzes() {
+  try {
+    const res = await fetch("/quizzes/data.json?cachebust=" + Date.now());
+    if (!res.ok) throw new Error("Failed to load quizzes");
+    const quizzes = await res.json();
+    quizListEl.innerHTML = "";
 
-        if (!quizzes || quizzes.length === 0) {
-          emptyMsgEl.style.display = "block";
-          return;
-        }
-
-        emptyMsgEl.style.display = "none";
-
-        quizzes.forEach(q => {
-          const card = document.createElement("div");
-          card.className = "quiz-card";
-
-          const title = document.createElement("h3");
-          title.textContent = q.title || "(Untitled quiz)";
-
-          const link = document.createElement("a");
-          const slug = q.slug || "";
-          link.href = slug ? `/quiz/${slug}.html` : "#";
-          link.textContent = "Open quiz";
-
-          card.appendChild(title);
-          card.appendChild(link);
-          quizListEl.appendChild(card);
-        });
-      } catch (err) {
-        emptyMsgEl.style.display = "block";
-        emptyMsgEl.textContent = "Error loading quizzes.";
-      }
+    if (!quizzes || quizzes.length === 0) {
+      emptyMsgEl.style.display = "block";
+      return;
     }
 
-    onAuthStateChanged(auth, (user) => {
-      if (!user) {
-        window.location.href = "/";
-        return;
-      }
+    emptyMsgEl.style.display = "none";
 
-      const email = user.isAnonymous ? "anonymous" : user.email;
-    userInfoEl.textContent = `Signed in as ${email}`;
+    quizzes.forEach(q => {
+      const card = document.createElement("div");
+      card.className = "quiz-card";
 
-      if (email === ADMIN_EMAIL) {
-        builderBtn.classList.remove("admin-only");
-      }
+      const title = document.createElement("h3");
+      title.textContent = q.title || "(Untitled quiz)";
 
-      loadQuizzes();
+      const link = document.createElement("a");
+      const slug = q.slug || "";
+      link.href = slug ? `/quiz/${slug}.html` : "#";
+      link.textContent = "Open quiz";
+
+      card.appendChild(title);
+      card.appendChild(link);
+      quizListEl.appendChild(card);
     });
+  } catch (err) {
+    emptyMsgEl.style.display = "block";
+    emptyMsgEl.textContent = "Error loading quizzes.";
+  }
+}
+
+function loadHighScores() {
+  const raw = localStorage.getItem("score_hoo");
+  if (!raw) return;
+
+  const data = JSON.parse(raw);
+  const { correct, total } = data;
+
+  if (typeof correct !== "number" || typeof total !== "number") return;
+
+  const percent = Math.round((correct / total) * 100);
+  const scoreEl = document.getElementById("score-hoo");
+
+  if (scoreEl) {
+    scoreEl.textContent = `Your high score: ${percent}%`;
+  }
+}
+
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    window.location.href = "/";
+    return;
+  }
+
+  const email = user.isAnonymous ? "anonymous" : user.email;
+  userInfoEl.textContent = `Signed in as ${email}`;
+
+  if (email === ADMIN_EMAIL) {
+    builderBtn.classList.remove("admin-only");
+  }
+
+  loadQuizzes();
+  loadHighScores();
+});
