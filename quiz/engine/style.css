@@ -1,5 +1,3 @@
-@import url("/global.css");
-
 :root {
   color-scheme: light dark;
 }
@@ -10,6 +8,39 @@ body {
   padding: 20px;
   background: #f3f4f6;
   color: #111827;
+}
+
+.github-link {
+  position: fixed;
+  font-weight: bold;
+  bottom: 20px;
+  left: 20px;
+  color: #0b2339;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.github-link:hover {
+  color: #144570;
+}
+
+.home-link {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #0b2339;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.15s ease;
+}
+
+.home-link:hover {
+  background: #144570;
 }
 
 .container {
