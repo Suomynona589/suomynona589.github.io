@@ -5,6 +5,10 @@
       signOut
     } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
 
+if (localStorage.getItem("loggedIn") !== "true") {
+  window.location.href = "/login/";
+}
+
     const firebaseConfig = {
       apiKey: "AIzaSyDDHKqrPamXSvMI9U8L1ZWrE-WL8ltj3EY",
       authDomain: "suomynona589-github-io.firebaseapp.com",
