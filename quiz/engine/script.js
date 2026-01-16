@@ -38,9 +38,14 @@ function selectAnswer(i) {
 }
 
 function finishQuiz() {
+  localStorage.setItem("score_hoo", JSON.stringify({
+    correct: score,
+    total: quizData.questions.length
+  }));
+
   document.getElementById("quiz").style.display = "none";
   document.getElementById("result").textContent =
-    `You scored ${score} out of ${quizData.questions.length}`!;
+    `You scored ${score} out of ${quizData.questions.length}`;
 }
 
 loadQuiz();
