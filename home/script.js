@@ -80,8 +80,8 @@ if (localStorage.getItem("loggedIn") !== "true") {
         return;
       }
 
-      const email = user.email || "(anonymous)";
-      userInfoEl.textContent = `Signed in as ${email}`;
+      const email = user.isAnonymous ? "anonymous" : user.email;
+    userInfoEl.textContent = `Signed in as ${email}`;
 
       if (email === ADMIN_EMAIL) {
         builderBtn.classList.remove("admin-only");
