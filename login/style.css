@@ -57,7 +57,7 @@ button {
 }
 
 #emailSignUpBtn {
-  background: #3b82f6;
+  background: #30dd09;
   color: #fff;
 }
 
@@ -67,16 +67,26 @@ button {
 }
 
 #anonSignInBtn {
-  background: #f59e0b;
+  background: #ff0000;
   color: #111;
 }
 
 #emailSignUpBtn:hover {
-  background: #2563eb;
+  background: #2eab11;
 }
 
 #anonSignInBtn:hover {
-  background: #d97706;
+  background: #c90d0d;
+}
+
+#emailSignInBtn:hover {
+  background: #332bb5;
+  color: #fff;
+}
+
+#googleSignInBtn:hover {
+  background: #bbbec3;
+  color: #111827;
 }
 
 .small {
