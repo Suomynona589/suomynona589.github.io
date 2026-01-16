@@ -1,9 +1,10 @@
 .github-link {
   position: fixed;
+  font-weight: bold;
   bottom: 20px;
   left: 20px;
   color: #0b2339;
-  font-size: 15px;
+  font-size: 16px;
   text-decoration: none;
   font-weight: 600;
 }
