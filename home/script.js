@@ -31,6 +31,7 @@ if (localStorage.getItem("loggedIn") !== "true") {
 
     logoutBtn.addEventListener("click", async () => {
       await signOut(auth);
+      localStorage.removeItem("loggedIn");
       window.location.href = "/";
     });
 
