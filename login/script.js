@@ -2,6 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebas
 import {
   getAuth,
   signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
   signInAnonymously,
@@ -28,6 +29,7 @@ const provider = new GoogleAuthProvider();
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 const emailBtn = document.getElementById("emailSignInBtn");
+const signUpBtn = document.getElementById("emailSignUpBtn");
 const googleBtn = document.getElementById("googleSignInBtn");
 const anonBtn = document.getElementById("anonSignInBtn");
 const errorEl = document.getElementById("error");
@@ -51,6 +53,22 @@ emailBtn.addEventListener("click", async () => {
   }
   try {
     await signInWithEmailAndPassword(auth, email, password);
+    finishLogin();
+  } catch (err) {
+    showError(err.message);
+  }
+});
+
+signUpBtn.addEventListener("click", async () => {
+  showError("");
+  const email = emailInput.value.trim();
+  const password = passwordInput.value;
+  if (!email || !password) {
+    showError("Enter email and password.");
+    return;
+  }
+  try {
+    await createUserWithEmailAndPassword(auth, email, password);
     finishLogin();
   } catch (err) {
     showError(err.message);
