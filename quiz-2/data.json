@@ -1,0 +1,37 @@
+{
+  "title": "Kane Chronicles Quiz",
+  "questions": [
+    {
+      "q": "What is Sadie and Carter's dad named?",
+      "choices": [
+        "Jeffery Kane",
+        "Walt Kane",
+        "Julius Kane",
+        "Tut Kane"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "What Gods do the Kane siblings host?",
+      "choices": [
+        "Carter: Nekhbet, Sadie: Neith",
+        "Carter: Ra, Sadie: Nut",
+        "Carter: Horus, Sadie: Neith",
+        "Carter: Horus, Sadie: Isis",
+        "Carter: Nekhbet, Sadie: Nut",
+        "Carter: Ra, Sadie: Isis"
+      ],
+      "answer": 3
+    },
+    {
+      "q": "What is Set's secret name?",
+      "choices": [
+        "Chaos man",
+        "Hatshepsututankhamun",
+        "Unknown",
+        "Evil Day"
+      ],
+      "answer": 3
+    }
+  ]
+}
