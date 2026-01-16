@@ -109,7 +109,7 @@
 
       function addChoice(initialText = "") {
         const currentCount = choicesWrapper.querySelectorAll(".choice-line").length;
-        if (currentCount >= 5) return;
+        if (currentCount >= 6) return;
 
         const line = document.createElement("div");
         line.className = "choice-line";
