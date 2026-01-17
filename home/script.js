@@ -92,6 +92,23 @@ function loadHighScores() {
   }
 }
 
+function loadHighScores() {
+  const raw = localStorage.getItem("score_kc");
+  if (!raw) return;
+
+  const data = JSON.parse(raw);
+  const { correct, total } = data;
+
+  if (typeof correct !== "number" || typeof total !== "number") return;
+
+  const percent = Math.round((correct / total) * 100);
+  const scoreEl = document.getElementById("score-kc");
+
+  if (scoreEl) {
+    scoreEl.textContent = `Your high score: ${percent}%`;
+  }
+}
+
 onAuthStateChanged(auth, (user) => {
   if (!user) {
     window.location.href = "/";
