@@ -19,6 +19,7 @@ body {
   font-size: 16px;
   text-decoration: none;
   font-weight: 600;
+  pointer-events: none;
 }
 
 .github-link:hover {
@@ -37,6 +38,7 @@ body {
   font-size: 15px;
   font-weight: 600;
   transition: background 0.15s ease;
+  pointer-events: auto;
 }
 
 .home-link:hover {
@@ -75,6 +77,8 @@ button {
   font-size: 15px;
   cursor: pointer;
   margin-top: 20px;
+  position: relative;
+  z-index: 10;
 }
 
 button:hover {
