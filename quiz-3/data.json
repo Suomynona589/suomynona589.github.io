@@ -1,0 +1,54 @@
+{
+  "title": "Harry Potter Quiz",
+  "questions": [
+    {
+      "q": "What are Crabbe and Goyle's first names?",
+      "choices": [
+        "Crabbe: Cadmus, Goyle: Garron",
+        "Crabbe: Caldric, Goyle: Garrick",
+        "Crabbe: Vincent, Goyle: Gregory"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "Which vault was the Philosopher’s Stone hidden in?",
+      "choices": [
+        "1",
+        "394",
+        "1,432",
+        "713"
+      ],
+      "answer": 3
+    },
+    {
+      "q": "What page did Severus Snape want them to turn to in the Prisoner of Azkaban?",
+      "choices": [
+        "17",
+        "394",
+        "60",
+        "418"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "What species is Aragog?",
+      "choices": [
+        "Acromantula",
+        "Just a huge spider",
+        "Broodrax",
+        "Marachne"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "What train station is the Hogwarts Express at?",
+      "choices": [
+        "Paddington",
+        "Victoria",
+        "King’s Cross",
+        "St. Pancras"
+      ],
+      "answer": 2
+    }
+  ]
+}
