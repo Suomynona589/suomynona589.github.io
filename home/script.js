@@ -68,9 +68,8 @@ async function loadHighScores() {
     const el = document.getElementById("score-hp");
     if (el) el.textContent = `Your high score: ${percent}%`;
   }
-}
 
-if (data.score_pjo) {
+  if (data.score_pjo) {
     const { correct, total } = data.score_pjo;
     const percent = Math.round((correct / total) * 100);
     const el = document.getElementById("score-pjo");
