@@ -133,7 +133,7 @@ main {
   font-weight: 600;
 }
 
-.builder {
+.builder-button {
   position: absolute;
   top: 90px;
   right: 20px;
