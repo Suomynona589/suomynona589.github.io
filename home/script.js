@@ -90,9 +90,7 @@ function loadHighScores() {
   if (scoreEl) {
     scoreEl.textContent = `Your high score: ${percent}%`;
   }
-}
-
-function loadHighScores() {
+  
   const raw = localStorage.getItem("score_kc");
   if (!raw) return;
 
