@@ -68,11 +68,15 @@ async function finishQuiz() {
       updated: Date.now()
     };
 
-    await setDoc(
-      doc(db, "scores", user.uid),
-      { score_pjo: scoreData },
-      { merge: true }
-    );
+    try {
+      await setDoc(
+        doc(db, "scores", user.uid),
+        { score_pjo: scoreData },
+        { merge: true }
+      );
+    } catch (err) {
+      console.error("Error saving score:", err);
+    }
   }
 
   document.getElementById("quiz").style.display = "none";
