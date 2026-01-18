@@ -31,6 +31,7 @@ const builderBtn = document.getElementById("builderBtn");
 
 logoutBtn.addEventListener("click", async () => {
   await signOut(auth);
+  localStorage.removeItem("loggedIn");
   window.location.href = "/";
 });
 
