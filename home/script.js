@@ -70,6 +70,14 @@ async function loadHighScores() {
   }
 }
 
+if (data.score_pjo) {
+    const { correct, total } = data.score_pjo;
+    const percent = Math.round((correct / total) * 100);
+    const el = document.getElementById("score-pjo");
+    if (el) el.textContent = `Your high score: ${percent}%`;
+  }
+}
+
 onAuthStateChanged(auth, (user) => {
   if (!user) {
     window.location.href = "/login/";
