@@ -1,0 +1,55 @@
+{
+  "title": "Percy Jackson Quiz",
+  "questions": [
+    {
+      "q": "What is Nico di Angelo's sword made of?",
+      "choices": [
+        "Imperial Gold",
+        "Steel",
+        "Stygian Iron",
+        "Celestial Bronze"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "What river did Percy bathe in to gain Achille's curse?",
+      "choices": [
+        "The River Lethe",
+        "The River Phlegethon",
+        "The River Cocytus",
+        "The River Styx"
+      ],
+      "answer": 3
+    },
+    {
+      "q": "Who is Camp Half-Blood's head of security?",
+      "choices": [
+        "Argus",
+        "Chiron",
+        "Tantalus",
+        "Mr. D"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "Who was the inventor of the Labyrinth?",
+      "choices": [
+        "Hephaestus",
+        "Daedalus",
+        "Charles Beckendorf",
+        "Nobody knows"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "What monsters attack Percy during the dodgeball game?",
+      "choices": [
+        "Manticores",
+        "Hydras",
+        "Laistrygonians",
+        "Telkhines"
+      ],
+      "answer": 2
+    }
+  ]
+}
