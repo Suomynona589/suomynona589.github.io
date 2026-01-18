@@ -19,8 +19,6 @@ body {
   font-size: 16px;
   text-decoration: none;
   font-weight: 600;
-  pointer-events: none;
-  z-index: 0;
 }
 
 .github-link:hover {
@@ -39,7 +37,6 @@ body {
   font-size: 15px;
   font-weight: 600;
   transition: background 0.15s ease;
-  pointer-events: auto;
 }
 
 .home-link:hover {
@@ -53,8 +50,6 @@ body {
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  position: relative;
-  z-index: 9999;
 }
 
 h1 {
@@ -68,7 +63,7 @@ h1 {
 .choices {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 button {
@@ -79,8 +74,7 @@ button {
   color: #fff;
   font-size: 15px;
   cursor: pointer;
-  position: relative;
-  z-index: 9999;
+  margin-top: 20px;
 }
 
 button:hover {
@@ -91,5 +85,4 @@ button:hover {
   font-size: 20px;
   font-weight: 600;
   margin-top: 20px;
-  pointer-events: none;
 }
