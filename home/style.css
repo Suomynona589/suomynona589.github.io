@@ -28,11 +28,10 @@ body {
   padding: 0 16px 32px;
 }
     .quiz-grid {
-     display: flex;
-     flex-wrap: wrap;
-     gap: 16px;
-     align-items: flex-start;
-   }
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
     .quiz-card {
       background: #fff;
       border-radius: 10px;
