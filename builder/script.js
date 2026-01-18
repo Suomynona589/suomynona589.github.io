@@ -239,11 +239,6 @@
       };
     }
 
-    sendBtn.addEventListener("click", async () => {
-      setStatus("");
-      previewEl.style.display = "none";
-      previewEl.textContent = "";
-
       let data;
       try {
         data = collectQuizData();
