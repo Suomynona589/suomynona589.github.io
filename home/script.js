@@ -76,7 +76,7 @@ async function loadQuizzes() {
 }
 
 function loadHighScores() {
-  // HOO
+  // Heroes of Olympus
   const rawHoo = localStorage.getItem("score_hoo");
   if (rawHoo) {
     const data = JSON.parse(rawHoo);
@@ -85,7 +85,7 @@ function loadHighScores() {
     if (scoreEl) scoreEl.textContent = `Your high score: ${percent}%`;
   }
 
-  // KC
+  // Kane Chronicles
   const rawKc = localStorage.getItem("score_kc");
   if (rawKc) {
     const data = JSON.parse(rawKc);
