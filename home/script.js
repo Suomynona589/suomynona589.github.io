@@ -76,34 +76,22 @@ async function loadQuizzes() {
 }
 
 function loadHighScores() {
-  const raw = localStorage.getItem("score_hoo");
-  if (!raw) return;
-
-  const data = JSON.parse(raw);
-  const { correct, total } = data;
-
-  if (typeof correct !== "number" || typeof total !== "number") return;
-
-  const percent = Math.round((correct / total) * 100);
-  const scoreEl = document.getElementById("score-hoo");
-
-  if (scoreEl) {
-    scoreEl.textContent = `Your high score: ${percent}%`;
+  // HOO
+  const rawHoo = localStorage.getItem("score_hoo");
+  if (rawHoo) {
+    const data = JSON.parse(rawHoo);
+    const percent = Math.round((data.correct / data.total) * 100);
+    const scoreEl = document.getElementById("score-hoo");
+    if (scoreEl) scoreEl.textContent = `Your high score: ${percent}%`;
   }
-  
-  const raw = localStorage.getItem("score_kc");
-  if (!raw) return;
 
-  const data = JSON.parse(raw);
-  const { correct, total } = data;
-
-  if (typeof correct !== "number" || typeof total !== "number") return;
-
-  const percent = Math.round((correct / total) * 100);
-  const scoreEl = document.getElementById("score-kc");
-
-  if (scoreEl) {
-    scoreEl.textContent = `Your high score: ${percent}%`;
+  // KC
+  const rawKc = localStorage.getItem("score_kc");
+  if (rawKc) {
+    const data = JSON.parse(rawKc);
+    const percent = Math.round((data.correct / data.total) * 100);
+    const scoreEl = document.getElementById("score-kc");
+    if (scoreEl) scoreEl.textContent = `Your high score: ${percent}%`;
   }
 }
 
