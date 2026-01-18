@@ -4,6 +4,11 @@ import {
   onAuthStateChanged,
   signOut
 } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
+import {
+  getFirestore,
+  doc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
 
 if (localStorage.getItem("loggedIn") !== "true") {
   window.location.href = "/login/";
@@ -20,14 +25,13 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
 const ADMIN_EMAIL = "suomynona589@gmail.com";
 
 const userInfoEl = document.getElementById("userInfo");
 const logoutBtn = document.getElementById("logoutBtn");
 const builderBtn = document.getElementById("builderBtn");
-const quizListEl = document.getElementById("quizList");
-const emptyMsgEl = document.getElementById("emptyMsg");
 
 logoutBtn.addEventListener("click", async () => {
   await signOut(auth);
@@ -39,67 +43,33 @@ builderBtn.addEventListener("click", () => {
   window.location.href = "/builder/";
 });
 
-async function loadQuizzes() {
-  try {
-    const res = await fetch("/quizzes/data.json?cachebust=" + Date.now());
-    if (!res.ok) throw new Error("Failed to load quizzes");
-    const quizzes = await res.json();
-    quizListEl.innerHTML = "";
+async function loadHighScores() {
+  const user = auth.currentUser;
+  if (!user) return;
 
-    if (!quizzes || quizzes.length === 0) {
-      emptyMsgEl.style.display = "block";
-      return;
-    }
+  const ref = doc(db, "scores", user.uid);
+  const snap = await getDoc(ref);
+  if (!snap.exists()) return;
 
-    emptyMsgEl.style.display = "none";
+  const data = snap.data();
 
-    quizzes.forEach(q => {
-      const card = document.createElement("div");
-      card.className = "quiz-card";
-
-      const title = document.createElement("h3");
-      title.textContent = q.title || "(Untitled quiz)";
-
-      const link = document.createElement("a");
-      const slug = q.slug || "";
-      link.href = slug ? `/quiz/${slug}.html` : "#";
-      link.textContent = "Open quiz";
-
-      card.appendChild(title);
-      card.appendChild(link);
-      quizListEl.appendChild(card);
-    });
-  } catch (err) {
-    emptyMsgEl.style.display = "block";
-    emptyMsgEl.textContent = "Error loading quizzes.";
-  }
-}
-
-function loadHighScores() {
-  // Heroes of Olympus
-  const rawHoo = localStorage.getItem("score_hoo");
-  if (rawHoo) {
-    const data = JSON.parse(rawHoo);
-    const percent = Math.round((data.correct / data.total) * 100);
+  if (data.score_hoo) {
+    const { correct, total } = data.score_hoo;
+    const percent = Math.round((correct / total) * 100);
     const scoreEl = document.getElementById("score-hoo");
     if (scoreEl) scoreEl.textContent = `Your high score: ${percent}%`;
   }
 
-  // Kane Chronicles
-  const rawKc = localStorage.getItem("score_kc");
-  if (rawKc) {
-    const data = JSON.parse(rawKc);
-    const percent = Math.round((data.correct / data.total) * 100);
+  if (data.score_kc) {
+    const { correct, total } = data.score_kc;
+    const percent = Math.round((correct / total) * 100);
     const scoreEl = document.getElementById("score-kc");
     if (scoreEl) scoreEl.textContent = `Your high score: ${percent}%`;
   }
-}
 
-  // Kane Chronicles
-  const rawHp = localStorage.getItem("score_hp");
-  if (rawKc) {
-    const data = JSON.parse(rawHp);
-    const percent = Math.round((data.correct / data.total) * 100);
+  if (data.score_hp) {
+    const { correct, total } = data.score_hp;
+    const percent = Math.round((correct / total) * 100);
     const scoreEl = document.getElementById("score-hp");
     if (scoreEl) scoreEl.textContent = `Your high score: ${percent}%`;
   }
@@ -118,6 +88,5 @@ onAuthStateChanged(auth, (user) => {
     builderBtn.classList.remove("admin-only");
   }
 
-  loadQuizzes();
   loadHighScores();
 });
