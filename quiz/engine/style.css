@@ -20,6 +20,7 @@ body {
   text-decoration: none;
   font-weight: 600;
   pointer-events: none;
+  z-index: 0;
 }
 
 .github-link:hover {
@@ -52,6 +53,8 @@ body {
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  position: relative;
+  z-index: 10;
 }
 
 h1 {
@@ -76,7 +79,6 @@ button {
   color: #fff;
   font-size: 15px;
   cursor: pointer;
-  margin-top: 20px;
   position: relative;
   z-index: 10;
 }
