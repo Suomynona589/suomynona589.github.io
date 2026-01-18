@@ -95,6 +95,16 @@ function loadHighScores() {
   }
 }
 
+  // Kane Chronicles
+  const rawHp = localStorage.getItem("score_hp");
+  if (rawKc) {
+    const data = JSON.parse(rawHp);
+    const percent = Math.round((data.correct / data.total) * 100);
+    const scoreEl = document.getElementById("score-hp");
+    if (scoreEl) scoreEl.textContent = `Your high score: ${percent}%`;
+  }
+}
+
 onAuthStateChanged(auth, (user) => {
   if (!user) {
     window.location.href = "/";
