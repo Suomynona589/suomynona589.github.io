@@ -257,14 +257,18 @@
       previewEl.style.display = "block";
 
       try {
-        await emailjs.send("service_bdzvpui", "template_q4r5d3d", {
-          quiz_title: data.title,
-          quiz_code: jsonString
-        });
-        setStatus("Sent! Check your email for the quiz JSON.", true);
-      } catch (err) {
-        setStatus("Failed to send email: " + (err.message || err), false);
-      }
+  const result = await emailjs.send("service_bdzvpui", "template_q4r5d3d", {
+    quiz_title: data.title,
+    quiz_code: jsonString
+  });
+
+  console.log("EmailJS success:", result);
+  setStatus("Sent! Check your email for the quiz JSON.", true);
+
+} catch (err) {
+  console.error("EmailJS error:", err);
+  setStatus("Failed to send email: " + (err.message || err), false);
+}
     });
 
     onAuthStateChanged(auth, (user) => {
