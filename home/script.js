@@ -10,10 +10,6 @@ import {
   getDoc
 } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
 
-if (localStorage.getItem("loggedIn") !== "true") {
-  window.location.href = "/login/";
-}
-
 const firebaseConfig = {
   apiKey: "AIzaSyDDHKqrPamXSvMI9U8L1ZWrE-WL8ltj3EY",
   authDomain: "suomynona589-github-io.firebaseapp.com",
@@ -35,7 +31,6 @@ const builderBtn = document.getElementById("builderBtn");
 
 logoutBtn.addEventListener("click", async () => {
   await signOut(auth);
-  localStorage.removeItem("loggedIn");
   window.location.href = "/";
 });
 
@@ -56,28 +51,28 @@ async function loadHighScores() {
   if (data.score_hoo) {
     const { correct, total } = data.score_hoo;
     const percent = Math.round((correct / total) * 100);
-    const scoreEl = document.getElementById("score-hoo");
-    if (scoreEl) scoreEl.textContent = `Your high score: ${percent}%`;
+    const el = document.getElementById("score-hoo");
+    if (el) el.textContent = `Your high score: ${percent}%`;
   }
 
   if (data.score_kc) {
     const { correct, total } = data.score_kc;
     const percent = Math.round((correct / total) * 100);
-    const scoreEl = document.getElementById("score-kc");
-    if (scoreEl) scoreEl.textContent = `Your high score: ${percent}%`;
+    const el = document.getElementById("score-kc");
+    if (el) el.textContent = `Your high score: ${percent}%`;
   }
 
   if (data.score_hp) {
     const { correct, total } = data.score_hp;
     const percent = Math.round((correct / total) * 100);
-    const scoreEl = document.getElementById("score-hp");
-    if (scoreEl) scoreEl.textContent = `Your high score: ${percent}%`;
+    const el = document.getElementById("score-hp");
+    if (el) el.textContent = `Your high score: ${percent}%`;
   }
 }
 
 onAuthStateChanged(auth, (user) => {
   if (!user) {
-    window.location.href = "/";
+    window.location.href = "/login/";
     return;
   }
 
