@@ -27,10 +27,22 @@
       <button id="addQuestionBtn" class="btn btn-primary">+ Add question</button>
     </div>
 
-    <section>
-      <label for="quizTitle">Quiz title</label>
-      <input id="quizTitle" type="text" placeholder="e.g. Animal Trivia">
-    </section>
+    <section class="builder-row">
+  <div class="builder-field">
+    <label for="quizTitle">Quiz title</label>
+    <input id="quizTitle" type="text" placeholder="e.g. Percy Jackson">
+  </div>
+
+  <div class="builder-field small">
+    <label for="nickname">Nickname</label>
+    <input id="nickname" type="text" placeholder="ex: pjo" maxlength="5">
+  </div>
+
+  <div class="builder-field small">
+    <label for="imageNickname">Image Nickname</label>
+    <input id="imageNickname" type="text" placeholder="ex: PJO" maxlength="5">
+  </div>
+</section>
 
     <section class="questions-container" id="questionsContainer"></section>
 
