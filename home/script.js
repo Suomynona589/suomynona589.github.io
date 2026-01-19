@@ -51,7 +51,8 @@ async function loadHighScores(user) {
     ["score_hoo", "score-hoo"],
     ["score_kc", "score-kc"],
     ["score_hp", "score-hp"],
-    ["score_pjo", "score-pjo"]
+    ["score_pjo", "score-pjo"],
+    ["score_tøp", "score-tøp"]
   ];
 
   for (const [field, elementId] of map) {
