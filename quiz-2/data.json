@@ -32,6 +32,26 @@
         "Evil Day"
       ],
       "answer": 3
-    }
+    },
+    {
+      "q": "What is the name of the spell the Kanes need to defeat Apophis?",
+      "choices": [
+        "Avada Kedavra",
+        "Execration",
+        "Ha-di",
+        "Isfet"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "What was the name of the Dwarf God?",
+      "choices": [
+        "Bes",
+        "Khonsu",
+        "Sobek",
+        "Tutamun"
+      ],
+      "answer": 0 
+      
   ]
 }
