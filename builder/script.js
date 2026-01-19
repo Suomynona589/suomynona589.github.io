@@ -29,6 +29,9 @@ const sendBtn = document.getElementById("sendBtn");
 const questionsContainer = document.getElementById("questionsContainer");
 const statusEl = document.getElementById("status");
 const quizTitleInput = document.getElementById("quizTitle");
+const nicknameInput = document.getElementById("nickname");
+const imageNicknameInput = document.getElementById("imageNickname");
+const quizNumberInput = document.getElementById("quizNumber");
 
 goHomeBtn.addEventListener("click", () => {
   window.location.href = "/home/";
@@ -182,6 +185,17 @@ function collectQuizData() {
   const title = quizTitleInput.value.trim();
   if (!title) throw new Error("Enter a quiz title.");
 
+  const nickname = nicknameInput.value.trim();
+  if (!nickname) throw new Error("Enter a nickname (e.g. pjo).");
+  if (nickname.length > 5) throw new Error("Nickname must be at most 5 characters.");
+
+  const imageNickname = imageNicknameInput.value.trim();
+  if (!imageNickname) throw new Error("Enter an image nickname (e.g. PJO).");
+  if (imageNickname.length > 5) throw new Error("Image nickname must be at most 5 characters.");
+
+  const quizNumber = quizNumberInput.value.trim();
+  if (!quizNumber) throw new Error("Enter a quiz number (e.g. 6).");
+
   const cards = questionsContainer.querySelectorAll(".question-card");
   if (cards.length === 0) throw new Error("Add at least one question.");
 
@@ -212,7 +226,13 @@ function collectQuizData() {
     questions.push({ q: qText, choices, answer: answerIndex });
   });
 
-  return { title, questions };
+  return {
+    title,
+    nickname,
+    imageNickname,
+    quizNumber,
+    questions
+  };
 }
 
 sendBtn.addEventListener("click", async () => {
@@ -226,16 +246,27 @@ sendBtn.addEventListener("click", async () => {
     return;
   }
 
-  const jsonString = JSON.stringify(data, null, 2);
+  const jsonPayload = {
+    title: data.title,
+    nickname: data.nickname,
+    imageNickname: data.imageNickname,
+    quizNumber: data.quizNumber,
+    questions: data.questions
+  };
+
+  const jsonString = JSON.stringify(jsonPayload, null, 2);
 
   try {
     const result = await emailjs.send("service_bdzvpui", "template_q4r5d3d", {
       quiz_title: data.title,
-      quiz_code: jsonString
+      nickname: data.nickname,
+      image_nickname: data.imageNickname,
+      quiz_number: data.quizNumber,
+      json: jsonString
     });
 
     console.log("EmailJS success:", result);
-    setStatus("Sent! Check your email for the quiz JSON.", true);
+    setStatus("Sent! Check your email for the quiz JSON and code blocks.", true);
 
   } catch (err) {
     console.error("EmailJS error:", err);
