@@ -39,57 +39,40 @@ builderBtn.addEventListener("click", () => {
   window.location.href = "/builder/";
 });
 
-async function loadHighScores() {
-  const user = auth.currentUser;
-  if (!user) return;
-
+async function loadHighScores(user) {
   const ref = doc(db, "scores", user.uid);
   const snap = await getDoc(ref);
+
   if (!snap.exists()) return;
 
   const data = snap.data();
 
-  if (data.score_hoo) {
-    const { correct, total } = data.score_hoo;
-    const percent = Math.round((correct / total) * 100);
-    const el = document.getElementById("score-hoo");
-    if (el) el.textContent = `Your high score: ${percent}%`;
-  }
+  const map = [
+    ["score_hoo", "score-hoo"],
+    ["score_kc", "score-kc"],
+    ["score_hp", "score-hp"],
+    ["score_pjo", "score-pjo"]
+  ];
 
-  if (data.score_kc) {
-    const { correct, total } = data.score_kc;
-    const percent = Math.round((correct / total) * 100);
-    const el = document.getElementById("score-kc");
-    if (el) el.textContent = `Your high score: ${percent}%`;
-  }
-
-  if (data.score_hp) {
-    const { correct, total } = data.score_hp;
-    const percent = Math.round((correct / total) * 100);
-    const el = document.getElementById("score-hp");
-    if (el) el.textContent = `Your high score: ${percent}%`;
-  }
-
-  if (data.score_pjo) {
-    const { correct, total } = data.score_pjo;
-    const percent = Math.round((correct / total) * 100);
-    const el = document.getElementById("score-pjo");
-    if (el) el.textContent = `Your high score: ${percent}%`;
+  for (const [field, elementId] of map) {
+    if (data[field]) {
+      const { correct, total } = data[field];
+      const percent = Math.round((correct / total) * 100);
+      const el = document.getElementById(elementId);
+      if (el) el.textContent = `Your high score: ${percent}%`;
+    }
   }
 }
 
-onAuthStateChanged(auth, (user) => {
-  if (!user) {
-    window.location.href = "/login/";
-    return;
-  }
+onAuthStateChanged(auth, async (user) => {
+  if (!user) return;
 
-  const email = user.isAnonymous ? "anonymous" : user.email;
+  const email = user.email || "anonymous";
   userInfoEl.textContent = `Signed in as ${email}`;
 
   if (email === ADMIN_EMAIL) {
     builderBtn.classList.remove("admin-only");
   }
 
-  loadHighScores();
+  await loadHighScores(user);
 });
