@@ -142,3 +142,21 @@ main {
   font-size: 15px;
   border-radius: 8px;
 }
+
+@media (max-width: 1024px) {
+  .quiz-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .quiz-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .quiz-card {
+    width: 100%;
+  }
+  .quiz-thumb {
+    width: 100%;
+  }
+}
