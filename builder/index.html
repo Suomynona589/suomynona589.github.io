@@ -28,30 +28,38 @@
     </div>
 
     <section class="builder-row">
-  <div class="builder-field title-field">
-    <label for="quizTitle">Quiz Title</label>
-    <input id="quizTitle" type="text" placeholder="e.g. Percy Jackson">
-  </div>
+      <div class="builder-field title-field">
+        <label for="quizTitle">Quiz Title</label>
+        <input id="quizTitle" type="text" placeholder="e.g. Percy Jackson">
+      </div>
 
-  <div class="builder-field small-field">
-    <label for="nickname">Nickname</label>
-    <input id="nickname" type="text" maxlength="5" placeholder="pjo">
-  </div>
+      <div class="builder-field small-field">
+        <label for="nickname">Nickname</label>
+        <input id="nickname" type="text" maxlength="5" placeholder="pjo">
+      </div>
 
-  <div class="builder-field small-field">
-    <label for="imageNickname">Image Nickname</label>
-    <input id="imageNickname" type="text" maxlength="5" placeholder="PJO">
-  </div>
+      <div class="builder-field small-field">
+        <label for="imageNickname">Image Nickname</label>
+        <input id="imageNickname" type="text" maxlength="5" placeholder="PJO">
+      </div>
 
-  <div class="builder-field small-field">
-    <label for="quizNumber">Quiz #</label>
-    <input id="quizNumber" type="text" maxlength="5" placeholder="6">
-  </div>
-</section>
+      <div class="builder-field small-field">
+        <label for="quizNumber">Quiz #</label>
+        <input id="quizNumber" type="text" maxlength="5" placeholder="6">
+      </div>
+    </section>
+
+    <section class="questions-container" id="questionsContainer"></section>
+
+    <section style="margin-top:20px;">
+      <button id="sendBtn" class="btn btn-primary">Generate JSON and send</button>
+      <div id="status" class="status"></div>
+    </section>
   </main>
 
   <a class="github-link" href="https://github.com/Suomynona589/suomynona589.github.io" target="_blank">GitHub Source Code</a>
   <a class="home-link" href="/home">←🏠 Home</a>
+
   <script type="module" src="script.js"></script>
 </body>
 </html>
