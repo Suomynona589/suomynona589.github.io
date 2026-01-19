@@ -176,12 +176,20 @@
   display: flex;
   gap: 16px;
   align-items: flex-end;
+  margin-bottom: 20px;
 }
 
 .builder-field {
-  flex: 1;
   display: flex;
   flex-direction: column;
+}
+
+.title-field {
+  flex: 1;
+}
+
+.small-field {
+  width: 90px;
 }
 
 .builder-field.small {
