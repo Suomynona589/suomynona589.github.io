@@ -1,10 +1,15 @@
+let history = [];
+
 document.getElementById("send").onclick = async () => {
   const prompt = document.getElementById("input").value;
+
+  // Add user message to history
+  history.push({ role: "user", content: prompt });
 
   const response = await fetch("https://mafia-backend-hmsj.onrender.com/api/mafia", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ prompt })
+    body: JSON.stringify({ messages: history })
   });
 
   const data = await response.json();
@@ -12,11 +17,15 @@ document.getElementById("send").onclick = async () => {
   // If backend returned an error
   if (data.error) {
     document.getElementById("output").innerText =
-      "Backend error: " + JSON.stringify(data.error, null, 2);
+      "Backend error:\n" + JSON.stringify(data.error, null, 2);
     return;
   }
 
-  // If backend returned choices
-  document.getElementById("output").innerText =
-    data.choices[0].message.content;
+  const reply = data.choices[0].message.content;
+
+  // Add assistant reply to history
+  history.push({ role: "assistant", content: reply });
+
+  // Show the reply
+  document.getElementById("output").innerText += "\nAI: " + reply + "\n";
 };
