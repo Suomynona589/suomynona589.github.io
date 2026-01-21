@@ -3,8 +3,11 @@ let history = [];
 document.getElementById("send").onclick = async () => {
   const prompt = document.getElementById("input").value;
 
-  // Add user message to history
-  history.push({ role: "user", content: prompt });
+  // Add user message to history WITH content
+  history.push({
+    role: "user",
+    content: prompt
+  });
 
   const response = await fetch("https://mafia-backend-hmsj.onrender.com/api/mafia", {
     method: "POST",
@@ -23,9 +26,12 @@ document.getElementById("send").onclick = async () => {
 
   const reply = data.choices[0].message.content;
 
-  // Add assistant reply to history
-  history.push({ role: "assistant", content: reply });
+  // Add assistant reply to history WITH content
+  history.push({
+    role: "assistant",
+    content: reply
+  });
 
-  // Show the reply
+  // Display the reply
   document.getElementById("output").innerText += "\nAI: " + reply + "\n";
 };
