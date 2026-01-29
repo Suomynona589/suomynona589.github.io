@@ -247,10 +247,7 @@ sendBtn.addEventListener("click", async () => {
   }
 
   const jsonPayload = {
-    title: data.title,
-    nickname: data.nickname,
-    imageNickname: data.imageNickname,
-    quizNumber: data.quizNumber,
+    title: `${data.title} Quiz`,
     questions: data.questions
   };
 
