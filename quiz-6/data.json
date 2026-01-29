@@ -1,0 +1,55 @@
+{
+  "title": "Avatar the Last Airbender Quiz",
+  "questions": [
+    {
+      "q": "What is the name of the group of elite Fire Nation archers?",
+      "choices": [
+        "Fire Bows",
+        "They don't have a name",
+        "Yuyan Archers",
+        "Kemurikage"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "What does Sokka name his sword?",
+      "choices": [
+        "The Black Slayer",
+        "Space Sword",
+        "Pointy long thing",
+        "No name"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "What did Sokka originally name the guy who shot explosions out of his forehead?",
+      "choices": [
+        "Sparky Sparky Boom Man",
+        "Combustion Man",
+        "Explody Head Guy",
+        "Blast Face Dude"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "What bending did Katara invent?",
+      "choices": [
+        "Blood Bending",
+        "Wood Bending",
+        "Air Bending",
+        "Sweat Bending"
+      ],
+      "answer": 3
+    },
+    {
+      "q": "What did the fluffy bunny cloud mean in the fortuneteller episode?",
+      "choices": [
+        "Another safe year",
+        "Doom and Destruction",
+        "Good luck in love",
+        "A prosperous harvest"
+      ],
+      "answer": 1
+    }
+  ]
+}
