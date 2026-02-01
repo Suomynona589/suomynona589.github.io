@@ -123,12 +123,8 @@ main {
   object-fit: cover;
 }
 
-.quiz-thumb.atla {
-  width: 80%;
-  height: 150px;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto;
+.atla {
+ width: 80%;
 }
 
 .quiz-info {
