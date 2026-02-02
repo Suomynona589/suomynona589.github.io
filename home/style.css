@@ -51,7 +51,6 @@ main {
   position: relative;
 }
 
-/* Smooth rainbow border using a pseudo-element */
 .quiz-card::before {
   content: "";
   position: absolute;
@@ -70,18 +69,21 @@ main {
     #ff4d4d
   );
   background-size: 300% 300%;
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
           mask-composite: exclude;
   opacity: 0;
-  transition: opacity 0.25s ease, background-position 1.2s ease;
+  transition: opacity 0.25s ease;
 }
 
 .quiz-card:hover::before {
   opacity: 1;
-  background-position: 100% 0;
+  animation: rainbowFlow 3s linear infinite;
+}
+
+@keyframes rainbowFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
 
 .quiz-card:hover {
