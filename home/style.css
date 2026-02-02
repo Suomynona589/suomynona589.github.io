@@ -127,6 +127,7 @@ main {
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .btn-primary {
@@ -137,6 +138,11 @@ main {
 .btn-secondary {
   background: #e5e7eb;
   color: #111827;
+}
+
+.btn-secondary:hover {
+  background: #2c2c2c;
+  color: #ffffff;
 }
 
 .admin-only {
