@@ -32,6 +32,52 @@ main {
   padding: 0 16px 32px;
 }
 
+.top-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.btn {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn-primary {
+  background: #10b981;
+  color: #fff;
+}
+
+.btn-secondary {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.btn-secondary:hover {
+  background: #2c2c2c;
+  color: #ffffff;
+}
+
+.admin-only {
+  display: none;
+}
+
+.builder-button {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  z-index: 50;
+  padding: 10px 16px;
+  font-size: 15px;
+  border-radius: 8px;
+}
+
 .quiz-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -91,64 +137,6 @@ main {
   box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
 
-.quiz-card h3 {
-  margin: 0 0 8px;
-  font-size: 16px;
-}
-
-.quiz-card a {
-  margin-top: 8px;
-  align-self: flex-start;
-  text-decoration: none;
-  font-size: 14px;
-  padding: 6px 10px;
-  border-radius: 6px;
-  background: #4f46e5;
-  color: #fff;
-}
-
-.empty {
-  font-size: 14px;
-  color: #6b7280;
-  margin-top: 12px;
-}
-
-.top-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.btn {
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-.btn-primary {
-  background: #10b981;
-  color: #fff;
-}
-
-.btn-secondary {
-  background: #e5e7eb;
-  color: #111827;
-}
-
-.btn-secondary:hover {
-  background: #2c2c2c;
-  color: #ffffff;
-}
-
-.admin-only {
-  display: none;
-}
-
 .quiz-thumb {
   width: 95%;
   height: 195px;
@@ -163,16 +151,6 @@ main {
   margin: 0;
   font-size: 16px;
   font-weight: 600;
-}
-
-.builder-button {
-  position: absolute;
-  top: 80px;
-  right: 20px;
-  z-index: 50;
-  padding: 10px 16px;
-  font-size: 15px;
-  border-radius: 8px;
 }
 
 @media (max-width: 1024px) {
