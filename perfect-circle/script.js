@@ -13,7 +13,8 @@ let drawing = false;
 let targetRadius = null;
 let points = [];
 let startPoint = null;
-let lastColor = { r: 255, g: 255, b: 255 };
+let lastColor = { r: 0, g: 255, b: 0 };
+let currentScore = 100;
 
 function distance(x1, y1, x2, y2) {
     return Math.hypot(x2 - x1, y2 - y1);
@@ -29,10 +30,10 @@ function smoothColor(target) {
     lastColor.b = lerp(lastColor.b, target.b, 0.15);
 }
 
-function getColorForError(error) {
-    if (error < 3) return { r: 0, g: 255, b: 0 };
-    if (error < 8) return { r: 255, g: 255, b: 0 };
-    if (error < 15) return { r: 255, g: 165, b: 0 };
+function colorFromScore(score) {
+    if (score > 90) return { r: 0, g: 255, b: 0 };
+    if (score > 75) return { r: 255, g: 255, b: 0 };
+    if (score > 55) return { r: 255, g: 165, b: 0 };
     return { r: 255, g: 0, b: 0 };
 }
 
@@ -45,8 +46,8 @@ function updateScore() {
     }
     const avgError = totalError / points.length;
     let score = Math.max(0, 100 - avgError);
-    score = score.toFixed(1);
-    document.getElementById("score").textContent = score + "%";
+    currentScore = score;
+    document.getElementById("score").textContent = score.toFixed(1) + "%";
 }
 
 function drawCenterDot() {
@@ -79,10 +80,16 @@ function redraw() {
     if (points.length > 1) {
         const p1 = points[points.length - 2];
         const p2 = points[points.length - 1];
-        const d = distance(p2.x, p2.y, center.x, center.y);
-        const error = Math.abs(d - targetRadius);
-        const targetColor = getColorForError(error);
+
+        let targetColor;
+        if (points.length < 3) {
+            targetColor = { r: 0, g: 255, b: 0 };
+        } else {
+            targetColor = colorFromScore(currentScore);
+        }
+
         smoothColor(targetColor);
+
         ctx.strokeStyle = `rgb(${lastColor.r}, ${lastColor.g}, ${lastColor.b})`;
         ctx.lineWidth = 4;
         ctx.beginPath();
@@ -102,6 +109,8 @@ canvas.addEventListener("mousedown", (e) => {
     const y = e.clientY - rect.top;
     targetRadius = distance(x, y, center.x, center.y);
     startPoint = { x, y };
+    lastColor = { r: 0, g: 255, b: 0 };
+    currentScore = 100;
 });
 
 canvas.addEventListener("mousemove", (e) => {
