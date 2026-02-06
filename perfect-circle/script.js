@@ -12,28 +12,40 @@ const center = {
 let drawing = false;
 let targetRadius = null;
 let points = [];
+let startAngle = null;
+let lastColor = { r: 255, g: 255, b: 255 };
 
 function distance(x1, y1, x2, y2) {
     return Math.hypot(x2 - x1, y2 - y1);
 }
 
+function lerp(a, b, t) {
+    return a + (b - a) * t;
+}
+
+function smoothColor(target) {
+    lastColor.r = lerp(lastColor.r, target.r, 0.15);
+    lastColor.g = lerp(lastColor.g, target.g, 0.15);
+    lastColor.b = lerp(lastColor.b, target.b, 0.15);
+}
+
+function getColorForError(error) {
+    if (error < 3) return { r: 0, g: 255, b: 0 };
+    if (error < 8) return { r: 255, g: 255, b: 0 };
+    if (error < 15) return { r: 255, g: 165, b: 0 };
+    return { r: 255, g: 0, b: 0 };
+}
+
 function updateScore() {
     if (points.length === 0 || targetRadius === null) return;
-
     let totalError = 0;
-
     for (let p of points) {
         const d = distance(p.x, p.y, center.x, center.y);
-        const error = Math.abs(d - targetRadius);
-        totalError += error;
+        totalError += Math.abs(d - targetRadius);
     }
-
     const avgError = totalError / points.length;
-
-    // Convert error into a score (you can tune this)
     let score = Math.max(0, 100 - avgError);
     score = score.toFixed(1);
-
     document.getElementById("score").textContent = score + "%";
 }
 
@@ -44,20 +56,41 @@ function drawCenterDot() {
     ctx.fill();
 }
 
+function checkCompletion(x, y) {
+    const angle = Math.atan2(y - center.y, x - center.x);
+    let diff = Math.abs(angle - startAngle);
+    if (diff > Math.PI) diff = (Math.PI * 2) - diff;
+    if (diff > Math.PI * 0.95) drawing = false;
+}
+
 function redraw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawCenterDot();
 
-    // Draw the user's stroke
     ctx.strokeStyle = "white";
     ctx.lineWidth = 3;
     ctx.beginPath();
-    for (let i = 0; i < points.length; i++) {
+    for (let i = 0; i < points.length - 1; i++) {
         const p = points[i];
         if (i === 0) ctx.moveTo(p.x, p.y);
         else ctx.lineTo(p.x, p.y);
     }
     ctx.stroke();
+
+    if (points.length > 1) {
+        const p1 = points[points.length - 2];
+        const p2 = points[points.length - 1];
+        const d = distance(p2.x, p2.y, center.x, center.y);
+        const error = Math.abs(d - targetRadius);
+        const targetColor = getColorForError(error);
+        smoothColor(targetColor);
+        ctx.strokeStyle = `rgb(${lastColor.r}, ${lastColor.g}, ${lastColor.b})`;
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.stroke();
+    }
 
     updateScore();
 }
@@ -65,22 +98,20 @@ function redraw() {
 canvas.addEventListener("mousedown", (e) => {
     drawing = true;
     points = [];
-
     const rect = canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-
     targetRadius = distance(x, y, center.x, center.y);
+    startAngle = Math.atan2(y - center.y, x - center.x);
 });
 
 canvas.addEventListener("mousemove", (e) => {
     if (!drawing) return;
-
     const rect = canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-
     points.push({ x, y });
+    checkCompletion(x, y);
     redraw();
 });
 
