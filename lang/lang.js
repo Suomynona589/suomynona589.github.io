@@ -18,15 +18,22 @@ style.textContent = shimmerCSS;
 document.head.appendChild(style);
 
 function tinyRun(code) {
-  const statements = code.split("))").map(s => s.trim()).filter(Boolean);
-  for (const stmt of statements) {
-    if (!stmt.startsWith("target--")) continue;
-    const [targetPart, actionPart] = stmt.split("||");
-    const selector = targetPart.replace("target--", "").trim();
-    const action = actionPart.trim();
-    if (action === "text.shimmer") {
-      applyShimmer(selector);
+  const run = () => {
+    const statements = code.split("))").map(s => s.trim()).filter(Boolean);
+    for (const stmt of statements) {
+      if (!stmt.startsWith("target--")) continue;
+      const [targetPart, actionPart] = stmt.split("||");
+      const selector = targetPart.replace("target--", "").trim();
+      const action = actionPart.trim();
+      if (action === "text.shimmer") {
+        applyShimmer(selector);
+      }
     }
+  };
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", run);
+  } else {
+    run();
   }
 }
 
@@ -34,7 +41,7 @@ function applyShimmer(selector) {
   const root = document.querySelector(selector);
   if (!root) return;
   const textElements = root.querySelectorAll(
-    "p, span, a, button, h1, h2, h3, h4, h5, h6, div, li, label, strong, em"
+    "p, span, a, button, h1, h2, h3, h4, h5, h6, div, li, label, strong, em, b, i, u, mark, small, sub, sup"
   );
   textElements.forEach(el => el.classList.add("tiny-shimmer"));
 }
