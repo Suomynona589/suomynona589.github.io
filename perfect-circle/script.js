@@ -12,7 +12,7 @@ const center = {
 let drawing = false;
 let targetRadius = null;
 let points = [];
-let startAngle = null;
+let startPoint = null;
 let lastColor = { r: 255, g: 255, b: 255 };
 
 function distance(x1, y1, x2, y2) {
@@ -57,10 +57,9 @@ function drawCenterDot() {
 }
 
 function checkCompletion(x, y) {
-    const angle = Math.atan2(y - center.y, x - center.x);
-    let diff = Math.abs(angle - startAngle);
-    if (diff > Math.PI) diff = (Math.PI * 2) - diff;
-    if (diff > Math.PI * 0.95) drawing = false;
+    if (!startPoint) return;
+    const d = distance(x, y, startPoint.x, startPoint.y);
+    if (d < 15 && points.length > 10) drawing = false;
 }
 
 function redraw() {
@@ -102,7 +101,7 @@ canvas.addEventListener("mousedown", (e) => {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     targetRadius = distance(x, y, center.x, center.y);
-    startAngle = Math.atan2(y - center.y, x - center.x);
+    startPoint = { x, y };
 });
 
 canvas.addEventListener("mousemove", (e) => {
