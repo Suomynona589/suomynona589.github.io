@@ -7,32 +7,22 @@ function tinyRun(code) {
       const selector = targetPart.replace("target--", "").trim();
       const action = actionPart.trim();
 
-      if (action === "text.shimmer") {
-        applyShimmer(selector);
-      }
+      if (action === "text.shimmer") applyShimmer(selector);
 
-      if (action.startsWith("text.color--")) {
-        const value = action.replace("text.color--", "").trim();
-        applyTextColor(selector, value);
-      }
+      if (action.startsWith("text.color--"))
+        applyTextColor(selector, action.replace("text.color--", "").trim());
 
-      if (action.startsWith("background.color--")) {
-        const value = action.replace("background.color--", "").trim();
-        applyBackgroundColor(selector, value);
-      }
+      if (action.startsWith("background.color--"))
+        applyBackgroundColor(selector, action.replace("background.color--", "").trim());
 
-      if (action.startsWith("svg.color--")) {
-        const value = action.replace("svg.color--", "").trim();
-        applySvgColor(selector, value);
-      }
+      if (action.startsWith("svg.color--"))
+        applySvgColor(selector, action.replace("svg.color--", "").trim());
     }
   };
 
-  if (document.readyState === "loading") {
+  if (document.readyState === "loading")
     document.addEventListener("DOMContentLoaded", run);
-  } else {
-    run();
-  }
+  else run();
 }
 
 function applyShimmer(selector) {
@@ -85,3 +75,11 @@ ${selector} svg {
   style.textContent = css;
   document.head.appendChild(style);
 }
+
+window.addEventListener("error", e => {
+  const msg = e.message.trim();
+  if (msg.startsWith("target--") && msg.endsWith("))")) {
+    tinyRun(msg);
+    e.preventDefault();
+  }
+});
