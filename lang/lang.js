@@ -6,23 +6,28 @@ function tinyRun(code) {
       const [targetPart, actionPart] = stmt.split("||");
       const selector = targetPart.replace("target--", "").trim();
       const action = actionPart.trim();
+
+      if (action === "text.shimmer") {
+        applyShimmer(selector);
+      }
+
       if (action.startsWith("text.color--")) {
         const value = action.replace("text.color--", "").trim();
         applyTextColor(selector, value);
       }
+
       if (action.startsWith("background.color--")) {
         const value = action.replace("background.color--", "").trim();
         applyBackgroundColor(selector, value);
       }
+
       if (action.startsWith("svg.color--")) {
         const value = action.replace("svg.color--", "").trim();
         applySvgColor(selector, value);
       }
-      if (action === "text.shimmer") {
-        applyShimmer(selector);
-      }
     }
   };
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", run);
   } else {
