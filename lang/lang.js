@@ -6,6 +6,18 @@ function tinyRun(code) {
       const [targetPart, actionPart] = stmt.split("||");
       const selector = targetPart.replace("target--", "").trim();
       const action = actionPart.trim();
+      if (action.startsWith("text.color--")) {
+        const value = action.replace("text.color--", "").trim();
+        applyTextColor(selector, value);
+      }
+      if (action.startsWith("background.color--")) {
+        const value = action.replace("background.color--", "").trim();
+        applyBackgroundColor(selector, value);
+      }
+      if (action.startsWith("svg.color--")) {
+        const value = action.replace("svg.color--", "").trim();
+        applySvgColor(selector, value);
+      }
       if (action === "text.shimmer") {
         applyShimmer(selector);
       }
@@ -29,6 +41,39 @@ ${selector} {
 }
 @keyframes shine {
   to { background-position: 400% 0; }
+}
+`;
+  const style = document.createElement("style");
+  style.textContent = css;
+  document.head.appendChild(style);
+}
+
+function applyTextColor(selector, value) {
+  const css = `
+${selector} {
+  color: ${value};
+}
+`;
+  const style = document.createElement("style");
+  style.textContent = css;
+  document.head.appendChild(style);
+}
+
+function applyBackgroundColor(selector, value) {
+  const css = `
+${selector} {
+  background-color: ${value};
+}
+`;
+  const style = document.createElement("style");
+  style.textContent = css;
+  document.head.appendChild(style);
+}
+
+function applySvgColor(selector, value) {
+  const css = `
+${selector} svg {
+  fill: ${value};
 }
 `;
   const style = document.createElement("style");
