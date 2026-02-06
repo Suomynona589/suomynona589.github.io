@@ -12,6 +12,7 @@ const center = {
 let drawing = false;
 let targetRadius = null;
 let points = [];
+let segments = [];
 let startPoint = null;
 let lastColor = { r: 0, g: 255, b: 0 };
 let currentScore = 100;
@@ -67,34 +68,12 @@ function redraw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawCenterDot();
 
-    ctx.strokeStyle = "white";
-    ctx.lineWidth = 3;
-    ctx.beginPath();
-    for (let i = 0; i < points.length - 1; i++) {
-        const p = points[i];
-        if (i === 0) ctx.moveTo(p.x, p.y);
-        else ctx.lineTo(p.x, p.y);
-    }
-    ctx.stroke();
-
-    if (points.length > 1) {
-        const p1 = points[points.length - 2];
-        const p2 = points[points.length - 1];
-
-        let targetColor;
-        if (points.length < 3) {
-            targetColor = { r: 0, g: 255, b: 0 };
-        } else {
-            targetColor = colorFromScore(currentScore);
-        }
-
-        smoothColor(targetColor);
-
-        ctx.strokeStyle = `rgb(${lastColor.r}, ${lastColor.g}, ${lastColor.b})`;
+    for (let s of segments) {
+        ctx.strokeStyle = `rgb(${s.color.r}, ${s.color.g}, ${s.color.b})`;
         ctx.lineWidth = 4;
         ctx.beginPath();
-        ctx.moveTo(p1.x, p1.y);
-        ctx.lineTo(p2.x, p2.y);
+        ctx.moveTo(s.x1, s.y1);
+        ctx.lineTo(s.x2, s.y2);
         ctx.stroke();
     }
 
@@ -104,6 +83,7 @@ function redraw() {
 canvas.addEventListener("mousedown", (e) => {
     drawing = true;
     points = [];
+    segments = [];
     const rect = canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -118,6 +98,29 @@ canvas.addEventListener("mousemove", (e) => {
     const rect = canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
+
+    if (points.length > 0) {
+        const p1 = points[points.length - 1];
+        const p2 = { x, y };
+
+        let targetColor;
+        if (points.length < 2) {
+            targetColor = { r: 0, g: 255, b: 0 };
+        } else {
+            targetColor = colorFromScore(currentScore);
+        }
+
+        smoothColor(targetColor);
+
+        segments.push({
+            x1: p1.x,
+            y1: p1.y,
+            x2: p2.x,
+            y2: p2.y,
+            color: { r: lastColor.r, g: lastColor.g, b: lastColor.b }
+        });
+    }
+
     points.push({ x, y });
     checkCompletion(x, y);
     redraw();
