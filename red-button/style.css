@@ -1,0 +1,14 @@
+body {
+    background: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 40px;
+}
+
+#red-btn {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    user-select: none;
+}
