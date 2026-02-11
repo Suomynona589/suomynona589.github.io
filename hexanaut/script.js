@@ -191,26 +191,42 @@ function drawHex(cx, cy, r, color) {
     ctx.fill();
 }
 
+function drawHexOutline(cx, cy, r, color) {
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    for (let i = 0; i < 6; i++) {
+        let angle = Math.PI / 3 * i + Math.PI / 6;
+        let x = cx + r * Math.cos(angle);
+        let y = cy + r * Math.sin(angle);
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+    ctx.stroke();
+}
+
 function draw() {
     ctx.fillStyle = "#ffffff";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     for (let y = 0; y < rows; y++) {
         for (let x = 0; x < cols; x++) {
+            let cx = x * gridSize + gridSize / 2;
+            let cy = y * gridSize + gridSize / 2;
+
+            drawHexOutline(cx, cy, gridSize * 0.6, "#dddddd");
+
             if (grid[y][x] === 1) {
-                let cx = x * gridSize + gridSize / 2;
-                let cy = y * gridSize + gridSize / 2;
                 drawHex(cx, cy, gridSize * 0.6, "#000000");
             }
         }
     }
 
     for (let p of player.trail) {
-        if (p.y >= 0 && p.y < rows && p.x >= 0 && p.x < cols) {
-            let cx = p.x * gridSize + gridSize / 2;
-            let cy = p.y * gridSize + gridSize / 2;
-            drawHex(cx, cy, gridSize * 0.6, "#cccccc");
-        }
+        let cx = p.x * gridSize + gridSize / 2;
+        let cy = p.y * gridSize + gridSize / 2;
+        drawHex(cx, cy, gridSize * 0.6, "#cccccc");
     }
 
     let px = player.x * gridSize + gridSize / 2;
