@@ -7,6 +7,8 @@ canvas.height = window.innerHeight;
 window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    cols = Math.floor(canvas.width / gridSize);
+    rows = Math.floor(canvas.height / gridSize);
 });
 
 const gridSize = 40;
@@ -18,26 +20,57 @@ let grid = Array.from({ length: rows }, () => Array(cols).fill(0));
 let player = {
     x: Math.floor(cols / 2),
     y: Math.floor(rows / 2),
-    speed: 0.4,
+    speed: 0.25,
     vx: 0,
     vy: 0,
     trail: [],
     inTerritory: true
 };
 
-let keys = {};
+let target = null;
 
-document.addEventListener("keydown", e => keys[e.key] = true);
-document.addEventListener("keyup", e => keys[e.key] = false);
+canvas.addEventListener("mousedown", e => {
+    target = { x: e.clientX, y: e.clientY };
+});
+
+canvas.addEventListener("mousemove", e => {
+    if (target) target = { x: e.clientX, y: e.clientY };
+});
+
+canvas.addEventListener("mouseup", () => {
+    target = null;
+    player.vx = 0;
+    player.vy = 0;
+});
+
+canvas.addEventListener("touchstart", e => {
+    let t = e.touches[0];
+    target = { x: t.clientX, y: t.clientY };
+});
+
+canvas.addEventListener("touchmove", e => {
+    let t = e.touches[0];
+    target = { x: t.clientX, y: t.clientY };
+});
+
+canvas.addEventListener("touchend", () => {
+    target = null;
+    player.vx = 0;
+    player.vy = 0;
+});
 
 function updatePlayer() {
-    if (keys["w"] || keys["ArrowUp"]) player.vy = -player.speed;
-    else if (keys["s"] || keys["ArrowDown"]) player.vy = player.speed;
-    else player.vy = 0;
-
-    if (keys["a"] || keys["ArrowLeft"]) player.vx = -player.speed;
-    else if (keys["d"] || keys["ArrowRight"]) player.vx = player.speed;
-    else player.vx = 0;
+    if (target) {
+        let px = player.x * gridSize + gridSize / 2;
+        let py = player.y * gridSize + gridSize / 2;
+        let dx = target.x - px;
+        let dy = target.y - py;
+        let d = Math.hypot(dx, dy);
+        if (d > 1) {
+            player.vx = (dx / d) * player.speed;
+            player.vy = (dy / d) * player.speed;
+        }
+    }
 
     player.x += player.vx;
     player.y += player.vy;
@@ -96,8 +129,6 @@ function draw() {
 }
 
 function loop() {
-    cols = Math.floor(canvas.width / gridSize);
-    rows = Math.floor(canvas.height / gridSize);
     updatePlayer();
     draw();
     requestAnimationFrame(loop);
