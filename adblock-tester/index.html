@@ -9,34 +9,61 @@
 <body>
 
     <h1>Adblock Tester</h1>
-    <p>This page helps you test whether your userscript blocks the items below.</p>
+    <p>This page is for testing userscripts and adblockers against different ad-like elements.</p>
 
     <div class="test-box">
         <h2>Static Image Ad</h2>
-        <img src="https://via.placeholder.com/300x100?text=AD+IMAGE" class="fake-ad">
+        <p class="label ad-label">Should be blocked</p>
+        <img src="/ads/ad-image.jpg" class="fake-ad" alt="Static Ad Image">
     </div>
 
     <div class="test-box">
-        <h2>GIF Ad</h2>
-        <img src="https://media.tenor.com/2roX3uxz_4IAAAAC/ads.gif" class="fake-ad">
+        <h2>GIF Image Ad</h2>
+        <p class="label ad-label">Should be blocked</p>
+        <img src="https://c.tenor.com/bxe8Qsx3UusAAAAC/tenor.gif" class="fake-ad" alt="GIF Ad">
     </div>
 
     <div class="test-box">
-        <h2>Sponsored Box</h2>
-        <div class="fake-ad">
-            <p>This is a fake sponsored content block.</p>
+        <h2>Sponsored Content Block</h2>
+        <p class="label ad-label">Often blocked by cosmetic filters</p>
+        <div class="sponsored-block">
+            <span class="sponsored-label">Sponsored</span>
+            <p>This is a fake sponsored article preview with ad-like styling.</p>
+            <img src="/images/sponsor-logo.jpg" alt="Sponsor Logo">
         </div>
     </div>
 
     <div class="test-box">
-        <h2>Ad Iframe</h2>
-        <iframe src="https://example.com" class="fake-ad" width="300" height="100"></iframe>
+        <h2>Iframe Ad</h2>
+        <p class="label ad-label">Should be blocked</p>
+        <iframe
+            src="https://example.com"
+            class="fake-ad iframe-ad"
+            width="300"
+            height="100"
+            title="Fake Iframe Ad">
+        </iframe>
     </div>
 
     <div class="test-box">
-        <h2>Should NOT Be Blocked</h2>
+        <h2>Flash Banner (Simulated)</h2>
+        <p class="label ad-label">Should be blocked (object + .swf URL)</p>
+        <object
+            data="/ads/banner.swf"
+            class="fake-ad flash-ad"
+            width="300"
+            height="250">
+        </object>
+        <p class="note">Modern browsers won’t play this, but it’s still useful for detection tests.</p>
+    </div>
+
+    <div class="test-box">
+        <h2>Normal Content (Should NOT Be Blocked)</h2>
+        <p class="label good-label">Should NOT be blocked</p>
         <div class="safe-content">
-            <p>This is normal content. If your userscript removes this, it's too aggressive.</p>
+            <p>This is normal page content.</p>
+            <img src="https://ih1.redbubble.net/image.2595320116.9420/raf,360x360,075,t,fafafa:ca443f4786.jpg"
+                 alt="Normal Image">
         </div>
     </div>
 
