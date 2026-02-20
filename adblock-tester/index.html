@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Adblock Tester</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/images/adblock.png">
+</head>
+<body>
+
+    <h1>Adblock Tester</h1>
+    <p>This page helps you test whether your userscript blocks the items below.</p>
+
+    <div class="test-box">
+        <h2>Static Image Ad</h2>
+        <img src="https://via.placeholder.com/300x100?text=AD+IMAGE" class="fake-ad">
+    </div>
+
+    <div class="test-box">
+        <h2>GIF Ad</h2>
+        <img src="https://media.tenor.com/2roX3uxz_4IAAAAC/ads.gif" class="fake-ad">
+    </div>
+
+    <div class="test-box">
+        <h2>Sponsored Box</h2>
+        <div class="fake-ad">
+            <p>This is a fake sponsored content block.</p>
+        </div>
+    </div>
+
+    <div class="test-box">
+        <h2>Ad Iframe</h2>
+        <iframe src="https://example.com" class="fake-ad" width="300" height="100"></iframe>
+    </div>
+
+    <div class="test-box">
+        <h2>Should NOT Be Blocked</h2>
+        <div class="safe-content">
+            <p>This is normal content. If your userscript removes this, it's too aggressive.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
