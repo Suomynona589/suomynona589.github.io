@@ -14,7 +14,7 @@
     <div class="test-box">
         <h2>Static Image Ad</h2>
         <p class="label ad-label">Should be blocked</p>
-        <img src="/ads/ad-image.jpg" class="fake-ad" alt="Static Ad Image">
+        <img src="/images/ads/ad-image.jpg" class="fake-ad" alt="Static Ad Image">
     </div>
 
     <div class="test-box">
@@ -46,15 +46,15 @@
     </div>
 
     <div class="test-box">
-        <h2>Flash Banner (Simulated)</h2>
+        <h2>Flash Banner</h2>
         <p class="label ad-label">Should be blocked (object + .swf URL)</p>
         <object
-            data="/ads/banner.swf"
+            data="/images/ads/flash-banner.swf"
             class="fake-ad flash-ad"
             width="300"
             height="250">
         </object>
-        <p class="note">Modern browsers won’t play this, but it’s still useful for detection tests.</p>
+        <p class="note">Browsers will not play this, but it is useful for detection tests.</p>
     </div>
 
     <div class="test-box">
