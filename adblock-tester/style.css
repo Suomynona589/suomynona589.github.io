@@ -53,6 +53,10 @@ p {
     margin-bottom: 5px;
 }
 
+.sponsored {
+    width: 50px;
+}
+
 .safe-content {
     border: 2px dashed #2e7d32;
     padding: 10px;
