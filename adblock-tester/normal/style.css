@@ -78,6 +78,16 @@ p {
     font-size: 16px;
 }
 
+.red:hover {
+    background: #b71c1c;
+    cursor: pointer;
+}
+
+.green:hover {
+    background: #1b5e20;
+    cursor: pointer;
+}
+
 #result {
     margin-top: 40px;
     font-size: 28px;
