@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Adblock Tester</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/images/adblock.png">
+</head>
+<body>
+
+    <h1>Adblock Tester</h1>
+    <p>This page is for testing userscripts and adblockers against different ad-like elements.</p>
+
+    <div class="test-box">
+        <h2>Static Image Ad</h2>
+        <p class="note">Should be blocked</p>
+        <img src="/images/ads/static-image.png" class="ad ad-banner static" alt="Static Ad Image">
+    </div>
+
+    <div class="test-box">
+        <h2>GIF Image Ad</h2>
+        <p class="note">Should be blocked</p>
+        <img src="https://c.tenor.com/bxe8Qsx3UusAAAAC/tenor.gif" class="ad ad-banner" alt="GIF Ad">
+    </div>
+
+    <div class="test-box">
+        <h2>Sponsored Content Block</h2>
+        <p class="note">Often blocked by cosmetic filters</p>
+        <div class="sponsored-block">
+            <span class="sponsored-label">Sponsored</span>
+            <p>This is a fake sponsored article preview with ad-like styling.</p>
+            <img src="/images/ads/sponsor-logo.png" class="sponsored" alt="Sponsor Logo">
+        </div>
+    </div>
+
+    <div class="test-box">
+        <h2>Iframe Ad</h2>
+        <p class="note">Should be blocked</p>
+        <iframe
+            src="https://example.com"
+            class="ad iframe-ad"
+            width="300"
+            height="100"
+            title="Fake Iframe Ad">
+        </iframe>
+    </div>
+
+    <div class="test-box">
+        <h2>Flash Banner</h2>
+        <p class="note">Should be blocked</p>
+        <object
+            data="/images/ads/flash-banner.swf"
+            class="ad flash swf"
+            width="300"
+            height="250">
+        </object>
+        <p class="note">Browsers will not play this, but it is useful for detection tests.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
