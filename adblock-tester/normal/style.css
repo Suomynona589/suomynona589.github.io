@@ -31,14 +31,6 @@ p {
     background: #ffecec;
 }
 
-.iframe-ad {
-    background: #fff0f0;
-}
-
-.flash-ad {
-    background: #fff0f0;
-}
-
 .sponsored-block {
     border: 2px dashed orange;
     padding: 10px;
@@ -57,19 +49,38 @@ p {
     width: 50px;
 }
 
-.safe-content {
-    border: 2px dashed #2e7d32;
-    padding: 10px;
-    margin-top: 10px;
-    background: #e8f5e9;
-}
-
-.safe-content img {
-    max-width: 100%;
-    height: auto;
-}
-
 .note {
     font-size: 18px;
     color: black;
+}
+
+.button-row {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+}
+
+.red {
+    background: #d32f2f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.green {
+    background: #2e7d32;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+#result {
+    margin-top: 40px;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
 }
