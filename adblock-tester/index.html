@@ -13,19 +13,19 @@
 
     <div class="test-box">
         <h2>Static Image Ad</h2>
-        <p class="label ad-label">Should be blocked</p>
+        <p class="note">Should be blocked</p>
         <img src="/images/ads/static-image.png" class="ad ad-banner static" alt="Static Ad Image">
     </div>
 
     <div class="test-box">
         <h2>GIF Image Ad</h2>
-        <p class="label ad-label">Should be blocked</p>
+        <p class="note">Should be blocked</p>
         <img src="https://c.tenor.com/bxe8Qsx3UusAAAAC/tenor.gif" class="ad ad-banner" alt="GIF Ad">
     </div>
 
     <div class="test-box">
         <h2>Sponsored Content Block</h2>
-        <p class="label ad-label">Often blocked by cosmetic filters</p>
+        <p class="note">Often blocked by cosmetic filters</p>
         <div class="sponsored-block">
             <span class="sponsored-label">Sponsored</span>
             <p>This is a fake sponsored article preview with ad-like styling.</p>
@@ -35,7 +35,7 @@
 
     <div class="test-box">
         <h2>Iframe Ad</h2>
-        <p class="label">Should be blocked</p>
+        <p class="note">Should be blocked</p>
         <iframe
             src="https://example.com"
             class="ad iframe-ad"
@@ -47,7 +47,7 @@
 
     <div class="test-box">
         <h2>Flash Banner</h2>
-        <p class="label">Should be blocked (object + .swf URL)</p>
+        <p class="note">Should be blocked</p>
         <object
             data="/images/ads/flash-banner.swf"
             class="ad flash swf"
@@ -59,7 +59,7 @@
 
     <div class="test-box">
         <h2>Normal Content (Should NOT Be Blocked)</h2>
-        <p class="label good-label">Should NOT be blocked</p>
+        <p class="note">Should NOT be blocked</p>
         <div class="safe-content">
             <p>This is normal page content.</p>
         </div>
