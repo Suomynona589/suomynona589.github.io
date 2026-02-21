@@ -88,9 +88,37 @@ p {
     cursor: pointer;
 }
 
-#result {
-    margin-top: 40px;
-    font-size: 28px;
+.result-mark {
+    font-size: 22px;
     font-weight: bold;
+    margin-top: 10px;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    border: 3px solid #444;
     text-align: center;
+    font-size: 24px;
+    z-index: 9999;
+}
+
+.popup button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+}
+
+.popup button:hover {
+    background: #0d47a1;
+    cursor: pointer;
 }
