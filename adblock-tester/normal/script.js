@@ -13,6 +13,24 @@ document.addEventListener("DOMContentLoaded", () => {
         const box = target.closest(".test-box");
         if (!box || box.dataset.done) return;
 
+        const testId = box.dataset.test;
+
+        if (testId === "1") {
+            localStorage.setItem("staticBlocked", isNoSee ? "true" : "false");
+        }
+        if (testId === "2") {
+            localStorage.setItem("gifBlocked", isNoSee ? "true" : "false");
+        }
+        if (testId === "3") {
+            localStorage.setItem("sponsorBlocked", isNoSee ? "true" : "false");
+        }
+        if (testId === "4") {
+            localStorage.setItem("iframeBlocked", isNoSee ? "true" : "false");
+        }
+        if (testId === "5") {
+            localStorage.setItem("flashBlocked", isNoSee ? "true" : "false");
+        }
+
         box.dataset.done = "1";
         answered++;
 
