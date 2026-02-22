@@ -116,6 +116,6 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         `;
 
-        document.body.appendChild(overlay);
+        document.documentElement.appendChild(overlay);
     }
 });
