@@ -99,15 +99,20 @@ document.addEventListener("DOMContentLoaded", () => {
     function showOverlay() {
         if (document.querySelector(".adblock-overlay")) return;
 
+        document.body.classList.add("adblock-lock");
+
         const overlay = document.createElement("div");
 
         overlay.className =
-            "adblock-overlay adblock-warning adblock-detected adblock-message adblock-blocker anti-adblock overlay";
+            "adblock-overlay adblock-warning adblock-detected adblock-message adblock-blocker";
 
         overlay.innerHTML = `
             <div class="adblock-message">
-                We have detected that an ad blocker or something similar is messing with this page.
-                Please disable your adblocker or add https://suomynona589.github.io/adblock-tester to your whitelist.
+                We have detected that an ad blocker or filtering extension is interfering with this page.
+                Essential page elements are being removed or hidden, preventing the site from functioning normally.
+                To continue, please disable your ad blocker or whitelist this website.
+                Ads help support the content and keep this service available.
+                After disabling your ad blocker, refresh the page to regain access.
             </div>
         `;
 
