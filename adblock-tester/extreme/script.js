@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (iframeBlocked) blockedList.push("iframe");
     if (flashBlocked) blockedList.push("flash");
 
-    const container = document.getElementById("extreme-container");
+    const container = document.getElementById("test-container");
 
     if (blockedList.length === 0) {
         const msg = document.createElement("div");
