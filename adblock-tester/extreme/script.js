@@ -89,12 +89,22 @@ document.addEventListener("DOMContentLoaded", () => {
     let adBlockActive = false;
 
     function detect() {
-        if (!document.body.contains(ad)) adBlockActive = true;
+        let active = false;
+        if (!document.body.contains(ad)) active = true;
         const rect = ad.getBoundingClientRect();
-        if (rect.width === 0 || rect.height === 0) adBlockActive = true;
-        if (ad.style.display === "none") adBlockActive = true;
-        if (box.style.display === "none") adBlockActive = true;
-        if (adBlockActive) showOverlay();
+        if (rect.width === 0 || rect.height === 0) active = true;
+        if (ad.style.display === "none") active = true;
+        if (box.style.display === "none") active = true;
+
+        if (active && !adBlockActive) {
+            adBlockActive = true;
+            showOverlay();
+        }
+
+        if (!active && adBlockActive) {
+            adBlockActive = false;
+            hideOverlay();
+        }
     }
 
     const observer = new MutationObserver(detect);
@@ -102,21 +112,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function showOverlay() {
         if (document.querySelector(".adblock-overlay")) return;
-
         document.body.classList.add("adblock-lock");
-
         const overlay = document.createElement("div");
-
-        overlay.className =
-            "adblock-overlay adblock-warning adblock-detected adblock-message adblock-blocker";
-
+        overlay.className = "adblock-overlay adblock-warning adblock-detected adblock-message adblock-blocker";
         overlay.innerHTML = `
             <div class="adblock-message">
                 We have detected an adblocker changing this page.<br>
                 Please disable your adblocker or add https://suomynona589.github.io/adblock-tester to your whitelist.
             </div>
         `;
-
         document.documentElement.appendChild(overlay);
+    }
+
+    function hideOverlay() {
+        const overlay = document.querySelector(".adblock-overlay");
+        if (overlay) overlay.remove();
+        document.body.classList.remove("adblock-lock");
     }
 });
