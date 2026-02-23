@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         overlay.innerHTML = `
             <div class="adblock-message">
-                We have detected an adblocker changing this page.
+                We have detected an adblocker changing this page.<br>
                 Please disable your adblocker or add https://suomynona589.github.io/adblock-tester to your whitelist.
             </div>
         `;
