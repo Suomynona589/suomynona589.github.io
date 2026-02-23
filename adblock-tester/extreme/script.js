@@ -86,14 +86,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const ad = document.querySelector(".ad");
     const box = document.querySelector(".test-box");
 
-    const observer = new MutationObserver(() => {
-        if (!document.body.contains(ad)) showOverlay();
-        const rect = ad.getBoundingClientRect();
-        if (rect.width === 0 || rect.height === 0) showOverlay();
-        if (ad.style.display === "none") showOverlay();
-        if (box.style.display === "none") showOverlay();
-    });
+    let adBlockActive = false;
 
+    function detect() {
+        if (!document.body.contains(ad)) adBlockActive = true;
+        const rect = ad.getBoundingClientRect();
+        if (rect.width === 0 || rect.height === 0) adBlockActive = true;
+        if (ad.style.display === "none") adBlockActive = true;
+        if (box.style.display === "none") adBlockActive = true;
+        if (adBlockActive) showOverlay();
+    }
+
+    const observer = new MutationObserver(detect);
     observer.observe(document.body, { childList: true, subtree: true, attributes: true });
 
     function showOverlay() {
