@@ -89,6 +89,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let adBlockActive = false;
 
     function detect() {
+        if (adBlockActive) return;
+
         let active = false;
         if (!document.body.contains(ad)) active = true;
         const rect = ad.getBoundingClientRect();
@@ -96,14 +98,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (ad.style.display === "none") active = true;
         if (box.style.display === "none") active = true;
 
-        if (active && !adBlockActive) {
+        if (active) {
             adBlockActive = true;
             showOverlay();
-        }
-
-        if (!active && adBlockActive) {
-            adBlockActive = false;
-            hideOverlay();
         }
     }
 
@@ -129,4 +126,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (overlay) overlay.remove();
         document.body.classList.remove("adblock-lock");
     }
+
+    document.addEventListener("adblockOff", () => {
+        adBlockActive = false;
+        hideOverlay();
+    });
 });
