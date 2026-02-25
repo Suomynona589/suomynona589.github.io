@@ -42,17 +42,31 @@ let rightHeader = document.getElementById("rightHeader");
 let swapBtn = document.getElementById("swapBtn");
 
 let normalOnLeft = true;
+let decodeTimer = null;
 
 function update() {
   if (normalOnLeft) {
     rightBox.value = encodeA1Z26(leftBox.value);
   } else {
-    leftBox.value = decodeA1Z26(rightBox.value);
+    rightBox.value = decodeA1Z26(leftBox.value);
   }
 }
 
-leftBox.addEventListener("input", update);
-rightBox.addEventListener("input", update);
+leftBox.addEventListener("input", () => {
+  if (normalOnLeft) {
+    update();
+    return;
+  }
+
+  if (decodeTimer) clearTimeout(decodeTimer);
+
+  if (leftBox.value.endsWith("-")) {
+    update();
+    return;
+  }
+
+  decodeTimer = setTimeout(update, 1500);
+});
 
 swapBtn.addEventListener("click", () => {
   normalOnLeft = !normalOnLeft;
@@ -60,14 +74,15 @@ swapBtn.addEventListener("click", () => {
   if (normalOnLeft) {
     leftHeader.textContent = "Normal Text";
     rightHeader.textContent = "Ciphered";
-    leftBox.removeAttribute("readonly");
-    rightBox.setAttribute("readonly", true);
-    update();
   } else {
     leftHeader.textContent = "Ciphered";
     rightHeader.textContent = "Normal Text";
-    leftBox.setAttribute("readonly", true);
-    rightBox.removeAttribute("readonly");
-    update();
   }
+
+  leftBox.removeAttribute("readonly");
+  rightBox.setAttribute("readonly", true);
+
+  update();
 });
+
+update();
