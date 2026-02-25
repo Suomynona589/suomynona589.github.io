@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #f4f7fa;
+  font-family: Arial, sans-serif;
+  color: #0b2339;
+  text-align: center;
+}
+
+.title {
+  margin-top: 80px;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.button-container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.cipher-btn {
+  padding: 14px 28px;
+  background: #0b2339;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.cipher-btn:hover {
+  background: #144570;
+}
+
+.github-link {
+  position: fixed;
+  font-weight: bold;
+  bottom: 20px;
+  left: 20px;
+  color: #0b2339;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.github-link:hover {
+  color: #144570;
+}
