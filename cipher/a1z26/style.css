@@ -18,7 +18,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 60px;
 }
 
 .box {
@@ -44,8 +44,8 @@ textarea {
 }
 
 .swap-btn {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   font-size: 22px;
   font-weight: bold;
@@ -60,8 +60,23 @@ textarea {
   background: #144570;
 }
 
+.calc-btn {
+  margin-top: 25px;
+  padding: 12px 28px;
+  font-size: 18px;
+  background: #0b2339;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.calc-btn:hover {
+  background: #144570;
+}
+
 .note {
-  margin-top: 30px;
+  margin-top: 25px;
   background: #fff3b0;
   padding: 12px 18px;
   display: inline-block;
