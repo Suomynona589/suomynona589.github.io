@@ -26,6 +26,15 @@ function renderNames() {
   });
 }
 
+function generateGameId() {
+  const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let id = "";
+  for (let i = 0; i < 6; i++) {
+    id += chars[Math.floor(Math.random() * chars.length)];
+  }
+  return id;
+}
+
 startBtn.addEventListener("click", () => {
   const count = Number(playerCountInput.value);
   const inputs = [...nameList.querySelectorAll("input")];
@@ -35,7 +44,7 @@ startBtn.addEventListener("click", () => {
     names: names
   };
   localStorage.setItem("mafiaSettings", JSON.stringify(settings));
-  const gameId = crypto.randomUUID();
+  const gameId = generateGameId();
   window.location.href = `/ai-mafia/play?game=${gameId}`;
 });
 
