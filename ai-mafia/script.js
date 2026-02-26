@@ -48,6 +48,6 @@ startBtn.addEventListener("click", () => {
   window.location.href = `/ai-mafia/play?game=${gameId}`;
 });
 
-playerCountInput.addEventListener("change", renderNames);
+playerCountInput.addEventListener("input", renderNames);
 
 renderNames();
