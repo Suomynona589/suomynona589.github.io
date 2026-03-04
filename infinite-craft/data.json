@@ -1,50 +1,39 @@
 {
   "base": [
     {
-      "id": 1,
+      "id": "Water",
       "emoji": "💧",
-      "text": "Water",
-      "code": "WA"
+      "text": "Water"
     },
     {
-      "id": 2,
+      "id": "Fire",
       "emoji": "🔥",
-      "text": "Fire",
-      "code": "F"
+      "text": "Fire"
     },
     {
-      "id": 3,
+      "id": "Wind",
       "emoji": "🌬️",
-      "text": "Wind",
-      "code": "WI"
+      "text": "Wind"
     },
     {
-      "id": 4,
+      "id": "Earth",
       "emoji": "🌍",
-      "text": "Earth",
-      "code": "E"
+      "text": "Earth"
     }
   ],
   "recipes": {
-    "WA+WA": { "emoji": "🌊", "text": "Lake", "code": "LA" },
-    "F+F": { "emoji": "🌋", "text": "Volcano", "code": "VO" },
-    "WI+WI": { "emoji": "🌪️", "text": "Tornado", "code": "TO" },
-    "E+E": { "emoji": "🏔️", "text": "Mountain", "code": "MO" },
+    "Water+Water": { "emoji": "🌊", "text": "Lake", "id": "Lake" },
+    "Fire+Fire": { "emoji": "🌋", "text": "Volcano", "id": "Volcano" },
+    "Wind+Wind": { "emoji": "🌪️", "text": "Tornado", "id": "Tornado" },
+    "Earth+Earth": { "emoji": "🏔️", "text": "Mountain", "id": "Mountain" },
 
-    "WA+F": { "emoji": "💨", "text": "Steam", "code": "ST" },
-    "WA+WI": { "emoji": "🌊", "text": "Wave", "code": "WA2" },
-    "WA+E": { "emoji": "🌱", "text": "Plant", "code": "PL" },
+    "Water+Fire": { "emoji": "💨", "text": "Steam", "id": "Steam" },
+    "Water+Wind": { "emoji": "🌊", "text": "Wave", "id": "Wave" },
+    "Water+Earth": { "emoji": "🌱", "text": "Plant", "id": "Plant" },
 
-    "F+WA": { "emoji": "💨", "text": "Steam", "code": "ST" },
-    "F+WI": { "emoji": "💨", "text": "Smoke", "code": "SM" },
-    "F+E": { "emoji": "🌋", "text": "Lava", "code": "LA2" },
+    "Fire+Wind": { "emoji": "💨", "text": "Smoke", "id": "Smoke" },
+    "Fire+Earth": { "emoji": "🌋", "text": "Lava", "id": "Lava" },
 
-    "WI+WA": { "emoji": "🌊", "text": "Wave", "code": "WA2" },
-    "WI+F": { "emoji": "💨", "text": "Smoke", "code": "SM" },
-    "WI+E": { "emoji": "🌫️", "text": "Dust", "code": "DU" },
-
-    "E+WA": { "emoji": "🌱", "text": "Plant", "code": "PL" },
-    "E+F": { "emoji": "🌋", "text": "Lava", "code": "LA2" },
-    "E+WI": { "emoji": "🌫️", "text": "Dust", "code": "DU" }
+    "Wind+Earth": { "emoji": "🌫️", "text": "Dust", "id": "Dust" }
   }
 }
