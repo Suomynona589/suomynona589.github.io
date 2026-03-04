@@ -1,0 +1,50 @@
+{
+  "base": [
+    {
+      "id": 1,
+      "emoji": "💧",
+      "text": "Water",
+      "code": "WA"
+    },
+    {
+      "id": 2,
+      "emoji": "🔥",
+      "text": "Fire",
+      "code": "F"
+    },
+    {
+      "id": 3,
+      "emoji": "🌬️",
+      "text": "Wind",
+      "code": "WI"
+    },
+    {
+      "id": 4,
+      "emoji": "🌍",
+      "text": "Earth",
+      "code": "E"
+    }
+  ],
+  "recipes": {
+    "WA+WA": { "emoji": "🌊", "text": "Lake", "code": "LA" },
+    "F+F": { "emoji": "🌋", "text": "Volcano", "code": "VO" },
+    "WI+WI": { "emoji": "🌪️", "text": "Tornado", "code": "TO" },
+    "E+E": { "emoji": "🏔️", "text": "Mountain", "code": "MO" },
+
+    "WA+F": { "emoji": "💨", "text": "Steam", "code": "ST" },
+    "WA+WI": { "emoji": "🌊", "text": "Wave", "code": "WA2" },
+    "WA+E": { "emoji": "🌱", "text": "Plant", "code": "PL" },
+
+    "F+WA": { "emoji": "💨", "text": "Steam", "code": "ST" },
+    "F+WI": { "emoji": "💨", "text": "Smoke", "code": "SM" },
+    "F+E": { "emoji": "🌋", "text": "Lava", "code": "LA2" },
+
+    "WI+WA": { "emoji": "🌊", "text": "Wave", "code": "WA2" },
+    "WI+F": { "emoji": "💨", "text": "Smoke", "code": "SM" },
+    "WI+E": { "emoji": "🌫️", "text": "Dust", "code": "DU" },
+
+    "E+WA": { "emoji": "🌱", "text": "Plant", "code": "PL" },
+    "E+F": { "emoji": "🌋", "text": "Lava", "code": "LA2" },
+    "E+WI": { "emoji": "🌫️", "text": "Dust", "code": "DU" }
+  }
+}
