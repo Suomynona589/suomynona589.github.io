@@ -1,0 +1,118 @@
+:root {
+  --bg: #0b0b0b;
+  --panel: #0f0f0f;
+  --item: #1b1b1b;
+  --accent: #2b2b2b;
+  --text: #ffffff;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+#canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 240px;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  overflow: hidden;
+}
+
+#sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 240px;
+  height: 100vh;
+  background: var(--panel);
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  border-left: 1px solid rgba(255,255,255,0.03);
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--item);
+  padding: 10px;
+  border-radius: 12px;
+  cursor: grab;
+  user-select: none;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.02) inset;
+}
+
+.sidebar-item:active {
+  cursor: grabbing;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--item);
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: var(--text);
+}
+
+.item .emoji {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.item .label {
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item.placed {
+  position: absolute;
+  transform: translateZ(0);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+.item.floating {
+  position: fixed;
+  pointer-events: none;
+  opacity: 0.95;
+  transform: translateZ(0);
+  z-index: 9999;
+}
+
+#reset {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--text);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+#reset img {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
