@@ -1,4 +1,4 @@
-const SAVE_KEY = "infinite-craft-elements";
+const SAVE_KEY = "infinite-craft-data";
 let dataStore = null;
 let elements = [];
 let placed = [];
