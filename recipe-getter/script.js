@@ -10,12 +10,17 @@ function saveRecipes(recipes) {
 async function fetchRecipes(item) {
     const api = `https://infinibrowser.wiki/api/recipe?id=${encodeURIComponent(item)}`;
 
-    // CORS bypass
+    // CORS bypass proxy
     const url = `https://corsproxy.io/?${encodeURIComponent(api)}`;
 
     const res = await fetch(url);
-    if (!res.ok) throw new Error("API error " + res.status);
-    return res.json();
+    if (!res.ok) throw new Error("HTTP " + res.status);
+
+    // The page is raw text, so read it as text first
+    const raw = await res.text();
+
+    // Then parse JSON manually
+    return JSON.parse(raw);
 }
 
 document.getElementById("fetchBtn").onclick = async () => {
