@@ -34,7 +34,7 @@ html, body {
   box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-  gap: 10px;
+  gap: 15px;
   border-left: 2px solid white;
   overflow-y: auto;
 }
@@ -48,12 +48,9 @@ html, body {
   background: var(--item);
   border: 2px solid white;
   border-radius: 8px;
-  cursor: grab;
+  cursor: pointer;
+  user-select: none;
   transition: .12s;
-}
-
-.sidebar-item:active {
-  cursor: grabbing;
 }
 
 .item {
@@ -66,6 +63,8 @@ html, body {
   padding: 0 10px;
   border-radius: 8px;
   position: absolute;
+  cursor: pointer;
+  user-select: none;
   transition: .12s;
 }
 
@@ -83,10 +82,11 @@ html, body {
 #clear-canvas {
   position: fixed;
   right: 360px;
-  top: 16px;
+  bottom: 16px;
   width: 22px;
   height: 25px;
   cursor: pointer;
+  filter: brightness(0) invert(1);
 }
 
 #reset {
@@ -106,4 +106,5 @@ html, body {
 #reset img {
   width: 18px;
   height: 18px;
+  filter: brightness(0) invert(1);
 }
