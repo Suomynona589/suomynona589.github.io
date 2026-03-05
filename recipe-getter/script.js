@@ -11,7 +11,10 @@ async function fetchRecipes(item) {
     const api = `https://infinibrowser.wiki/api/recipe?id=${encodeURIComponent(item)}`;
 
     // CORS bypass proxy
-    const url = `https://corsproxy.io/?${encodeURIComponent(api)}`;
+    const url = "https://corsproxy.io/?" + encodeURIComponent(
+  `https://infinibrowser.wiki/api/recipe?id=${item}`
+);
+
 
     const res = await fetch(url);
     if (!res.ok) throw new Error("HTTP " + res.status);
