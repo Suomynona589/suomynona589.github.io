@@ -1,39 +1,23 @@
 {
   "base": [
-    {
-      "id": "Water",
-      "emoji": "💧",
-      "text": "Water"
-    },
-    {
-      "id": "Fire",
-      "emoji": "🔥",
-      "text": "Fire"
-    },
-    {
-      "id": "Wind",
-      "emoji": "🌬️",
-      "text": "Wind"
-    },
-    {
-      "id": "Earth",
-      "emoji": "🌍",
-      "text": "Earth"
-    }
+    { "text": "Water", "emoji": "💧" },
+    { "text": "Fire", "emoji": "🔥" },
+    { "text": "Wind", "emoji": "🌬️" },
+    { "text": "Earth", "emoji": "🌍" }
   ],
   "recipes": {
-    "Water+Water": { "emoji": "🌊", "text": "Lake", "id": "Lake" },
-    "Fire+Fire": { "emoji": "🌋", "text": "Volcano", "id": "Volcano" },
-    "Wind+Wind": { "emoji": "🌪️", "text": "Tornado", "id": "Tornado" },
-    "Earth+Earth": { "emoji": "🏔️", "text": "Mountain", "id": "Mountain" },
+    "Water+Water": { "emoji": "🌊", "text": "Lake" },
+    "Fire+Fire": { "emoji": "🌋", "text": "Volcano" },
+    "Wind+Wind": { "emoji": "🌪️", "text": "Tornado" },
+    "Earth+Earth": { "emoji": "🏔️", "text": "Mountain" },
 
-    "Water+Fire": { "emoji": "💨", "text": "Steam", "id": "Steam" },
-    "Water+Wind": { "emoji": "🌊", "text": "Wave", "id": "Wave" },
-    "Water+Earth": { "emoji": "🌱", "text": "Plant", "id": "Plant" },
+    "Water+Fire": { "emoji": "💨", "text": "Steam" },
+    "Water+Wind": { "emoji": "🌊", "text": "Wave" },
+    "Water+Earth": { "emoji": "🌱", "text": "Plant" },
 
-    "Fire+Wind": { "emoji": "💨", "text": "Smoke", "id": "Smoke" },
-    "Fire+Earth": { "emoji": "🌋", "text": "Lava", "id": "Lava" },
+    "Fire+Wind": { "emoji": "💨", "text": "Smoke" },
+    "Fire+Earth": { "emoji": "🌋", "text": "Lava" },
 
-    "Wind+Earth": { "emoji": "🌫️", "text": "Dust", "id": "Dust" }
+    "Wind+Earth": { "emoji": "🌫️", "text": "Dust" }
   }
 }
