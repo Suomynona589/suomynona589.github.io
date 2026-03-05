@@ -1,3 +1,7 @@
+// =========================
+// LocalStorage helpers
+// =========================
+
 function loadRecipes() {
     const saved = localStorage.getItem("recipes");
     return saved ? JSON.parse(saved) : {};
@@ -7,14 +11,22 @@ function saveRecipes(recipes) {
     localStorage.setItem("recipes", JSON.stringify(recipes, null, 2));
 }
 
-async function fetchRecipes(item) {
-    const api = `https://infinibrowser.wiki/api/recipe?id=${encodeURIComponent(item)}`;
+// =========================
+// Build safe proxy URL
+// =========================
 
-    // CORS bypass
+function buildURL(item) {
     const safeItem = encodeURIComponent(item);
-    const url = "https://corsproxy.io/?" + encodeURIComponent(
-  `https://infinibrowser.wiki/api/recipe?id=${safeItem}`
-);
+    const target = `https://infinibrowser.wiki/api/recipe?id=${safeItem}`;
+    return "https://corsproxy.io/?" + encodeURIComponent(target);
+}
+
+// =========================
+// Fetch raw recipe text
+// =========================
+
+async function fetchRecipes(item) {
+    const url = buildURL(item);
 
     const res = await fetch(url);
     if (!res.ok) throw new Error("HTTP " + res.status);
@@ -22,6 +34,10 @@ async function fetchRecipes(item) {
     const raw = await res.text();
     return JSON.parse(raw);
 }
+
+// =========================
+// Fetch button logic
+// =========================
 
 document.getElementById("fetchBtn").onclick = async () => {
     const item = document.getElementById("itemInput").value.trim();
@@ -70,8 +86,39 @@ document.getElementById("fetchBtn").onclick = async () => {
     }
 };
 
+// =========================
+// Copy button
+// =========================
+
 document.getElementById("copyBtn").onclick = () => {
     const recipes = localStorage.getItem("recipes") || "{}";
     navigator.clipboard.writeText(recipes);
     alert("Copied recipes to clipboard!");
 };
+
+// =========================
+// Live recipe counter (bottom right)
+// =========================
+
+const counterBox = document.createElement("div");
+counterBox.style.position = "fixed";
+counterBox.style.bottom = "20px";
+counterBox.style.right = "20px";
+counterBox.style.background = "rgba(0,0,0,0.6)";
+counterBox.style.padding = "10px 14px";
+counterBox.style.borderRadius = "6px";
+counterBox.style.color = "white";
+counterBox.style.fontFamily = "Arial, sans-serif";
+counterBox.style.fontSize = "14px";
+counterBox.style.zIndex = "9999";
+document.body.appendChild(counterBox);
+
+function updateCounter() {
+    const recipes = loadRecipes();
+    const count = Object.keys(recipes).length;
+    counterBox.textContent = `Recipe Count: ${count}`;
+}
+
+// Update every 300ms
+setInterval(updateCounter, 300);
+updateCounter();
