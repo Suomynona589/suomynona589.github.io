@@ -7,11 +7,11 @@
 }
 
 html, body {
-  height: 100%;
   margin: 0;
+  height: 100%;
   background: var(--bg);
   color: var(--text);
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: Inter, sans-serif;
   overflow: hidden;
 }
 
@@ -21,8 +21,6 @@ html, body {
   top: 0;
   right: 350px;
   bottom: 0;
-  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
-  overflow: hidden;
 }
 
 #sidebar {
@@ -37,26 +35,21 @@ html, body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
   gap: 10px;
-  overflow-y: auto;
   border-left: 2px solid white;
+  overflow-y: auto;
 }
 
 .sidebar-item {
+  height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
   background: var(--item);
-  padding: 10px;
-  border-radius: 12px;
+  border: 2px solid white;
+  border-radius: 8px;
   cursor: grab;
-  user-select: none;
-  transition: transform .12s ease, background .12s ease;
-}
-
-.sidebar-item.mix-hover {
-  transform: scale(1.08);
-  background: var(--item-hover);
+  transition: .12s;
 }
 
 .sidebar-item:active {
@@ -64,14 +57,16 @@ html, body {
 }
 
 .item {
+  height: 35px;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   background: var(--item);
-  padding: 8px 10px;
-  border-radius: 10px;
-  color: var(--text);
-  transition: transform .12s ease, background .12s ease;
+  border: 2px solid white;
+  padding: 0 10px;
+  border-radius: 8px;
+  position: absolute;
+  transition: .12s;
 }
 
 .item.mix-hover {
@@ -79,24 +74,9 @@ html, body {
   background: var(--item-hover);
 }
 
-.item .emoji {
-  font-size: 22px;
-}
-
-.item .label {
-  font-size: 14px;
-  white-space: nowrap;
-}
-
-.item.placed {
-  position: absolute;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
-}
-
 .item.floating {
   position: fixed;
   pointer-events: none;
-  opacity: 0.95;
   z-index: 9999;
 }
 
