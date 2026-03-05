@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Infinite Craft</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="https://neal.fun/favicons/infinite-craft.png">
+<title>Recipe Fetcher</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div id="canvas"></div>
+  <div id="container">
+    <input id="itemInput" type="text" placeholder="Enter item (e.g., Fish)">
+    <button id="fetchBtn">Fetch Recipes</button>
+    <div id="status"></div>
+  </div>
 
-  <aside id="sidebar"></aside>
+<button id="copyBtn">Copy</button>
 
-  <img id="clear-canvas" src="/images/clear.svg" alt="clear">
-
-  <button id="reset">
-    <img src="/images/refresh.svg" alt="">
-    <span>Reset</span>
-  </button>
+<!-- Live recipe counter -->
+  <div id="counterBox">Recipe Count: 0</div>
 
   <script src="script.js"></script>
 </body>
-</html>
