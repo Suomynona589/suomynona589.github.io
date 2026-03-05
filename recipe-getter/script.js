@@ -9,7 +9,7 @@ function saveRecipes(recipes) {
 
 function buildURL(item) {
     const targetURL = `https://infinibrowser.wiki/api/recipe?id=${item}`;
-    return `https://corsproxy.io{encodeURIComponent(targetURL)}`;
+    return `https://corsproxy.io/?${encodeURIComponent(targetURL)}`;
 }
 
 async function fetchRecipes(item) {
