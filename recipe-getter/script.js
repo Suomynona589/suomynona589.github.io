@@ -7,9 +7,9 @@ function saveRecipes(recipes) {
     localStorage.setItem("recipes", JSON.stringify(recipes, null, 2));
 }
 
-function buildURL(item) {
-    const targetURL = `https://infinibrowser.wiki/api/recipe?id=${item}`;
-    return `https://api.allorigins.win/raw?url=${encodeURIComponent(targetURL)}`;
+function buildURL(safeItem) {
+    const target = `https://infinibrowser.wiki/api/recipe?id=${safeItem}`;
+    return "https://corsproxy.io/?" + encodeURIComponent(target);
 }
 
 async function fetchRecipes(item) {
