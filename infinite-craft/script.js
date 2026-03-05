@@ -1,215 +1,156 @@
-const SAVE_KEY = "infinite-craft-save";
+const SAVE_KEY = "infinite-craft-elements";
 let dataStore = null;
-let discovered = [];
-let placedElements = [];
+let elements = [];
+let placed = [];
 let dragging = null;
-let floatingEl = null;
+let floating = null;
 
 fetch("data.json")
   .then(r => r.json())
   .then(j => {
     dataStore = j;
-    loadSave();
+    load();
     renderSidebar();
   });
 
-function loadSave() {
+function load() {
   const raw = localStorage.getItem(SAVE_KEY);
   if (!raw) {
-    discovered = [];
+    elements = dataStore.base.map(e => ({ text: e.text, emoji: e.emoji, discovered: false }));
     save();
     return;
   }
-  try {
-    const parsed = JSON.parse(raw);
-    discovered = Array.isArray(parsed.discovered) ? parsed.discovered : [];
-  } catch (e) {
-    discovered = [];
-    save();
-  }
+  elements = JSON.parse(raw).elements;
 }
 
 function save() {
-  localStorage.setItem(SAVE_KEY, JSON.stringify({ discovered }));
-}
-
-function allSidebarItems() {
-  return dataStore.base.concat(discovered);
+  localStorage.setItem(SAVE_KEY, JSON.stringify({ elements }));
 }
 
 function renderSidebar() {
   const sb = document.getElementById("sidebar");
   sb.innerHTML = "";
-  allSidebarItems().forEach((it, idx) => {
-    const node = document.createElement("div");
-    node.className = "sidebar-item";
-    node.dataset.index = idx;
-    node.dataset.emoji = it.emoji;
-    node.dataset.text = it.text;
-    node.dataset.id = it.id;
-    node.innerHTML = `<span class="emoji">${it.emoji}</span><span class="label">${it.text}</span>`;
-    node.addEventListener("mousedown", ev => {
-      ev.preventDefault();
-      startDragFromSidebar(ev, it);
-    });
-    sb.appendChild(node);
+  elements.forEach(e => {
+    const el = document.createElement("div");
+    el.className = "sidebar-item";
+    el.dataset.text = e.text;
+    el.dataset.emoji = e.emoji;
+    el.innerHTML = `<span class="emoji">${e.emoji}</span><span class="label">${e.text}</span>`;
+    el.addEventListener("mousedown", ev => startDragSidebar(ev, e));
+    sb.appendChild(el);
   });
 }
 
-function startDragFromSidebar(ev, item) {
-  dragging = {
-    source: "sidebar",
-    emoji: item.emoji,
-    text: item.text,
-    id: item.id
-  };
+function startDragSidebar(ev, item) {
+  dragging = { source: "sidebar", text: item.text, emoji: item.emoji };
   createFloating(ev.clientX, ev.clientY, item);
 }
 
 function createFloating(x, y, item) {
   removeFloating();
-  floatingEl = document.createElement("div");
-  floatingEl.className = "item floating";
-  floatingEl.innerHTML = `<span class="emoji">${item.emoji}</span><span class="label">${item.text}</span>`;
-  document.body.appendChild(floatingEl);
+  floating = document.createElement("div");
+  floating.className = "item floating";
+  floating.innerHTML = `<span class="emoji">${item.emoji}</span><span class="label">${item.text}</span>`;
+  document.body.appendChild(floating);
   moveFloating(x, y);
 }
 
 function moveFloating(x, y) {
-  if (!floatingEl) return;
-  floatingEl.style.left = `${x - 40}px`;
-  floatingEl.style.top = `${y - 20}px`;
+  if (!floating) return;
+  floating.style.left = x - 40 + "px";
+  floating.style.top = y - 18 + "px";
   highlightMix(x, y);
 }
 
 function removeFloating() {
-  if (floatingEl && floatingEl.parentNode) floatingEl.parentNode.removeChild(floatingEl);
-  floatingEl = null;
-  clearMixHighlights();
+  if (floating) floating.remove();
+  floating = null;
+  clearMix();
 }
 
 document.addEventListener("mousemove", ev => {
-  if (!dragging) return;
-  moveFloating(ev.clientX, ev.clientY);
+  if (dragging) moveFloating(ev.clientX, ev.clientY);
 });
 
 document.addEventListener("mouseup", ev => {
   if (!dragging) return;
-  const sb = document.getElementById("sidebar");
-  const sbRect = sb.getBoundingClientRect();
-  const overSidebar = ev.clientX >= sbRect.left;
-  if (dragging.source === "sidebar") {
-    if (!overSidebar) {
-      placeOnCanvas(ev.clientX, ev.clientY, dragging.emoji, dragging.text, dragging.id);
-    }
-  } else if (dragging.source === "placed") {
-    if (!overSidebar) {
-      const hit = findOverlapWithPlaced(ev.clientX, ev.clientY);
-      if (hit) {
-        combineElements(hit, dragging, ev.clientX, ev.clientY);
-      } else {
-        placeOnCanvas(ev.clientX, ev.clientY, dragging.emoji, dragging.text, dragging.id);
-      }
-    }
-  }
+  const hit = findOverlap(ev.clientX, ev.clientY);
+  if (hit) mix(hit, dragging, ev.clientX, ev.clientY);
+  else place(ev.clientX, ev.clientY, dragging.emoji, dragging.text);
   removeFloating();
   dragging = null;
 });
 
-function placeOnCanvas(x, y, emoji, text, id) {
-  const canvas = document.getElementById("canvas");
+function place(x, y, emoji, text) {
+  const c = document.getElementById("canvas");
   const el = document.createElement("div");
   el.className = "item placed";
-  el.dataset.emoji = emoji;
   el.dataset.text = text;
-  el.dataset.id = id;
+  el.dataset.emoji = emoji;
   el.innerHTML = `<span class="emoji">${emoji}</span><span class="label">${text}</span>`;
-  el.style.left = `${x - 40}px`;
-  el.style.top = `${y - 20}px`;
-  el.addEventListener("mousedown", ev => {
-    ev.preventDefault();
-    startDragPlaced(ev, el);
-  });
-  canvas.appendChild(el);
-  placedElements.push(el);
+  el.style.left = x - 40 + "px";
+  el.style.top = y - 18 + "px";
+  el.addEventListener("mousedown", ev => startDragPlaced(ev, el));
+  c.appendChild(el);
+  placed.push(el);
 }
 
 function startDragPlaced(ev, el) {
-  const rect = el.getBoundingClientRect();
-  dragging = {
-    source: "placed",
-    emoji: el.dataset.emoji,
-    text: el.dataset.text,
-    id: el.dataset.id,
-    element: el
-  };
-  el.parentNode.removeChild(el);
-  const idx = placedElements.indexOf(el);
-  if (idx !== -1) placedElements.splice(idx, 1);
-  createFloating(ev.clientX, ev.clientY, { emoji: dragging.emoji, text: dragging.text });
+  dragging = { source: "placed", text: el.dataset.text, emoji: el.dataset.emoji, element: el };
+  el.remove();
+  placed = placed.filter(p => p !== el);
+  createFloating(ev.clientX, ev.clientY, dragging);
 }
 
-function findOverlapWithPlaced(x, y) {
-  for (let el of placedElements) {
+function findOverlap(x, y) {
+  return placed.find(el => {
     const r = el.getBoundingClientRect();
-    if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) return el;
-  }
-  return null;
+    return x >= r.left && x <= r.right && y >= r.top && y <= r.bottom;
+  });
 }
 
 function highlightMix(x, y) {
-  clearMixHighlights();
-  for (let el of placedElements) {
-    const r = el.getBoundingClientRect();
-    const touching = !(x < r.left - 20 || x > r.right + 20 || y < r.top - 20 || y > r.bottom + 20);
-    if (touching) {
-      el.classList.add("mix-hover");
-      if (floatingEl) floatingEl.classList.add("mix-hover");
-      return;
-    }
+  clearMix();
+  const hit = findOverlap(x, y);
+  if (hit && floating) {
+    hit.classList.add("mix-hover");
+    floating.classList.add("mix-hover");
   }
 }
 
-function clearMixHighlights() {
-  placedElements.forEach(el => el.classList.remove("mix-hover"));
-  if (floatingEl) floatingEl.classList.remove("mix-hover");
+function clearMix() {
+  placed.forEach(el => el.classList.remove("mix-hover"));
+  if (floating) floating.classList.remove("mix-hover");
 }
 
-function combineElements(targetEl, dragged, x, y) {
-  const a = targetEl.dataset.id;
-  const b = dragged.id;
-  const recipe = dataStore.recipes[`${a}+${b}`] || dataStore.recipes[`${b}+${a}`];
+function mix(target, dragged, x, y) {
+  const key1 = dragged.text + "+" + target.dataset.text;
+  const key2 = target.dataset.text + "+" + dragged.text;
+  const recipe = dataStore.recipes[key1] || dataStore.recipes[key2];
+  target.remove();
+  placed = placed.filter(p => p !== target);
   if (!recipe) {
-    placeOnCanvas(x, y, dragged.emoji, dragged.text, dragged.id);
+    place(x, y, dragged.emoji, dragged.text);
     return;
   }
-  targetEl.parentNode.removeChild(targetEl);
-  const idx = placedElements.indexOf(targetEl);
-  if (idx !== -1) placedElements.splice(idx, 1);
-  placeOnCanvas(x, y, recipe.emoji, recipe.text, recipe.id);
-  if (!discovered.find(d => d.text === recipe.text)) {
-    discovered.push({ id: recipe.id, emoji: recipe.emoji, text: recipe.text });
+  place(x, y, recipe.emoji, recipe.text);
+  const exists = elements.find(e => e.text === recipe.text);
+  if (!exists) {
+    elements.push({ text: recipe.text, emoji: recipe.emoji, discovered: true });
     save();
     renderSidebar();
   }
 }
 
-document.getElementById("reset").addEventListener("click", () => {
-  discovered = [];
-  save();
-  renderSidebar();
-  const canvas = document.getElementById("canvas");
-  canvas.innerHTML = "";
-  placedElements = [];
+document.getElementById("clear-canvas").addEventListener("click", () => {
+  document.getElementById("canvas").innerHTML = "";
+  placed = [];
 });
 
-const clearIcon = document.createElement("img");
-clearIcon.id = "clear-canvas";
-clearIcon.src = "https://neal.fun/infinite-craft/clear.svg";
-document.body.appendChild(clearIcon);
-
-clearIcon.addEventListener("click", () => {
-  const canvas = document.getElementById("canvas");
-  canvas.innerHTML = "";
-  placedElements = [];
+document.getElementById("reset").addEventListener("click", () => {
+  elements = dataStore.base.map(e => ({ text: e.text, emoji: e.emoji, discovered: false }));
+  save();
+  renderSidebar();
+  document.getElementById("canvas").innerHTML = "";
+  placed = [];
 });
