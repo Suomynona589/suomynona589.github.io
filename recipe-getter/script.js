@@ -1,18 +1,20 @@
-// Load existing recipes or create empty object
 function loadRecipes() {
     const saved = localStorage.getItem("recipes");
     return saved ? JSON.parse(saved) : {};
 }
 
-// Save updated recipes
 function saveRecipes(recipes) {
     localStorage.setItem("recipes", JSON.stringify(recipes, null, 2));
 }
 
 async function fetchRecipes(item) {
-    const url = `https://infinibrowser.wiki/api/recipe?id=${encodeURIComponent(item)}`;
+    const api = `https://infinibrowser.wiki/api/recipe?id=${encodeURIComponent(item)}`;
+
+    // CORS bypass
+    const url = `https://corsproxy.io/?${encodeURIComponent(api)}`;
+
     const res = await fetch(url);
-    if (!res.ok) throw new Error("API error");
+    if (!res.ok) throw new Error("API error " + res.status);
     return res.json();
 }
 
@@ -46,14 +48,15 @@ document.getElementById("fetchBtn").onclick = async () => {
         });
 
         saveRecipes(recipes);
-
         status.textContent = `Done. Added ${added} new recipe(s).`;
     } catch (err) {
-        status.textContent = "Error fetching recipe.";
+        status.textContent = "Error: " + err.message;
+        console.error(err);
     }
 };
 
 document.getElementById("copyBtn").onclick = () => {
     const recipes = localStorage.getItem("recipes") || "{}";
     navigator.clipboard.writeText(recipes);
+    alert("Copied recipes to clipboard!");
 };
