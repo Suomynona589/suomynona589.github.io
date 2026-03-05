@@ -71,20 +71,30 @@ async function handleSingleFetch(item, status) {
 }
 
 // =========================
-// Number_Spam mode
+// Number_Spam with custom concurrency, max, and start
+// Format: N_SC:50M:9999S:500
 // =========================
 
-async function handleNumberSpam(status) {
-    status.textContent = "Starting Number_Spam (0–999)...";
+async function handleNumberSpam(input, status) {
+    // Parse format: N_SC:<C>M:<MAX>S:<START>
+    const match = input.match(/^N_SC:(\d+)M:(\d+)S:(\d+)$/);
+
+    if (!match) {
+        status.textContent = "Invalid N_SC format.";
+        return;
+    }
+
+    const CONCURRENCY = parseInt(match[1]); // how many fetches at once
+    const MAX = parseInt(match[2]);         // max number to fetch
+    const START = parseInt(match[3]);       // starting number
+
+    status.textContent = `Starting N_SC from ${START} to ${MAX} with concurrency ${CONCURRENCY}...`;
 
     let recipes = loadRecipes();
     let totalAdded = 0;
     let addedList = [];
 
-    const CONCURRENCY = 75; // 50 fetches at once
-    const MAX = 9999;        // change to 9999 or 99999 if you want
-
-    let current = 0;
+    let current = START;
 
     async function worker() {
         while (current <= MAX) {
@@ -112,13 +122,12 @@ async function handleNumberSpam(status) {
         }
     }
 
-    // Start 50 workers in parallel
+    // Start N workers in parallel
     const workers = [];
     for (let w = 0; w < CONCURRENCY; w++) {
         workers.push(worker());
     }
 
-    // Wait for all workers to finish
     await Promise.all(workers);
 
     if (totalAdded === 0) {
@@ -143,11 +152,13 @@ document.getElementById("fetchBtn").onclick = async () => {
         return;
     }
 
-    if (item === "Number_Spam") {
-        handleNumberSpam(status);
+    // Detect N_SC format
+    if (item.startsWith("N_SC:")) {
+        handleNumberSpam(item, status);
         return;
     }
 
+    // Normal mode
     status.textContent = "Fetching...";
     try {
         await handleSingleFetch(item, status);
