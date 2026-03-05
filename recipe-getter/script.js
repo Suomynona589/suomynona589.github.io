@@ -81,34 +81,45 @@ async function handleNumberSpam(status) {
     let totalAdded = 0;
     let addedList = [];
 
-    function delay(ms) {
-        return new Promise(res => setTimeout(res, ms));
-    }
+    const CONCURRENCY = 75; // 50 fetches at once
+    const MAX = 9999;        // change to 9999 or 99999 if you want
 
-    for (let i = 0; i <= 999; i++) {
-        try {
-            const data = await fetchRecipes(i);
-            const steps = data.steps || [];
+    let current = 0;
 
-            steps.forEach(step => {
-                const key = `${step.a.id}+${step.b.id}`;
-                if (!recipes[key]) {
-                    recipes[key] = {
-                        emoji: step.result.emoji,
-                        text: step.result.id
-                    };
-                    totalAdded++;
-                    addedList.push(`${step.result.emoji} ${step.result.id}`);
-                }
-            });
+    async function worker() {
+        while (current <= MAX) {
+            const i = current++;
+            try {
+                const data = await fetchRecipes(i);
+                const steps = data.steps || [];
 
-            saveRecipes(recipes);
-        } catch (err) {
-            console.error("Error on number", i, err);
+                steps.forEach(step => {
+                    const key = `${step.a.id}+${step.b.id}`;
+                    if (!recipes[key]) {
+                        recipes[key] = {
+                            emoji: step.result.emoji,
+                            text: step.result.id
+                        };
+                        totalAdded++;
+                        addedList.push(`${step.result.emoji} ${step.result.id}`);
+                    }
+                });
+
+                saveRecipes(recipes);
+            } catch (err) {
+                console.error("Error on number", i, err);
+            }
         }
-
-        await delay(250); // 250ms between fetches
     }
+
+    // Start 50 workers in parallel
+    const workers = [];
+    for (let w = 0; w < CONCURRENCY; w++) {
+        workers.push(worker());
+    }
+
+    // Wait for all workers to finish
+    await Promise.all(workers);
 
     if (totalAdded === 0) {
         status.textContent = "Done. No new recipes were added.";
