@@ -7274,5 +7274,785 @@
   "118+118": {
     "emoji": "⬜",
     "text": "236"
+  },
+  "216+Count": {
+    "emoji": "💩",
+    "text": "237"
+  },
+  "237+Fire": {
+    "emoji": "💩",
+    "text": "238"
+  },
+  "122+122": {
+    "emoji": "⬜",
+    "text": "244"
+  },
+  "125+125": {
+    "emoji": "⬜",
+    "text": "250"
+  },
+  "127+127": {
+    "emoji": "⬜",
+    "text": "254"
+  },
+  "254+Water": {
+    "emoji": "💫",
+    "text": "255"
+  },
+  "Engine+Fishing": {
+    "emoji": "🎣",
+    "text": "Fishing Rod"
+  },
+  "Car+Fishing Rod": {
+    "emoji": "🎣",
+    "text": "Fishing Car"
+  },
+  "Fishing Car+Mud": {
+    "emoji": "🚙",
+    "text": "4×4"
+  },
+  "4×4+4×4": {
+    "emoji": "🎲",
+    "text": "8×8"
+  },
+  "8×8+8×8": {
+    "emoji": "⬜",
+    "text": "128"
+  },
+  "128+Fire": {
+    "emoji": "⬜",
+    "text": "129"
+  },
+  "129+129": {
+    "emoji": "⬜",
+    "text": "258"
+  },
+  "258+Fire": {
+    "emoji": "⬜",
+    "text": "260"
+  },
+  "20 (100)+20 (100)": {
+    "emoji": "⬜",
+    "text": "40 (200)"
+  },
+  "40 (200)+Dragon": {
+    "emoji": "⬜",
+    "text": "240"
+  },
+  "240+Steam": {
+    "emoji": "💡",
+    "text": "264"
+  },
+  "264+Water": {
+    "emoji": "💫",
+    "text": "265"
+  },
+  "134+Water": {
+    "emoji": "⬜",
+    "text": "135"
+  },
+  "135+135": {
+    "emoji": "⬜",
+    "text": "270"
+  },
+  "128+128": {
+    "emoji": "🔟",
+    "text": "256"
+  },
+  "256+Fire": {
+    "emoji": "💩",
+    "text": "257"
+  },
+  "Fire+Tea": {
+    "emoji": "🍵",
+    "text": "Chai"
+  },
+  "257+Chai": {
+    "emoji": "💫",
+    "text": "275"
+  },
+  "140+140": {
+    "emoji": "💬",
+    "text": "280"
+  },
+  "142+142": {
+    "emoji": "⬜",
+    "text": "284"
+  },
+  "284+Water": {
+    "emoji": "💩",
+    "text": "285"
+  },
+  "144+144": {
+    "emoji": "💩",
+    "text": "288"
+  },
+  "288+Fire": {
+    "emoji": "💩",
+    "text": "290"
+  },
+  "Lava+Tatooine": {
+    "emoji": "😈",
+    "text": "Darth Vader"
+  },
+  "294+Darth Vader": {
+    "emoji": "💩",
+    "text": "295"
+  },
+  "Land+Land": {
+    "emoji": "🏜️",
+    "text": "Desert"
+  },
+  "Europe+Fire": {
+    "emoji": "🇬🇷",
+    "text": "Greece"
+  },
+  "Desert+Greece": {
+    "emoji": "🏹",
+    "text": "Sparta"
+  },
+  "Desert+Sparta": {
+    "emoji": "🏹",
+    "text": "300"
+  },
+  "Lake+Wind": {
+    "emoji": "⛈️",
+    "text": "Storm"
+  },
+  "Rock+Statue of Liberty": {
+    "emoji": "🔔",
+    "text": "Liberty Bell"
+  },
+  "Earth+Liberty Bell": {
+    "emoji": "💩",
+    "text": "Philadelphia"
+  },
+  "Liberty Bell+Storm": {
+    "emoji": "⛈️",
+    "text": "Thunder"
+  },
+  "Philadelphia+Thunder": {
+    "emoji": "⬜",
+    "text": "76ers"
+  },
+  "76ers+76ers": {
+    "emoji": "⬜",
+    "text": "152"
+  },
+  "152+152": {
+    "emoji": "🥄",
+    "text": "304"
+  },
+  "304+Water": {
+    "emoji": "🌴",
+    "text": "305"
+  },
+  "155+155": {
+    "emoji": "⬜",
+    "text": "310"
+  },
+  "154+154": {
+    "emoji": "🚨",
+    "text": "308"
+  },
+  "308+7": {
+    "emoji": "🎂",
+    "text": "315"
+  },
+  "160+160": {
+    "emoji": "⬜",
+    "text": "320"
+  },
+  "256+69": {
+    "emoji": "💫",
+    "text": "325"
+  },
+  "81+81": {
+    "emoji": "⬜",
+    "text": "162"
+  },
+  "162+Water": {
+    "emoji": "⬜",
+    "text": "163"
+  },
+  "163+Water": {
+    "emoji": "⬜",
+    "text": "164"
+  },
+  "164+Water": {
+    "emoji": "⬜",
+    "text": "165"
+  },
+  "165+165": {
+    "emoji": "🍺",
+    "text": "330"
+  },
+  "166+Water": {
+    "emoji": "🔷",
+    "text": "167"
+  },
+  "167+167": {
+    "emoji": "💩",
+    "text": "334"
+  },
+  "334+Water": {
+    "emoji": "💩",
+    "text": "335"
+  },
+  "170+170": {
+    "emoji": "💦",
+    "text": "340"
+  },
+  "172+172": {
+    "emoji": "⬜",
+    "text": "344"
+  },
+  "344+Water": {
+    "emoji": "🔢",
+    "text": "345"
+  },
+  "Statue+Volcano": {
+    "emoji": "🌋",
+    "text": "Pompeii"
+  },
+  "Obsidian+Statue": {
+    "emoji": "🌋",
+    "text": "Aztec"
+  },
+  "Aztec+Stone": {
+    "emoji": "📅",
+    "text": "Calendar"
+  },
+  "Calendar+Earth": {
+    "emoji": "📅",
+    "text": "Year"
+  },
+  "Pompeii+Year": {
+    "emoji": "⬜",
+    "text": "79"
+  },
+  "79+79": {
+    "emoji": "⬜",
+    "text": "158"
+  },
+  "158+Water": {
+    "emoji": "️⃣️",
+    "text": "159"
+  },
+  "159+Earth": {
+    "emoji": "⬜",
+    "text": "174"
+  },
+  "174+Water": {
+    "emoji": "️⃣",
+    "text": "175"
+  },
+  "175+175": {
+    "emoji": "🌎",
+    "text": "350"
+  },
+  "177+177": {
+    "emoji": "💩",
+    "text": "354"
+  },
+  "354+Water": {
+    "emoji": "🍸",
+    "text": "355"
+  },
+  "Twelve+Twenty-Four": {
+    "emoji": "🍀",
+    "text": "Thirty-six"
+  },
+  "Sun+Thirty-six": {
+    "emoji": "🌐",
+    "text": "360"
+  },
+  "360+Tsunami": {
+    "emoji": "🔢",
+    "text": "361"
+  },
+  "Earth+Sand": {
+    "emoji": "🏜️",
+    "text": "Desert"
+  },
+  "Date+Window": {
+    "emoji": "📅",
+    "text": "Calendar"
+  },
+  "Acid+Leap Year": {
+    "emoji": "📅",
+    "text": "366"
+  },
+  "366+Water": {
+    "emoji": "💩",
+    "text": "367"
+  },
+  "154+Earth": {
+    "emoji": "⬜",
+    "text": "169"
+  },
+  "169+Wind": {
+    "emoji": "⬜",
+    "text": "186"
+  },
+  "186+186": {
+    "emoji": "⬜",
+    "text": "372"
+  },
+  "372+Fire": {
+    "emoji": "💩",
+    "text": "373"
+  },
+  "158+Steam": {
+    "emoji": "⬜",
+    "text": "173"
+  },
+  "173+Steam": {
+    "emoji": "⬜",
+    "text": "189"
+  },
+  "189+189": {
+    "emoji": "💩",
+    "text": "378"
+  },
+  "174+Wind": {
+    "emoji": "️⃣",
+    "text": "191"
+  },
+  "191+191": {
+    "emoji": "💩",
+    "text": "382"
+  },
+  "382+Fire": {
+    "emoji": "💩",
+    "text": "383"
+  },
+  "194+194": {
+    "emoji": "💩",
+    "text": "388"
+  },
+  "92+Tornado": {
+    "emoji": "⬜",
+    "text": "93"
+  },
+  "300+93": {
+    "emoji": "💩",
+    "text": "393"
+  },
+  "Mountain Range+Volcano": {
+    "emoji": "🌋",
+    "text": "Yellowstone"
+  },
+  "March+Yellowstone": {
+    "emoji": "🗓️//",
+    "text": "March 29, 1980"
+  },
+  "Engine+Lightning": {
+    "emoji": "🚗",
+    "text": "Tesla"
+  },
+  "Tesla+Tesla": {
+    "emoji": "🌐",
+    "text": "Tesla Tower"
+  },
+  "March 29, 1980+Tesla Tower": {
+    "emoji": "💩",
+    "text": "399"
+  },
+  "Rocket+Whale": {
+    "emoji": "🐋",
+    "text": "Space Whale"
+  },
+  "Fjord+Satellite": {
+    "emoji": "🌐",
+    "text": "Internet"
+  },
+  "Internet+Space Whale": {
+    "emoji": "🔍",
+    "text": "404"
+  },
+  "404+Wind": {
+    "emoji": "🚗",
+    "text": "405"
+  },
+  "405+Fire": {
+    "emoji": "💔",
+    "text": "406"
+  },
+  "406+Water": {
+    "emoji": "📞",
+    "text": "407"
+  },
+  "407+Fire": {
+    "emoji": "⬜",
+    "text": "408"
+  },
+  "408+Water": {
+    "emoji": "🧼",
+    "text": "409"
+  },
+  "206+Water": {
+    "emoji": "💩",
+    "text": "207"
+  },
+  "207+207": {
+    "emoji": "📞",
+    "text": "414"
+  },
+  "104+104": {
+    "emoji": "⬜",
+    "text": "208"
+  },
+  "208+Water": {
+    "emoji": "💩",
+    "text": "209"
+  },
+  "209+209": {
+    "emoji": "☕",
+    "text": "418"
+  },
+  "420+Hangover": {
+    "emoji": "💩",
+    "text": "421"
+  },
+  "421+Water": {
+    "emoji": "💩",
+    "text": "422"
+  },
+  "420+7": {
+    "emoji": "🔢",
+    "text": "427"
+  },
+  "420+Engine": {
+    "emoji": "🚗",
+    "text": "V8"
+  },
+  "420+V8": {
+    "emoji": "🔢",
+    "text": "428"
+  },
+  "428+Water": {
+    "emoji": "💩",
+    "text": "429"
+  },
+  "429+Water": {
+    "emoji": "🚗",
+    "text": "430"
+  },
+  "Dandelion Patch+Vampire": {
+    "emoji": "🌹",
+    "text": "Vampire Flower"
+  },
+  "Number+Vampire Flower": {
+    "emoji": "🔳",
+    "text": "13"
+  },
+  "13+Weed": {
+    "emoji": "🌿",
+    "text": "420"
+  },
+  "13+420": {
+    "emoji": "🏏",
+    "text": "433"
+  },
+  "V16+Volcano": {
+    "emoji": "💦",
+    "text": "V17"
+  },
+  "420+V17": {
+    "emoji": "💩",
+    "text": "437"
+  },
+  "Bong+Weed": {
+    "emoji": "🍃",
+    "text": "Stoner"
+  },
+  "Earth+Stoner": {
+    "emoji": "🚜",
+    "text": "Farmer"
+  },
+  "Farmer+Farmer": {
+    "emoji": "🏡",
+    "text": "Village"
+  },
+  "Earth+Village": {
+    "emoji": "🏙️",
+    "text": "City"
+  },
+  "City+Farmer": {
+    "emoji": "💸",
+    "text": "Tax"
+  },
+  "Stoner+Tax": {
+    "emoji": "🌿",
+    "text": "420"
+  },
+  "420+Tax": {
+    "emoji": "🔢",
+    "text": "440"
+  },
+  "Eleven+Fire": {
+    "emoji": "🚒",
+    "text": "Firefighter"
+  },
+  "Firefighter+Firefighter": {
+    "emoji": "🚒",
+    "text": "Fire Truck"
+  },
+  "Fire Truck+Twenty-Two": {
+    "emoji": "⬜",
+    "text": "222"
+  },
+  "222+222": {
+    "emoji": "⬜",
+    "text": "444"
+  },
+  "444+Duck": {
+    "emoji": "💩",
+    "text": "445"
+  },
+  "224+Water": {
+    "emoji": "💫",
+    "text": "225"
+  },
+  "225+225": {
+    "emoji": "🔟",
+    "text": "450"
+  },
+  "112+Fire": {
+    "emoji": "⬜",
+    "text": "113"
+  },
+  "113+113": {
+    "emoji": "⬜",
+    "text": "226"
+  },
+  "226+226": {
+    "emoji": "🔢",
+    "text": "452"
+  },
+  "452+Fire": {
+    "emoji": "🔢",
+    "text": "453"
+  },
+  "112+Wind": {
+    "emoji": "1️⃣2️",
+    "text": "123"
+  },
+  "123+Fire": {
+    "emoji": "🔢",
+    "text": "456"
+  },
+  "456+Fire": {
+    "emoji": "🔢",
+    "text": "457"
+  },
+  "Fire+Kite": {
+    "emoji": "🎆",
+    "text": "Fireworks"
+  },
+  "420+Kite": {
+    "emoji": "💨",
+    "text": "High"
+  },
+  "High+Weed": {
+    "emoji": "🍃",
+    "text": "Stoned"
+  },
+  "Fireworks+Stoned": {
+    "emoji": "🇺🇸",
+    "text": "4th of July"
+  },
+  "4th of July+Weed": {
+    "emoji": "🇺🇸",
+    "text": "Independence Day"
+  },
+  "Independence Day+Stoned": {
+    "emoji": "🌿",
+    "text": "4/20"
+  },
+  "4/20+420": {
+    "emoji": "🔢",
+    "text": "460"
+  },
+  "Fireworks+Kite": {
+    "emoji": "🦋",
+    "text": "Firefly"
+  },
+  "420+Mountain": {
+    "emoji": "🏔️",
+    "text": "Mount Everest"
+  },
+  "420+Mount Everest": {
+    "emoji": "💨",
+    "text": "420.8848"
+  },
+  "420.8848+Firefly": {
+    "emoji": "🔢",
+    "text": "42"
+  },
+  "42+420": {
+    "emoji": "⬜",
+    "text": "462"
+  },
+  "Bush+Number": {
+    "emoji": "🎃",
+    "text": "43"
+  },
+  "43+Weed": {
+    "emoji": "🌿",
+    "text": "420"
+  },
+  "420+43": {
+    "emoji": "💦",
+    "text": "463"
+  },
+  "116+116": {
+    "emoji": "⬜",
+    "text": "232"
+  },
+  "232+232": {
+    "emoji": "🔢",
+    "text": "464"
+  },
+  "460+Fire": {
+    "emoji": "⬜",
+    "text": "466"
+  },
+  "466+Fire": {
+    "emoji": "💫",
+    "text": "467"
+  },
+  "236+236": {
+    "emoji": "💦",
+    "text": "472"
+  },
+  "238+238": {
+    "emoji": "💦",
+    "text": "476"
+  },
+  "238+Water": {
+    "emoji": "️⃣️",
+    "text": "239"
+  },
+  "239+239": {
+    "emoji": "💩",
+    "text": "478"
+  },
+  "420+62": {
+    "emoji": "💦",
+    "text": "482"
+  },
+  "440+Tax": {
+    "emoji": "📞",
+    "text": "486"
+  },
+  "244+244": {
+    "emoji": "🔢",
+    "text": "488"
+  },
+  "Dandelion+Fish": {
+    "emoji": "🐡",
+    "text": "Pufferfish"
+  },
+  "Pufferfish+Water": {
+    "emoji": "🐡",
+    "text": "Blowfish"
+  },
+  "Blowfish+Weed": {
+    "emoji": "💦",
+    "text": "Blowjob"
+  },
+  "69+Weed": {
+    "emoji": "🌿",
+    "text": "420"
+  },
+  "420+69": {
+    "emoji": "💩",
+    "text": "489"
+  },
+  "123+123": {
+    "emoji": "⬜",
+    "text": "246"
+  },
+  "246+246": {
+    "emoji": "💩",
+    "text": "492"
+  },
+  "124+124": {
+    "emoji": "⬜",
+    "text": "248"
+  },
+  "248+248": {
+    "emoji": "⬜",
+    "text": "496"
+  },
+  "Dandelion+Tire": {
+    "emoji": "💨",
+    "text": "Blowout"
+  },
+  "Blowout+Fireworks": {
+    "emoji": "🇺🇸",
+    "text": "Independence Day"
+  },
+  "Independence Day+Race": {
+    "emoji": "⬜",
+    "text": "500"
+  },
+  "405+Mirror": {
+    "emoji": "💩",
+    "text": "504"
+  },
+  "126+126": {
+    "emoji": "⬜",
+    "text": "252"
+  },
+  "252+Water": {
+    "emoji": "⬜",
+    "text": "253"
+  },
+  "253+253": {
+    "emoji": "️⃣",
+    "text": "506"
+  },
+  "506+Water": {
+    "emoji": "️⃣",
+    "text": "507"
+  },
+  "255+255": {
+    "emoji": "🚬",
+    "text": "510"
+  },
+  "257+257": {
+    "emoji": "🇷🇪",
+    "text": "514"
+  },
+  "514+Water": {
+    "emoji": "💩",
+    "text": "515"
+  },
+  "258+Water": {
+    "emoji": "💩",
+    "text": "259"
+  },
+  "259+259": {
+    "emoji": "️⃣️",
+    "text": "518"
+  },
+  "103+420": {
+    "emoji": "💩",
+    "text": "523"
+  },
+  "104+Weed": {
+    "emoji": "🌿",
+    "text": "420"
+  },
+  "104+420": {
+    "emoji": "💫",
+    "text": "524"
+  },
+  "105+420": {
+    "emoji": "💫",
+    "text": "525"
   }
 }
