@@ -18,7 +18,6 @@ function saveRecipes(recipes) {
 function buildURL(item) {
     const safeItem = encodeURIComponent(item);
     const target = `https://infinibrowser.wiki/api/recipe?id=${safeItem}`;
-    return encodeURIComponent(target);
 }
 
 // =========================
