@@ -37,7 +37,6 @@ button {
     white-space: pre-line;
 }
 
-/* Bottom-right live counter */
 #counterBox {
     position: fixed;
     bottom: 20px;
