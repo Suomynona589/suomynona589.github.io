@@ -10,19 +10,15 @@ function saveRecipes(recipes) {
 async function fetchRecipes(item) {
     const api = `https://infinibrowser.wiki/api/recipe?id=${encodeURIComponent(item)}`;
 
-    // CORS bypass proxy
+    // CORS bypass
     const url = "https://corsproxy.io/?" + encodeURIComponent(
   `https://infinibrowser.wiki/api/recipe?id=${item}`
 );
 
-
     const res = await fetch(url);
     if (!res.ok) throw new Error("HTTP " + res.status);
 
-    // The page is raw text, so read it as text first
     const raw = await res.text();
-
-    // Then parse JSON manually
     return JSON.parse(raw);
 }
 
@@ -43,6 +39,7 @@ document.getElementById("fetchBtn").onclick = async () => {
 
         let recipes = loadRecipes();
         let added = 0;
+        let addedList = [];
 
         steps.forEach(step => {
             const key = `${step.a.id}+${step.b.id}`;
@@ -52,11 +49,20 @@ document.getElementById("fetchBtn").onclick = async () => {
                     text: step.result.id
                 };
                 added++;
+                addedList.push(`${step.result.emoji} ${step.result.id}`);
             }
         });
 
         saveRecipes(recipes);
-        status.textContent = `Done. Added ${added} new recipe(s).`;
+
+        if (added === 0) {
+            status.textContent = "Done. No new recipes were added.";
+        } else {
+            status.textContent =
+                `Done. Added ${added} new recipe(s):\n` +
+                addedList.join("\n");
+        }
+
     } catch (err) {
         status.textContent = "Error: " + err.message;
         console.error(err);
