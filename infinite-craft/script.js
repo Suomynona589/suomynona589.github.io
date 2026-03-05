@@ -57,8 +57,8 @@ function createFloating(x, y, item) {
 
 function moveFloating(x, y) {
   if (!floating) return;
-  floating.style.left = x - 40 + "px";
-  floating.style.top = y - 18 + "px";
+  floating.style.left = x + "px";
+  floating.style.top = y + "px";
   highlightMix(x, y);
 }
 
@@ -88,8 +88,8 @@ function place(x, y, emoji, text) {
   el.dataset.text = text;
   el.dataset.emoji = emoji;
   el.innerHTML = `<span class="emoji">${emoji}</span><span class="label">${text}</span>`;
-  el.style.left = x - 40 + "px";
-  el.style.top = y - 18 + "px";
+  el.style.left = x + "px";
+  el.style.top = y + "px";
   el.addEventListener("mousedown", ev => startDragPlaced(ev, el));
   c.appendChild(el);
   placed.push(el);
