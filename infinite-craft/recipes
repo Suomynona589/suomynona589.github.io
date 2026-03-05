@@ -1,0 +1,3506 @@
+{
+  "Fire+Water": {
+    "emoji": "💨",
+    "text": "Steam"
+  },
+  "Water+Water": {
+    "emoji": "🌊",
+    "text": "Lake"
+  },
+  "Lake+Water": {
+    "emoji": "🌊",
+    "text": "Ocean"
+  },
+  "Ocean+Water": {
+    "emoji": "🐟",
+    "text": "Fish"
+  },
+  "Fire+Steam": {
+    "emoji": "🚗",
+    "text": "Engine"
+  },
+  "Engine+Steam": {
+    "emoji": "🚂",
+    "text": "Train"
+  },
+  "Train+Water": {
+    "emoji": "🚤",
+    "text": "Submarine"
+  },
+  "Earth+Wind": {
+    "emoji": "🌫️",
+    "text": "Dust"
+  },
+  "Fish+Lake": {
+    "emoji": "🎣",
+    "text": "Fishing"
+  },
+  "Dust+Fishing": {
+    "emoji": "🎣",
+    "text": "Bait"
+  },
+  "Bait+Earth": {
+    "emoji": "🪱",
+    "text": "Worm"
+  },
+  "Earth+Worm": {
+    "emoji": "🪱",
+    "text": "Earthworm"
+  },
+  "Water+Wind": {
+    "emoji": "🌊",
+    "text": "Wave"
+  },
+  "Fire+Wind": {
+    "emoji": "💨",
+    "text": "Smoke"
+  },
+  "Earth+Wave": {
+    "emoji": "🏖️",
+    "text": "Sand"
+  },
+  "Sand+Water": {
+    "emoji": "🏖️",
+    "text": "Beach"
+  },
+  "Fire+Sand": {
+    "emoji": "🥃",
+    "text": "Glass"
+  },
+  "Fire+Glass": {
+    "emoji": "🔍",
+    "text": "Lens"
+  },
+  "Beach+Lens": {
+    "emoji": "📷",
+    "text": "Camera"
+  },
+  "Beach+Camera": {
+    "emoji": "🤳",
+    "text": "Selfie"
+  },
+  "Selfie+Smoke": {
+    "emoji": "💨",
+    "text": "Vape"
+  },
+  "Camera+Vape": {
+    "emoji": "📹",
+    "text": "Vlog"
+  },
+  "Fire+Vlog": {
+    "emoji": "📹",
+    "text": "Vlogger"
+  },
+  "Engine+Vlogger": {
+    "emoji": "📹",
+    "text": "YouTuber"
+  },
+  "Engine+Engine": {
+    "emoji": "🚀",
+    "text": "Rocket"
+  },
+  "Engine+Rocket": {
+    "emoji": "🚀",
+    "text": "Space Ship"
+  },
+  "Space Ship+Steam": {
+    "emoji": "⏰",
+    "text": "Time Machine"
+  },
+  "Steam+Time Machine": {
+    "emoji": "⏰",
+    "text": "Time Travel"
+  },
+  "Earth+Rocket": {
+    "emoji": "🌙",
+    "text": "Moon"
+  },
+  "Fire+Moon": {
+    "emoji": "🌑",
+    "text": "Eclipse"
+  },
+  "Eclipse+Time Travel": {
+    "emoji": "😵",
+    "text": "Paradox"
+  },
+  "Paradox+YouTuber": {
+    "emoji": "🤓",
+    "text": "MatPat"
+  },
+  "Rocket+Train": {
+    "emoji": "🚅",
+    "text": "Bullet Train"
+  },
+  "Rocket+Rocket": {
+    "emoji": "🛰️",
+    "text": "Satellite"
+  },
+  "Earth+Water": {
+    "emoji": "🌱",
+    "text": "Plant"
+  },
+  "Plant+Water": {
+    "emoji": "🐊",
+    "text": "Swamp"
+  },
+  "Earth+Plant": {
+    "emoji": "🌳",
+    "text": "Tree"
+  },
+  "Tree+Water": {
+    "emoji": "🌊",
+    "text": "River"
+  },
+  "Earth+River": {
+    "emoji": "⬇️",
+    "text": "Delta"
+  },
+  "Earth+Earth": {
+    "emoji": "🏔️",
+    "text": "Mountain"
+  },
+  "Plant+Wind": {
+    "emoji": "🌼",
+    "text": "Dandelion"
+  },
+  "Wind+Wind": {
+    "emoji": "🌪️",
+    "text": "Tornado"
+  },
+  "Tornado+Tornado": {
+    "emoji": "🌀",
+    "text": "Hurricane"
+  },
+  "Hurricane+Steam": {
+    "emoji": "🛳️",
+    "text": "Steamboat"
+  },
+  "Plant+Steamboat": {
+    "emoji": "🧶",
+    "text": "Cotton"
+  },
+  "Earth+Engine": {
+    "emoji": "🚜",
+    "text": "Tractor"
+  },
+  "Dust+Wind": {
+    "emoji": "🌪️",
+    "text": "Sandstorm"
+  },
+  "Dust+Earth": {
+    "emoji": "🪐",
+    "text": "Planet"
+  },
+  "Planet+Sandstorm": {
+    "emoji": "🪐",
+    "text": "Mars"
+  },
+  "Smoke+Water": {
+    "emoji": "🌫️",
+    "text": "Fog"
+  },
+  "Fog+Plant": {
+    "emoji": "🍄",
+    "text": "Mushroom"
+  },
+  "Fire+Planet": {
+    "emoji": "☀️",
+    "text": "Sun"
+  },
+  "Mushroom+Sun": {
+    "emoji": "😊",
+    "text": "Smile"
+  },
+  "Delta+Fire": {
+    "emoji": "🗿",
+    "text": "Pyramid"
+  },
+  "Pyramid+Water": {
+    "emoji": "🪦",
+    "text": "Tomb"
+  },
+  "Tomb+Water": {
+    "emoji": "🐫",
+    "text": "Moses"
+  },
+  "Moses+Water": {
+    "emoji": "👋",
+    "text": "Parting"
+  },
+  "Parting+Wave": {
+    "emoji": "👋",
+    "text": "Goodbye"
+  },
+  "Goodbye+Hurricane": {
+    "emoji": "👋",
+    "text": "Hello"
+  },
+  "Hello+Wave": {
+    "emoji": "👋",
+    "text": "Hi"
+  },
+  "Dandelion+Water": {
+    "emoji": "🍷",
+    "text": "Wine"
+  },
+  "River+Wine": {
+    "emoji": "🍅",
+    "text": "Vinegar"
+  },
+  "Vinegar+Vinegar": {
+    "emoji": "🍄",
+    "text": "Acid"
+  },
+  "Acid+River": {
+    "emoji": "📈",
+    "text": "PH"
+  },
+  "Earth+PH": {
+    "emoji": "💫",
+    "text": "Phosphorus"
+  },
+  "Earth+Steamboat": {
+    "emoji": "🏝️",
+    "text": "Island"
+  },
+  "Earth+Island": {
+    "emoji": "🌎",
+    "text": "Continent"
+  },
+  "Acid+Continent": {
+    "emoji": "🦘",
+    "text": "Australia"
+  },
+  "Plant+Steam": {
+    "emoji": "🍵",
+    "text": "Tea"
+  },
+  "Wave+Wind": {
+    "emoji": "⛈️",
+    "text": "Storm"
+  },
+  "Storm+Tea": {
+    "emoji": "🌪️",
+    "text": "Tempest"
+  },
+  "Earth+Tractor": {
+    "emoji": "🐄",
+    "text": "Farm"
+  },
+  "Wind+Wine": {
+    "emoji": "🎈",
+    "text": "Balloon"
+  },
+  "Sandstorm+Sun": {
+    "emoji": "🏜️",
+    "text": "Desert"
+  },
+  "Lake+Plant": {
+    "emoji": "🌸",
+    "text": "Lily"
+  },
+  "Lily+Water": {
+    "emoji": "🐸",
+    "text": "Pond"
+  },
+  "Lily+Pond": {
+    "emoji": "🐸",
+    "text": "Frog"
+  },
+  "Pond+Wine": {
+    "emoji": "👊",
+    "text": "Punch"
+  },
+  "Punch+Punch": {
+    "emoji": "👊",
+    "text": "Fist"
+  },
+  "Fist+Frog": {
+    "emoji": "🐸",
+    "text": "Karate Frog"
+  },
+  "Karate Frog+Storm": {
+    "emoji": "🈚",
+    "text": "Katakana"
+  },
+  "Fire+Katakana": {
+    "emoji": "ひらがな",
+    "text": "Hiragana"
+  },
+  "Lake+Satellite": {
+    "emoji": "🔍",
+    "text": "Google"
+  },
+  "Google+Hiragana": {
+    "emoji": "🔠",
+    "text": "Google Translate"
+  },
+  "Google Translate+Hiragana": {
+    "emoji": "ひらがな",
+    "text": "ひらがな"
+  },
+  "Rocket+Wind": {
+    "emoji": "🪁",
+    "text": "Kite"
+  },
+  "Kite+Wind": {
+    "emoji": "✈️",
+    "text": "Flying"
+  },
+  "Engine+Kite": {
+    "emoji": "✈️",
+    "text": "Airplane"
+  },
+  "Airplane+Flying": {
+    "emoji": "✈️",
+    "text": "Pilot"
+  },
+  "Kite+Pilot": {
+    "emoji": "🤸",
+    "text": "Stunt"
+  },
+  "Steam+Stunt": {
+    "emoji": "🤸",
+    "text": "Stuntman"
+  },
+  "Airplane+Stunt": {
+    "emoji": "🔄",
+    "text": "Loop"
+  },
+  "Loop+Stuntman": {
+    "emoji": "🌀",
+    "text": "Loop the Loop"
+  },
+  "Desert+Wine": {
+    "emoji": "💑",
+    "text": "Date"
+  },
+  "Flying+Water": {
+    "emoji": "🐦",
+    "text": "Bird"
+  },
+  "Bird+Date": {
+    "emoji": "🐦",
+    "text": "Tweet"
+  },
+  "Wine+Wine": {
+    "emoji": "🍾",
+    "text": "Bottle"
+  },
+  "Bottle+Island": {
+    "emoji": "💬",
+    "text": "Message"
+  },
+  "Earth+Message": {
+    "emoji": "📝",
+    "text": "Letter"
+  },
+  "Balloon+Fire": {
+    "emoji": "💥",
+    "text": "Pop"
+  },
+  "Dandelion+Pop": {
+    "emoji": "🌠",
+    "text": "Wish"
+  },
+  "Wish+Wish": {
+    "emoji": "⭐️",
+    "text": "Star"
+  },
+  "Mountain+Mountain": {
+    "emoji": "🏔️",
+    "text": "Mountain Range"
+  },
+  "Dandelion+Plant": {
+    "emoji": "🌿",
+    "text": "Weed"
+  },
+  "Water+Weed": {
+    "emoji": "🌿",
+    "text": "Bong"
+  },
+  "Bong+Mountain Range": {
+    "emoji": "🏔️",
+    "text": "Smoky Mountains"
+  },
+  "Mountain Range+Smoky Mountains": {
+    "emoji": "🏔️",
+    "text": "Appalachian Mountains"
+  },
+  "Dandelion+Engine": {
+    "emoji": "🚁",
+    "text": "Helicopter"
+  },
+  "Helicopter+Mountain": {
+    "emoji": "🚑",
+    "text": "Rescue"
+  },
+  "Rescue+Rescue": {
+    "emoji": "🚑",
+    "text": "Ambulance"
+  },
+  "Ambulance+Earth": {
+    "emoji": "🏥",
+    "text": "Hospital"
+  },
+  "Appalachian Mountains+Hospital": {
+    "emoji": "🔪",
+    "text": "Appendectomy"
+  },
+  "Fire+Pond": {
+    "emoji": "🍲",
+    "text": "Soup"
+  },
+  "Airplane+Soup": {
+    "emoji": "🥣",
+    "text": "Soup Plane"
+  },
+  "Satellite+Soup Plane": {
+    "emoji": "🛩️",
+    "text": "Spy Plane"
+  },
+  "Lake+Spy Plane": {
+    "emoji": "🛩️",
+    "text": "U-2"
+  },
+  "Engine+Plant": {
+    "emoji": "🚗",
+    "text": "Car"
+  },
+  "Car+Earth": {
+    "emoji": "🔩",
+    "text": "Tire"
+  },
+  "Car+Tire": {
+    "emoji": "🏁",
+    "text": "Race"
+  },
+  "Earth+Race": {
+    "emoji": "🏃",
+    "text": "Marathon"
+  },
+  "Marathon+Marathon": {
+    "emoji": "🌌",
+    "text": "Ultra"
+  },
+  "Fog+Planet": {
+    "emoji": "♀️",
+    "text": "Venus"
+  },
+  "Ultra+Venus": {
+    "emoji": "🪐",
+    "text": "Ultravenus"
+  },
+  "Lily+Wine": {
+    "emoji": "👃",
+    "text": "Perfume"
+  },
+  "Lily+Wave": {
+    "emoji": "🧜‍♀️",
+    "text": "Mermaid"
+  },
+  "Mermaid+Wind": {
+    "emoji": "🧜‍♀️",
+    "text": "Ariel"
+  },
+  "Pyramid+Satellite": {
+    "emoji": "👀",
+    "text": "Eye"
+  },
+  "Tomb+Wine": {
+    "emoji": "🧛",
+    "text": "Vampire"
+  },
+  "Soup+Vampire": {
+    "emoji": "🧮",
+    "text": "Count"
+  },
+  "Count+Count": {
+    "emoji": "🔢",
+    "text": "Number"
+  },
+  "Mountain+Number": {
+    "emoji": "8️⃣",
+    "text": "8"
+  },
+  "8+8": {
+    "emoji": "🔢",
+    "text": "16 (88)"
+  },
+  "Acid+Tree": {
+    "emoji": "🍍",
+    "text": "Pineapple"
+  },
+  "Engine+Pineapple": {
+    "emoji": "🍍",
+    "text": "Pineapple Express"
+  },
+  "Continent+Earth": {
+    "emoji": "🌄",
+    "text": "Land"
+  },
+  "Google Translate+Land": {
+    "emoji": "💬",
+    "text": "Language"
+  },
+  "Language+Language": {
+    "emoji": "🔠",
+    "text": "Translation"
+  },
+  "Dust+Fire": {
+    "emoji": "🌋",
+    "text": "Ash"
+  },
+  "Ash+Fire": {
+    "emoji": "🔥",
+    "text": "Phoenix"
+  },
+  "Ash+Phoenix": {
+    "emoji": "🌱",
+    "text": "Rebirth"
+  },
+  "Rebirth+Tea": {
+    "emoji": "🍵",
+    "text": "Re-Tea"
+  },
+  "Re-Tea+Translation": {
+    "emoji": "🔁",
+    "text": "Retranslation"
+  },
+  "Tree+Wish": {
+    "emoji": "💵",
+    "text": "Money"
+  },
+  "Money+Steamboat": {
+    "emoji": "💰",
+    "text": "Rich"
+  },
+  "Dust+Plant": {
+    "emoji": "🌱",
+    "text": "Pollen"
+  },
+  "Pollen+Water": {
+    "emoji": "🍯",
+    "text": "Honey"
+  },
+  "Steam+Train": {
+    "emoji": "🚂",
+    "text": "Locomotive"
+  },
+  "Honey+Locomotive": {
+    "emoji": "🐝",
+    "text": "Bee Train"
+  },
+  "Bee Train+Money": {
+    "emoji": "👾",
+    "text": "Anime"
+  },
+  "Anime+Bee Train": {
+    "emoji": "🎮",
+    "text": ".hack"
+  },
+  ".hack+Steam": {
+    "emoji": "🎮",
+    "text": ".steam"
+  },
+  "Acid+Sandstorm": {
+    "emoji": "🥃",
+    "text": "Glass"
+  },
+  "Lens+Water": {
+    "emoji": "🔬",
+    "text": "Microscope"
+  },
+  "Earth+Microscope": {
+    "emoji": "🦠",
+    "text": "Bacteria"
+  },
+  ".steam+Bacteria": {
+    "emoji": "🌿",
+    "text": ".life"
+  },
+  "Mars+Plant": {
+    "emoji": "🥔",
+    "text": "Potato"
+  },
+  "Engine+Potato": {
+    "emoji": "🥔",
+    "text": "Mr. Potato Head"
+  },
+  "Date+Sun": {
+    "emoji": "📅",
+    "text": "Calendar"
+  },
+  "Acid+Calendar": {
+    "emoji": "🐸",
+    "text": "Leap Year"
+  },
+  "Earth+Leap Year": {
+    "emoji": "🔁",
+    "text": "Leap Second"
+  },
+  "Delta+Stunt": {
+    "emoji": "🔁",
+    "text": "Flip"
+  },
+  "Flip+Leap Second": {
+    "emoji": "🔄",
+    "text": "Flip Second"
+  },
+  "Fire+Phosphorus": {
+    "emoji": "🔥",
+    "text": "Match"
+  },
+  "Dandelion+Weed": {
+    "emoji": "🌿",
+    "text": "Marijuana"
+  },
+  "Marijuana+Money": {
+    "emoji": "💼",
+    "text": "Business"
+  },
+  ".hack+Business": {
+    "emoji": "💻",
+    "text": ".com"
+  },
+  "Plant+Smoke": {
+    "emoji": "🕯️",
+    "text": "Incense"
+  },
+  "Incense+Swamp": {
+    "emoji": "🦟",
+    "text": "Mosquito"
+  },
+  "Mosquito+Perfume": {
+    "emoji": "💦",
+    "text": "Itch"
+  },
+  "Itch+Water": {
+    "emoji": "🐶",
+    "text": "Scratch"
+  },
+  ".com+Scratch": {
+    "emoji": "🎮",
+    "text": "Scratch.mit.edu"
+  },
+  "Delta+Ultravenus": {
+    "emoji": "🌌",
+    "text": "Delta Venus"
+  },
+  "Delta Venus+Marijuana": {
+    "emoji": "💋",
+    "text": "Anais Nin"
+  },
+  "Anais Nin+Water": {
+    "emoji": "💬",
+    "text": "Quote"
+  },
+  "Cotton+Delta Venus": {
+    "emoji": "🌙",
+    "text": "Tampax"
+  },
+  "Mountain+Tampax": {
+    "emoji": "🩸",
+    "text": "Period"
+  },
+  "Period+Smile": {
+    "emoji": "🙋",
+    "text": "Semicolon"
+  },
+  "Period+Phosphorus": {
+    "emoji": "🅿️",
+    "text": "P"
+  },
+  "P+P": {
+    "emoji": "💩",
+    "text": "PP"
+  },
+  "Lily+Mountain": {
+    "emoji": "❄️",
+    "text": "Snow"
+  },
+  "Australia+Snow": {
+    "emoji": "🙅",
+    "text": "No"
+  },
+  "Cotton+No": {
+    "emoji": "🚫",
+    "text": "Not"
+  },
+  "Star+Tornado": {
+    "emoji": "🕳️",
+    "text": "Black Hole"
+  },
+  "Black Hole+Tornado": {
+    "emoji": "🌀",
+    "text": "Singularity"
+  },
+  "Not+Singularity": {
+    "emoji": "🤝",
+    "text": "Plural"
+  },
+  "Re-Tea+Tempest": {
+    "emoji": "🌪️",
+    "text": "Tea Tempest"
+  },
+  "Hurricane+Tea Tempest": {
+    "emoji": "💁",
+    "text": "in a"
+  },
+  "in a+Quote": {
+    "emoji": "💬",
+    "text": "In Quotes"
+  },
+  "In Quotes+Plural": {
+    "emoji": "\"“”\"",
+    "text": "Quotation Marks"
+  },
+  "Farm+Not": {
+    "emoji": "🏙️",
+    "text": "City"
+  },
+  ".com+Cotton": {
+    "emoji": "🌴",
+    "text": "Compton"
+  },
+  "Compton+Quotation Marks": {
+    "emoji": "🤔",
+    "text": "“The”"
+  },
+  "Quotation Marks+ひらがな": {
+    "emoji": "❓",
+    "text": "「」"
+  },
+  "“The”+「」": {
+    "emoji": "📖",
+    "text": "「the」"
+  },
+  "No+Tweet": {
+    "emoji": "🗑️",
+    "text": "Delete"
+  },
+  "Delete+Loop the Loop": {
+    "emoji": "🔄",
+    "text": "Delete The Loop"
+  },
+  "Delete The Loop+Lake": {
+    "emoji": "❌",
+    "text": "Delete The Lake"
+  },
+  "Delete The Lake+Letter": {
+    "emoji": "❌",
+    "text": "Delete The E"
+  },
+  "Delete The E+Quotation Marks": {
+    "emoji": "❌",
+    "text": "Delete The Quotation Marks"
+  },
+  "Period+Rescue": {
+    "emoji": "‼️",
+    "text": "Full Stop"
+  },
+  "Delete The Quotation Marks+Full Stop": {
+    "emoji": "❌",
+    "text": "Delete The \".\""
+  },
+  "「the」+Delete The \".\"": {
+    "emoji": "❌",
+    "text": "Delete The \"the\""
+  },
+  "Appendectomy+Delete": {
+    "emoji": "🔗",
+    "text": "Append"
+  },
+  "Delete The E+Not": {
+    "emoji": "💍",
+    "text": "The One"
+  },
+  "Append+The One": {
+    "emoji": "📄",
+    "text": "The Append"
+  },
+  "Black Hole+U-2": {
+    "emoji": "🤖",
+    "text": "U-3"
+  },
+  "U-2+U-3": {
+    "emoji": "👍",
+    "text": "U-5"
+  },
+  "U-5+U-5": {
+    "emoji": "🤖",
+    "text": "U-10"
+  },
+  "Plural+U-10": {
+    "emoji": "🇺🇸",
+    "text": "U-20"
+  },
+  "8+Kite": {
+    "emoji": "🎮",
+    "text": "8-Bit"
+  },
+  "8-Bit+Letter": {
+    "emoji": "💻",
+    "text": "ASCII"
+  },
+  "Ariel+ASCII": {
+    "emoji": "🔤",
+    "text": "Unicode"
+  },
+  "Ultravenus+Unicode": {
+    "emoji": "❌",
+    "text": "U+0000"
+  },
+  "U-20+U+0000": {
+    "emoji": "❌",
+    "text": "U+0020"
+  },
+  "U-2+U-5": {
+    "emoji": "🤖",
+    "text": "U-7"
+  },
+  "U-7+U+0020": {
+    "emoji": "❌",
+    "text": "U+0027"
+  },
+  "Mosquito+Period": {
+    "emoji": "⚫",
+    "text": "Dot"
+  },
+  "Dot+Plural": {
+    "emoji": "⚫️",
+    "text": "Dots"
+  },
+  "Period+Train": {
+    "emoji": "💬",
+    "text": "Sentence"
+  },
+  "Sentence+Wind": {
+    "emoji": "💬",
+    "text": "Phrase"
+  },
+  "Phrase+Pineapple Express": {
+    "emoji": "🤖",
+    "text": "Phrase Express"
+  },
+  "Delete+Phrase Express": {
+    "emoji": "🚫",
+    "text": "Delete Phrase"
+  },
+  "Delete Phrase+Hi": {
+    "emoji": "🗑️",
+    "text": "Delete Hi"
+  },
+  "Quotation Marks+Retranslation": {
+    "emoji": "\"\"",
+    "text": "\"Quotation Marks\""
+  },
+  "Append+Rich": {
+    "emoji": "🔙",
+    "text": "Prepend"
+  },
+  "\"Quotation Marks\"+Prepend": {
+    "emoji": "🔄",
+    "text": "\"Prepend\""
+  },
+  "\"Prepend\"+U+0020": {
+    "emoji": "🔙",
+    "text": "\"prepend \""
+  },
+  "Phrase+Tweet": {
+    "emoji": "#️⃣",
+    "text": "Hashtag"
+  },
+  "Hashtag+Mr. Potato Head": {
+    "emoji": "🎩",
+    "text": "Mr. Hashtag"
+  },
+  "Prepend+Wind": {
+    "emoji": "🍳",
+    "text": "Prepare"
+  },
+  "Mr. Hashtag+Prepare": {
+    "emoji": "🎩",
+    "text": "Mr. Prepare Hashtag"
+  },
+  "Mr. Prepare Hashtag+Prepend": {
+    "emoji": "#🏷️",
+    "text": "Prepend Hashtag"
+  },
+  "Delete+Flip Second": {
+    "emoji": "❌",
+    "text": "Delete Second"
+  },
+  "Delete Second+Sentence": {
+    "emoji": "🗑️",
+    "text": "Delete First Sentence"
+  },
+  "Delete First Sentence+Letter": {
+    "emoji": "🔡",
+    "text": "Delete First Letter"
+  },
+  "City+Wine": {
+    "emoji": "🍺",
+    "text": "Drunken"
+  },
+  "Drunken+Quotation Marks": {
+    "emoji": "❓",
+    "text": "“”"
+  },
+  "Delete+Match": {
+    "emoji": "🎮",
+    "text": "Game"
+  },
+  "Not+Period": {
+    "emoji": "❓",
+    "text": "Question"
+  },
+  "\"Quotation Marks\"+Question": {
+    "emoji": "❓",
+    "text": "\"?\""
+  },
+  "\"?\"+Semicolon": {
+    "emoji": "❓",
+    "text": "\"?;\""
+  },
+  "\"?;\"+Semicolon": {
+    "emoji": "❌",
+    "text": "\";\""
+  },
+  "\";\"+ASCII": {
+    "emoji": "🤔",
+    "text": "\" \";"
+  },
+  "\" \";+Hi": {
+    "emoji": "👋",
+    "text": "\"Hi \""
+  },
+  "\"Hi \"+PP": {
+    "emoji": "👋",
+    "text": "\"hi Pp\""
+  },
+  "\";\"+Plural": {
+    "emoji": "🐍",
+    "text": "\"s\""
+  },
+  "\"hi Pp\"+\"s\"": {
+    "emoji": "👋",
+    "text": "\"hi Pps\""
+  },
+  "\"Quotation Marks\"+The Append": {
+    "emoji": "📖",
+    "text": "\"The Append\""
+  },
+  "\"The Append\"+U+0020": {
+    "emoji": "📄",
+    "text": "\"the Append \""
+  },
+  "\"the Append \"+U+0027": {
+    "emoji": "❌",
+    "text": "\"the Append ' \""
+  },
+  "\"the Append ' \"+Dots": {
+    "emoji": "🤔",
+    "text": "\"the Append ' ' \""
+  },
+  "\" \";+U+0027": {
+    "emoji": "🤔",
+    "text": "'"
+  },
+  "'+Eye": {
+    "emoji": "🤔",
+    "text": "'I'"
+  },
+  "'I'+16 (88)": {
+    "emoji": "👍",
+    "text": "'l'"
+  },
+  "'l'+\"the Append ' ' \"": {
+    "emoji": "📚",
+    "text": "\"the Append 'l' \""
+  },
+  "\"the Append 'l' \"+Delete The \"the\"": {
+    "emoji": "🅻",
+    "text": "Append 'l'"
+  },
+  "'l'+\"hi Pps\"": {
+    "emoji": "👋",
+    "text": "\"hi Ppl\""
+  },
+  "\"hi Ppl\"+Append 'l'": {
+    "emoji": "👋",
+    "text": "\"hi Ppll\""
+  },
+  "\"hi Ppll\"+Delete Hi": {
+    "emoji": "🤷‍♂️",
+    "text": "Ppll"
+  },
+  "\"prepend \"+Ppll": {
+    "emoji": "🔤",
+    "text": "\"prepend Ppll\""
+  },
+  "\"prepend Ppll\"+\"Quotation Marks\"": {
+    "emoji": "🤷‍♂️",
+    "text": "\"Ppll\""
+  },
+  ".life+\"Ppll\"": {
+    "emoji": "🌐",
+    "text": "\"ppll.life\""
+  },
+  "\"ppll.life\"+Prepend Hashtag": {
+    "emoji": "🌍",
+    "text": "#pplllife"
+  },
+  "\"Hi \"+#pplllife": {
+    "emoji": "👋",
+    "text": "\"hi #pplllife\""
+  },
+  "\"hi #pplllife\"+Delete First Letter": {
+    "emoji": "🤷‍♂️",
+    "text": "\"i #pplllife\""
+  },
+  "\"i #pplllife\"+Delete First Letter": {
+    "emoji": "🌍",
+    "text": "\"pplllife\""
+  },
+  "“”+\"pplllife\"": {
+    "emoji": "🌍",
+    "text": "“pplllife”"
+  },
+  "“pplllife”+PP": {
+    "emoji": "🌱",
+    "text": "Pplllife"
+  },
+  "Game+Pplllife": {
+    "emoji": "🎮",
+    "text": "Ppllifegame"
+  },
+  "Ppllifegame+Scratch.mit.edu": {
+    "emoji": "🐱‍💻",
+    "text": "Scratch Life"
+  },
+  "Plant+Swamp": {
+    "emoji": "🪲",
+    "text": "Venus Flytrap"
+  },
+  "Delta+Venus Flytrap": {
+    "emoji": "🌌",
+    "text": "Delta Venus"
+  },
+  "River+Tree": {
+    "emoji": "📃",
+    "text": "Paper"
+  },
+  "Paper+Plant": {
+    "emoji": "📚",
+    "text": "Book"
+  },
+  "Book+Delta": {
+    "emoji": "🔠",
+    "text": "Alphabet"
+  },
+  "Alphabet+Fire": {
+    "emoji": "🍲",
+    "text": "Alphabet Soup"
+  },
+  "Earth+Steam": {
+    "emoji": "💩",
+    "text": "Mud"
+  },
+  "Mud+Train": {
+    "emoji": "🐷",
+    "text": "Pig"
+  },
+  "Train+Train": {
+    "emoji": "🚉",
+    "text": "Train Station"
+  },
+  "Pig+Water": {
+    "emoji": "🐖",
+    "text": "Piggyback"
+  },
+  "Piggyback+Train Station": {
+    "emoji": "🤙",
+    "text": "Hitchhiker"
+  },
+  "Earth+Mud": {
+    "emoji": "🏺",
+    "text": "Clay"
+  },
+  "Clay+Plant": {
+    "emoji": "🥘",
+    "text": "Pot"
+  },
+  "Steam+Wave": {
+    "emoji": "🏄",
+    "text": "Surf"
+  },
+  "Surf+Wave": {
+    "emoji": "🏄",
+    "text": "Surfer"
+  },
+  "Surfer+Wind": {
+    "emoji": "🪁",
+    "text": "Kite"
+  },
+  "Dandelion+Wind": {
+    "emoji": "🌱",
+    "text": "Seed"
+  },
+  "Seed+Tree": {
+    "emoji": "🍎",
+    "text": "Apple"
+  },
+  "Engine+Wind": {
+    "emoji": "🌬️",
+    "text": "Windmill"
+  },
+  "Fire+Mud": {
+    "emoji": "🧱",
+    "text": "Brick"
+  },
+  "Water+Windmill": {
+    "emoji": "⚡️",
+    "text": "Energy"
+  },
+  "Brick+Brick": {
+    "emoji": "🧱",
+    "text": "Wall"
+  },
+  "Steam+Wall": {
+    "emoji": "🎨",
+    "text": "Graffiti"
+  },
+  "Tree+Venus Flytrap": {
+    "emoji": "🐆",
+    "text": "Carnivore"
+  },
+  "Carnivore+Wind": {
+    "emoji": "🦅",
+    "text": "Vulture"
+  },
+  "Carnivore+Vulture": {
+    "emoji": "🐕",
+    "text": "Hyena"
+  },
+  "Hyena+PH": {
+    "emoji": "➖",
+    "text": "Hyphen"
+  },
+  "Pop+Wind": {
+    "emoji": "💬",
+    "text": "Bubble"
+  },
+  "Balloon+Bubble": {
+    "emoji": "🧼",
+    "text": "Soap"
+  },
+  "Pot+Surf": {
+    "emoji": "🥔",
+    "text": "Potato"
+  },
+  "Mud+Vinegar": {
+    "emoji": "🌭",
+    "text": "Mustard"
+  },
+  "Potato+Smoke": {
+    "emoji": "🍟",
+    "text": "French Fries"
+  },
+  "French Fries+Water": {
+    "emoji": "🍟",
+    "text": "Soggy Fries"
+  },
+  "Mustard+Soggy Fries": {
+    "emoji": "🍟",
+    "text": "Mustard Fries"
+  },
+  "Delta+Potato": {
+    "emoji": "🍟",
+    "text": "Fries"
+  },
+  "Fries+Mustard Fries": {
+    "emoji": "💁",
+    "text": "With"
+  },
+  "Steam+Water": {
+    "emoji": "☁️",
+    "text": "Cloud"
+  },
+  "Balloon+Water": {
+    "emoji": "🐟",
+    "text": "Fish"
+  },
+  "Fish+Train": {
+    "emoji": "🎣",
+    "text": "Fishing"
+  },
+  "Alphabet+Fishing": {
+    "emoji": "🎣",
+    "text": "Phishing"
+  },
+  "Water+Wine": {
+    "emoji": "💦",
+    "text": "Holy Water"
+  },
+  "Fire+Holy Water": {
+    "emoji": "🧛",
+    "text": "Vampire"
+  },
+  "Apple+Vampire": {
+    "emoji": "🧮",
+    "text": "Count"
+  },
+  "Car+Car": {
+    "emoji": "🚚",
+    "text": "Truck"
+  },
+  "Seed+Truck": {
+    "emoji": "🚚",
+    "text": "Semi"
+  },
+  "Dust+Energy": {
+    "emoji": "⭐️",
+    "text": "Star"
+  },
+  "Ash+Ash": {
+    "emoji": "🪨",
+    "text": "Stone"
+  },
+  "Stone+Water": {
+    "emoji": "🪨",
+    "text": "Rock"
+  },
+  "Rock+Surfer": {
+    "emoji": "🎸",
+    "text": "Rockstar"
+  },
+  "Kite+Rockstar": {
+    "emoji": "🎸",
+    "text": "Bono"
+  },
+  "Bono+Water": {
+    "emoji": "🎸",
+    "text": "U2"
+  },
+  "Stone+Train Station": {
+    "emoji": "🗽",
+    "text": "Statue"
+  },
+  "Statue+Train Station": {
+    "emoji": "🌌",
+    "text": "Terminus"
+  },
+  "Fries+Terminus": {
+    "emoji": "🔚",
+    "text": "End"
+  },
+  "Graffiti+Number": {
+    "emoji": "🏷️",
+    "text": "Tag"
+  },
+  "Star+Wish": {
+    "emoji": "🌠",
+    "text": "Wish Upon A Star"
+  },
+  "Pop+Wish Upon A Star": {
+    "emoji": "🌟",
+    "text": "Wish Upon A Pop Star"
+  },
+  "Soap+Wish Upon A Pop Star": {
+    "emoji": "🧹",
+    "text": "Cleaning Up"
+  },
+  "Lake+Stone": {
+    "emoji": "🌅",
+    "text": "Lighthouse"
+  },
+  "Apple+Lighthouse": {
+    "emoji": "🚨",
+    "text": "Siren"
+  },
+  "End+Semi": {
+    "emoji": "🙋",
+    "text": "Semicolon"
+  },
+  "Number+Semicolon": {
+    "emoji": "❓",
+    "text": "1;"
+  },
+  "Black Hole+Dust": {
+    "emoji": "🌌",
+    "text": "Universe"
+  },
+  "Universe+Universe": {
+    "emoji": "🌌",
+    "text": "Multiverse"
+  },
+  "Stone+Tornado": {
+    "emoji": "🌨️",
+    "text": "Avalanche"
+  },
+  "Avalanche+Tornado": {
+    "emoji": "❄️",
+    "text": "Blizzard"
+  },
+  "Blizzard+Multiverse": {
+    "emoji": "📱",
+    "text": "Nexus"
+  },
+  "Lake+Rock": {
+    "emoji": "🏝️",
+    "text": "Island"
+  },
+  "Car+Continent": {
+    "emoji": "🇺🇸",
+    "text": "America"
+  },
+  "America+Tea": {
+    "emoji": "💸",
+    "text": "Taxes"
+  },
+  "Nexus+Taxes": {
+    "emoji": "🔜",
+    "text": "Next"
+  },
+  "Apple+Island": {
+    "emoji": "📱",
+    "text": "iPad"
+  },
+  "Alphabet+iPad": {
+    "emoji": "📱",
+    "text": "App"
+  },
+  "App+Fire": {
+    "emoji": "📱",
+    "text": "App Store"
+  },
+  "App Store+End": {
+    "emoji": "🔗",
+    "text": "Append"
+  },
+  "Append+Next": {
+    "emoji": "🔙",
+    "text": "Prepend"
+  },
+  "Alphabet+Taxes": {
+    "emoji": "🔠",
+    "text": "Alphabets"
+  },
+  "Alphabets+Prepend": {
+    "emoji": "🔤",
+    "text": "Alphabet Prepend"
+  },
+  "Continent+Surf": {
+    "emoji": "🦘",
+    "text": "Australia"
+  },
+  "Avalanche+Wind": {
+    "emoji": "❄️",
+    "text": "Snow"
+  },
+  "No+Pot": {
+    "emoji": "🚫",
+    "text": "Not"
+  },
+  "Plural+Tag": {
+    "emoji": "#️⃣",
+    "text": "Tags"
+  },
+  "Alphabet Prepend+Tags": {
+    "emoji": "🏷️",
+    "text": "Prepend Tags"
+  },
+  "Continent+Train Station": {
+    "emoji": "🇪🇺",
+    "text": "Europe"
+  },
+  "Europe+Pop": {
+    "emoji": "🎶",
+    "text": "Euro Pop"
+  },
+  "Ash+Euro Pop": {
+    "emoji": "🎶",
+    "text": "Ace of Base"
+  },
+  "Bubble+Universe": {
+    "emoji": "🌌",
+    "text": "Space"
+  },
+  "Phishing+Space": {
+    "emoji": "🚀",
+    "text": "Spacing"
+  },
+  "America+Delta Venus": {
+    "emoji": "💋",
+    "text": "Anais Nin"
+  },
+  "Quote+Semicolon": {
+    "emoji": "💬",
+    "text": "Quotation Mark"
+  },
+  "Alphabet Soup+Quotation Mark": {
+    "emoji": "🍲",
+    "text": "\"Alphabet Soup\""
+  },
+  "\"Alphabet Soup\"+Hitchhiker": {
+    "emoji": "🔢",
+    "text": "\"42\""
+  },
+  "\"42\"+Next": {
+    "emoji": "🔢",
+    "text": "\"43\""
+  },
+  "\"43\"+\"43\"": {
+    "emoji": "🍽️",
+    "text": "\"86\""
+  },
+  "\"86\"+Next": {
+    "emoji": "🔢",
+    "text": "\"87\""
+  },
+  "\"87\"+\"87\"": {
+    "emoji": "🔢",
+    "text": "\"174\""
+  },
+  "\"174\"+Next": {
+    "emoji": "🔢",
+    "text": "\"175\""
+  },
+  "\"175\"+U2": {
+    "emoji": "📅",
+    "text": "\"1980\""
+  },
+  "Cleaning Up+Quotation Mark": {
+    "emoji": "🧹",
+    "text": "Cleaning Up \"Quotation Mark\""
+  },
+  "Cleaning Up \"Quotation Mark\"+Universe": {
+    "emoji": "\"\"",
+    "text": "\"quotation Mark\""
+  },
+  "Quote+Siren": {
+    "emoji": "🎶",
+    "text": "Song"
+  },
+  "\"quotation Mark\"+Song": {
+    "emoji": "🎵",
+    "text": "\"Song\""
+  },
+  "Quote+Tag": {
+    "emoji": "#️⃣",
+    "text": "Hashtag"
+  },
+  "Hashtag+With": {
+    "emoji": "🤔",
+    "text": "#With"
+  },
+  "#With+Cloud": {
+    "emoji": "🚫",
+    "text": "#without"
+  },
+  "#without+Spacing": {
+    "emoji": "🚫",
+    "text": "#withoutspacing"
+  },
+  "#withoutspacing+Engine": {
+    "emoji": "🚫",
+    "text": "#withspaces"
+  },
+  "#withspaces+French Fries": {
+    "emoji": "🚀",
+    "text": "With Spaces"
+  },
+  "\"quotation Mark\"+1;": {
+    "emoji": "️⃣",
+    "text": "\"1\""
+  },
+  "\"1\"+\"1980\"": {
+    "emoji": "📅",
+    "text": "\"1981\""
+  },
+  "Song+Wish": {
+    "emoji": "🙏",
+    "text": "Prayer"
+  },
+  "Prayer+Wind": {
+    "emoji": "👻",
+    "text": "Spirit"
+  },
+  "Ace of Base+Spirit": {
+    "emoji": "🚦",
+    "text": "The Sign"
+  },
+  "Hyphen+The Sign": {
+    "emoji": "➖",
+    "text": "The Hyphen"
+  },
+  "Prepend Tags+The Hyphen": {
+    "emoji": "➖",
+    "text": "Prepend Hyphen"
+  },
+  "\"1980\"+Prepend Hyphen": {
+    "emoji": "📅",
+    "text": "\"1980-\""
+  },
+  "\"Song\"+Prepend Hyphen": {
+    "emoji": "🎵",
+    "text": "\"song-\""
+  },
+  "\"1980-\"+\"song-\"": {
+    "emoji": "🎶",
+    "text": "\"1980-song-\""
+  },
+  "\"1980-song-\"+Prepend Hashtag": {
+    "emoji": "🎶",
+    "text": "#1980-song-"
+  },
+  "#1980-song-+With Spaces": {
+    "emoji": "🎶",
+    "text": "1980 Song"
+  },
+  "\"1981\"+Prepend Hyphen": {
+    "emoji": "📅",
+    "text": "\"1981-\""
+  },
+  "\"1981-\"+\"song-\"": {
+    "emoji": "🎶",
+    "text": "\"1981-song-\""
+  },
+  "\"1981-song-\"+Prepend Hashtag": {
+    "emoji": "🎶",
+    "text": "#1981-song-"
+  },
+  "#1981-song-+With Spaces": {
+    "emoji": "🎶",
+    "text": "1981 Song"
+  },
+  "1980 Song+1981 Song": {
+    "emoji": "🎶",
+    "text": "1982 Song"
+  },
+  "1981 Song+1982 Song": {
+    "emoji": "🎶",
+    "text": "1983 Song"
+  },
+  "1982 Song+1983 Song": {
+    "emoji": "🎶",
+    "text": "1984 Song"
+  },
+  "1983 Song+1984 Song": {
+    "emoji": "🎶",
+    "text": "1985 Song"
+  },
+  "1984 Song+1985 Song": {
+    "emoji": "🎶",
+    "text": "1986 Song"
+  },
+  "1985 Song+1986 Song": {
+    "emoji": "🎶",
+    "text": "1987 Song"
+  },
+  "1986 Song+1987 Song": {
+    "emoji": "🎶",
+    "text": "1988 Song"
+  },
+  "1987 Song+1988 Song": {
+    "emoji": "🎶",
+    "text": "1989 Song"
+  },
+  "1988 Song+1989 Song": {
+    "emoji": "🎶",
+    "text": "1990 Song"
+  },
+  "Bong+Water": {
+    "emoji": "💦",
+    "text": "Bubbles"
+  },
+  "Bubbles+Water": {
+    "emoji": "🐟",
+    "text": "Fish"
+  },
+  "Earth+Fish": {
+    "emoji": "🐳",
+    "text": "Whale"
+  },
+  "Weed+Whale": {
+    "emoji": "🔪",
+    "text": "Killer"
+  },
+  "Bong+Killer": {
+    "emoji": "🔪",
+    "text": "Serial Killer"
+  },
+  "Killer+Serial Killer": {
+    "emoji": "🍽️",
+    "text": "Hannibal Lecter"
+  },
+  "Earth+Hannibal Lecter": {
+    "emoji": "🐑",
+    "text": "Silence of the Lambs"
+  },
+  "Water+Wave": {
+    "emoji": "🌊",
+    "text": "Tsunami"
+  },
+  "Silence of the Lambs+Tsunami": {
+    "emoji": "🌊🔇",
+    "text": "Silence Of The Waves"
+  },
+  "Delta Venus+Fire": {
+    "emoji": "🍆",
+    "text": "Erotica"
+  },
+  "Delta Venus+Erotica": {
+    "emoji": "💋",
+    "text": "Anais Nin"
+  },
+  "Planet+Planet": {
+    "emoji": "⭐️",
+    "text": "Star"
+  },
+  "Star+Swamp": {
+    "emoji": "🌌",
+    "text": "Quasar"
+  },
+  "Quasar+Quote": {
+    "emoji": "💬",
+    "text": "Quotation"
+  },
+  "Quasar+Quotation": {
+    "emoji": "💬",
+    "text": "Quotation Mark"
+  },
+  "Fire+Swamp": {
+    "emoji": "🐉",
+    "text": "Dragon"
+  },
+  "Dragon+Swamp": {
+    "emoji": "🦎",
+    "text": "Lizard"
+  },
+  "Earth+Lizard": {
+    "emoji": "🦖",
+    "text": "Dinosaur"
+  },
+  "Dinosaur+Swamp": {
+    "emoji": "🐊",
+    "text": "Swampasaurus"
+  },
+  "Dragon+Swampasaurus": {
+    "emoji": "🐉",
+    "text": "Dragonosaurus"
+  },
+  "Dragonosaurus+Quotation Mark": {
+    "emoji": "💩",
+    "text": "\""
+  },
+  "Fire+Sun": {
+    "emoji": "☀️",
+    "text": "Solar"
+  },
+  "Planet+Solar": {
+    "emoji": "💻",
+    "text": "System"
+  },
+  "Fire+System": {
+    "emoji": "💻",
+    "text": "Computer"
+  },
+  "Computer+Quote": {
+    "emoji": "💻",
+    "text": "Program"
+  },
+  "Program+Tree": {
+    "emoji": "💻",
+    "text": "Binary"
+  },
+  "\"+Binary": {
+    "emoji": "🔟",
+    "text": "\"10\""
+  },
+  "Dust+Dust": {
+    "emoji": "🏖️",
+    "text": "Sand"
+  },
+  "Glass+Steam": {
+    "emoji": "🪞",
+    "text": "Mirror"
+  },
+  "\"10\"+Mirror": {
+    "emoji": "🔢",
+    "text": "\"01\""
+  },
+  "Smoke+Wind": {
+    "emoji": "☁️",
+    "text": "Cloud"
+  },
+  "Cloud+Fire": {
+    "emoji": "⚡️",
+    "text": "Lightning"
+  },
+  "Sun+Wind": {
+    "emoji": "🌻",
+    "text": "Sunflower"
+  },
+  "Smoke+Sunflower": {
+    "emoji": "💨",
+    "text": "Smoke Signal"
+  },
+  "Lightning+Smoke Signal": {
+    "emoji": "⌨️",
+    "text": "Morse Code"
+  },
+  "\"01\"+Morse Code": {
+    "emoji": "🅰️",
+    "text": "\"A\""
+  },
+  "Mirror+Mud": {
+    "emoji": "🐷",
+    "text": "Pig"
+  },
+  "Dust+Pig": {
+    "emoji": "🐷",
+    "text": "Pigpen"
+  },
+  "\"A\"+Pigpen": {
+    "emoji": "🅱️",
+    "text": "\"b\""
+  },
+  "Earth+Planet": {
+    "emoji": "🌙",
+    "text": "Moon"
+  },
+  "Moon+Wind": {
+    "emoji": "🐺",
+    "text": "Werewolf"
+  },
+  "\"b\"+Werewolf": {
+    "emoji": "🤷‍♂️",
+    "text": "\"w\""
+  },
+  "Smoke Signal+Wind": {
+    "emoji": "💬",
+    "text": "Message"
+  },
+  "Message+Wind": {
+    "emoji": "🤫",
+    "text": "Whisper"
+  },
+  "Earth+Whisper": {
+    "emoji": "🪦",
+    "text": "Grave"
+  },
+  "Letter+Sunflower": {
+    "emoji": "🅰️",
+    "text": "A"
+  },
+  "A+Grave": {
+    "emoji": "ⓘ",
+    "text": "H"
+  },
+  "\"w\"+H": {
+    "emoji": "❓",
+    "text": "\"wh\""
+  },
+  "\"01\"+\"wh\"": {
+    "emoji": "🤔",
+    "text": "\"01wh\""
+  },
+  "Dust+Glass": {
+    "emoji": "🔭",
+    "text": "Telescope"
+  },
+  "Hurricane+Telescope": {
+    "emoji": "👀",
+    "text": "Eye"
+  },
+  "\"A\"+Eye": {
+    "emoji": "👁️",
+    "text": "\"I\""
+  },
+  "\"I\"+Tractor": {
+    "emoji": "🤡",
+    "text": "\"it\""
+  },
+  "\"01wh\"+\"it\"": {
+    "emoji": "🤔",
+    "text": "\"01whit\""
+  },
+  "Lake+Tampax": {
+    "emoji": "🩸",
+    "text": "Period"
+  },
+  "Period+Star": {
+    "emoji": "❓",
+    "text": "Punctuation"
+  },
+  "Earth+Fire": {
+    "emoji": "🌋",
+    "text": "Lava"
+  },
+  "Lava+Water": {
+    "emoji": "🪨",
+    "text": "Stone"
+  },
+  "Stone+Stone": {
+    "emoji": "🪨",
+    "text": "Boulder"
+  },
+  "Boulder+Sand": {
+    "emoji": "🏜️",
+    "text": "Sandstone"
+  },
+  "Letter+Sandstone": {
+    "emoji": "🗿",
+    "text": "Cuneiform"
+  },
+  "Cuneiform+Water": {
+    "emoji": "🌐",
+    "text": "Sumerian"
+  },
+  "Fire+Sumerian": {
+    "emoji": "🐊",
+    "text": "Gilgamesh"
+  },
+  "Fire+Gilgamesh": {
+    "emoji": "🐺",
+    "text": "Enkidu"
+  },
+  "Enkidu+Punctuation": {
+    "emoji": "➖",
+    "text": "En Dash"
+  },
+  "Beach+Lava": {
+    "emoji": "🌺",
+    "text": "Hawaii"
+  },
+  "Hawaii+Wind": {
+    "emoji": "🌺",
+    "text": "Hula"
+  },
+  "Fire+Hula": {
+    "emoji": "🔥",
+    "text": "Fire Dance"
+  },
+  "Cotton+Fire Dance": {
+    "emoji": "💃",
+    "text": "Flamenco"
+  },
+  "Flamenco+Quote": {
+    "emoji": "🇪🇸",
+    "text": "Spanish"
+  },
+  "En Dash+Spanish": {
+    "emoji": "🇪🇸",
+    "text": "En Español"
+  },
+  "\"it\"+En Español": {
+    "emoji": "👋",
+    "text": "\"lo\""
+  },
+  "\"01whit\"+\"lo\"": {
+    "emoji": "🤷‍♂️",
+    "text": "\"01whitlo\""
+  },
+  "Lightning+Telescope": {
+    "emoji": "📻",
+    "text": "Radio"
+  },
+  "Radio+Sand": {
+    "emoji": "📻",
+    "text": "CB"
+  },
+  "Erotica+Rock": {
+    "emoji": "💋",
+    "text": "Kiss"
+  },
+  "CB+Kiss": {
+    "emoji": "🍔",
+    "text": "Ck"
+  },
+  "\"01whitlo\"+Ck": {
+    "emoji": "🔍",
+    "text": "\"01whitlock\""
+  },
+  "Glass+Wind": {
+    "emoji": "🪟",
+    "text": "Window"
+  },
+  "Tornado+Window": {
+    "emoji": "💔",
+    "text": "Broken Window"
+  },
+  "Broken Window+Delta Venus": {
+    "emoji": "💔",
+    "text": "Broken Heart"
+  },
+  "Broken Heart+Letter": {
+    "emoji": "💔",
+    "text": "Ex"
+  },
+  "Ex+Program": {
+    "emoji": "🗑️",
+    "text": "Delete"
+  },
+  "Dragon+Lake": {
+    "emoji": "🐊",
+    "text": "Loch Ness Monster"
+  },
+  "Loch Ness Monster+Tea": {
+    "emoji": "🍵",
+    "text": "Tea Monster"
+  },
+  "Delete+Tea Monster": {
+    "emoji": "🚫",
+    "text": "Delete Monster"
+  },
+  "Lake+Mountain": {
+    "emoji": "🏞️",
+    "text": "Fjord"
+  },
+  "Fjord+Lightning": {
+    "emoji": "⚡️",
+    "text": "Thor"
+  },
+  "Planet+Thor": {
+    "emoji": "💥",
+    "text": "Thanos"
+  },
+  "Punctuation+Thanos": {
+    "emoji": "🌌",
+    "text": "The End"
+  },
+  "Delete Monster+The End": {
+    "emoji": "🚫",
+    "text": "Delete The End"
+  },
+  "\"01\"+Letter": {
+    "emoji": "🔢",
+    "text": "Number"
+  },
+  "Delete The End+Number": {
+    "emoji": "🔢",
+    "text": "Delete The Number"
+  },
+  "\"01whitlock\"+Delete The Number": {
+    "emoji": "🤷‍♂️",
+    "text": "Whitlock"
+  },
+  "Camera+Engine": {
+    "emoji": "🚗",
+    "text": "Car"
+  },
+  "Car+Cloud": {
+    "emoji": "🚗",
+    "text": "Flying Car"
+  },
+  "Flying Car+YouTuber": {
+    "emoji": "🌎",
+    "text": "MrBeast"
+  },
+  "Surf+Wind": {
+    "emoji": "🏄",
+    "text": "Surfing"
+  },
+  "Engine+Surfer": {
+    "emoji": "🏄‍♂️",
+    "text": "Jet Ski"
+  },
+  "Earth+Jet Ski": {
+    "emoji": "🏍️",
+    "text": "Dirt Bike"
+  },
+  "Jet Ski+Surfing": {
+    "emoji": "🏄",
+    "text": "Wakeboarding"
+  },
+  "Dirt Bike+Surf": {
+    "emoji": "🏍️",
+    "text": "Motocross"
+  },
+  "Motocross+Wakeboarding": {
+    "emoji": "🏄",
+    "text": "Wakeskating"
+  },
+  "Motocross+Wakeskating": {
+    "emoji": "🛹",
+    "text": "X Games"
+  },
+  "Surf+Surf": {
+    "emoji": "🌊",
+    "text": "Ocean"
+  },
+  "Lightning+Ocean": {
+    "emoji": "🦑",
+    "text": "Squid"
+  },
+  "Squid+X Games": {
+    "emoji": "👺",
+    "text": "Squid Games"
+  },
+  "Dandelion+Dandelion": {
+    "emoji": "🌼",
+    "text": "Dandelion Patch"
+  },
+  "Dandelion Patch+Lake": {
+    "emoji": "🦆",
+    "text": "Duck"
+  },
+  "Dandelion Patch+Steam": {
+    "emoji": "🎈",
+    "text": "Hot Air Balloon"
+  },
+  "Duck+Hot Air Balloon": {
+    "emoji": "🦆",
+    "text": "Donald Duck"
+  },
+  "Dandelion Patch+Donald Duck": {
+    "emoji": "💩",
+    "text": "Donald Trump"
+  },
+  "Hot Air Balloon+Water": {
+    "emoji": "🐟",
+    "text": "Fish"
+  },
+  "Fish+Tornado": {
+    "emoji": "🌪️",
+    "text": "Sharknado"
+  },
+  "Fishing+Whale": {
+    "emoji": "🐳",
+    "text": "Jonah"
+  },
+  "Jonah+Sharknado": {
+    "emoji": "🐳",
+    "text": "Jonah and the Whale"
+  },
+  "Jonah and the Whale+Sharknado": {
+    "emoji": "🌪️",
+    "text": "Sharknado 2: The Second One"
+  },
+  "Donald Trump+Sharknado 2: The Second One": {
+    "emoji": "💇",
+    "text": "Donald Trump’s Hair"
+  },
+  "Earth+Ocean": {
+    "emoji": "🏝️",
+    "text": "Island"
+  },
+  "Fish+Ocean": {
+    "emoji": "🦈",
+    "text": "Shark"
+  },
+  "Lake+Shark": {
+    "emoji": "🐟",
+    "text": "Piranha"
+  },
+  "Continent+Lake": {
+    "emoji": "🇺🇸",
+    "text": "America"
+  },
+  "America+Earth": {
+    "emoji": "🇺🇸",
+    "text": "USA"
+  },
+  "Shark+USA": {
+    "emoji": "🌴",
+    "text": "Florida"
+  },
+  "Florida+Piranha": {
+    "emoji": "🐊",
+    "text": "Florida Man"
+  },
+  "Plant+USA": {
+    "emoji": "🌿",
+    "text": "Cannabis"
+  },
+  "Cannabis+USA": {
+    "emoji": "⚖️",
+    "text": "Legal"
+  },
+  "Florida Man+Legal": {
+    "emoji": "🚔",
+    "text": "Florida Man Arrested"
+  },
+  "Ocean+Shark": {
+    "emoji": "🌪️",
+    "text": "Sharknado"
+  },
+  "Fish+Wind": {
+    "emoji": "🐟",
+    "text": "Flying Fish"
+  },
+  "Earth+Flying Fish": {
+    "emoji": "🐦",
+    "text": "Bird"
+  },
+  "Bird+Lake": {
+    "emoji": "🦢",
+    "text": "Swan"
+  },
+  "Earth+Swan": {
+    "emoji": "🦆",
+    "text": "Ugly Duckling"
+  },
+  "America+Ugly Duckling": {
+    "emoji": "💩",
+    "text": "Donald Trump"
+  },
+  "Donald Trump’s Hair+Florida Man Arrested": {
+    "emoji": "🧢",
+    "text": "Florida Man Arrested for Stealing Donald Trump’s Hair"
+  },
+  "Google+Satellite": {
+    "emoji": "🌎",
+    "text": "Google Earth"
+  },
+  "Google Earth+Steam": {
+    "emoji": "💦",
+    "text": "Google Steam"
+  },
+  "Google Steam+Lake": {
+    "emoji": "🌌",
+    "text": "?"
+  },
+  "A+Fire": {
+    "emoji": "🅱️",
+    "text": "B"
+  },
+  "Lake+Ocean": {
+    "emoji": "🌊",
+    "text": "Sea"
+  },
+  "America+Continent": {
+    "emoji": "🌎",
+    "text": "North America"
+  },
+  "North America+Water": {
+    "emoji": "🍁",
+    "text": "Canada"
+  },
+  "Canada+Sea": {
+    "emoji": "🅿️",
+    "text": "C"
+  },
+  "Dust+Engine": {
+    "emoji": "🧹",
+    "text": "Vacuum"
+  },
+  "Planet+Steam": {
+    "emoji": "🕯️",
+    "text": "Steampunk"
+  },
+  "Dust+Vacuum": {
+    "emoji": "🧼",
+    "text": "Clean"
+  },
+  "Steampunk+Vacuum": {
+    "emoji": "🧹",
+    "text": "Dyson"
+  },
+  "Clean+Water": {
+    "emoji": "🍹",
+    "text": "Drink"
+  },
+  "Drink+Steampunk": {
+    "emoji": "🍺",
+    "text": "Steam Drunk"
+  },
+  "Steam Drunk+Steampunk": {
+    "emoji": "🍺",
+    "text": "Steam Drunk Punk"
+  },
+  "Dyson+Steam Drunk Punk": {
+    "emoji": "🅱️",
+    "text": "D"
+  },
+  "Fire+Tree": {
+    "emoji": "🌋",
+    "text": "Ash"
+  },
+  "Ash+Tree": {
+    "emoji": "✏️",
+    "text": "Pencil"
+  },
+  "Pencil+Tree": {
+    "emoji": "📃",
+    "text": "Paper"
+  },
+  "Book+Pencil": {
+    "emoji": "📚",
+    "text": "Homework"
+  },
+  "Homework+Tornado": {
+    "emoji": "♀️",
+    "text": "F"
+  },
+  "Book+F": {
+    "emoji": "📱",
+    "text": "Fbook"
+  },
+  "Fbook+Homework": {
+    "emoji": "💩",
+    "text": "Fail"
+  },
+  "F+Fail": {
+    "emoji": "🅰️",
+    "text": "E"
+  },
+  "Brick+Water": {
+    "emoji": "🥃",
+    "text": "Glass"
+  },
+  "Brick+Mud": {
+    "emoji": "🎨",
+    "text": "Adobe"
+  },
+  "Adobe+Cloud": {
+    "emoji": "📷",
+    "text": "Photoshop"
+  },
+  "Photoshop+Steam": {
+    "emoji": "🎨",
+    "text": "Steam Workshop"
+  },
+  "Cloud+Steam Workshop": {
+    "emoji": "🌫️",
+    "text": "Steam Cloud"
+  },
+  "Photoshop+Steam Cloud": {
+    "emoji": "💨🎨",
+    "text": "Steam Photoshop"
+  },
+  "Steam Cloud+Steam Photoshop": {
+    "emoji": "💭",
+    "text": "Steam Cloud Photoshop"
+  },
+  "Glass+Steam Cloud Photoshop": {
+    "emoji": "🅾️",
+    "text": "G"
+  },
+  "Apple+Pyramid": {
+    "emoji": "👀",
+    "text": "Eye"
+  },
+  "Apple+Eye": {
+    "emoji": "💁",
+    "text": "I"
+  },
+  "Earth+Tree": {
+    "emoji": "🌲",
+    "text": "Forest"
+  },
+  "Forest+Forest": {
+    "emoji": "🌴",
+    "text": "Jungle"
+  },
+  "Book+Jungle": {
+    "emoji": "🌴",
+    "text": "Tarzan"
+  },
+  "Book+Tarzan": {
+    "emoji": "👩‍🦰",
+    "text": "Jane"
+  },
+  "Alphabet+Jane": {
+    "emoji": "🅿️",
+    "text": "J"
+  },
+  "Ash+Glass": {
+    "emoji": "🏺",
+    "text": "Vase"
+  },
+  "Earth+Vase": {
+    "emoji": "🥘",
+    "text": "Pot"
+  },
+  "Ash+Pot": {
+    "emoji": "🌾",
+    "text": "Potash"
+  },
+  "Pot+Potash": {
+    "emoji": "🥔",
+    "text": "Potassium"
+  },
+  "Beach+Potassium": {
+    "emoji": "🅰️",
+    "text": "K"
+  },
+  "Earth+Lake": {
+    "emoji": "🐊",
+    "text": "Swamp"
+  },
+  "Lizard+Water": {
+    "emoji": "🐊",
+    "text": "Crocodile"
+  },
+  "Crocodile+Fire": {
+    "emoji": "🍖",
+    "text": "Barbecue"
+  },
+  "Barbecue+Water": {
+    "emoji": "🍲",
+    "text": "Soup"
+  },
+  "Loch Ness Monster+Soup": {
+    "emoji": "🍜",
+    "text": "Soup Ness Monster"
+  },
+  "Lizard+Soup Ness Monster": {
+    "emoji": "🅰️",
+    "text": "L"
+  },
+  "Mountain Range+Steam": {
+    "emoji": "🚂",
+    "text": "Train"
+  },
+  "Train+Wind": {
+    "emoji": "💨",
+    "text": "Zephyr"
+  },
+  "Delta+Zephyr": {
+    "emoji": "ζ",
+    "text": "Zeta"
+  },
+  "Delta+Zeta": {
+    "emoji": "🌌",
+    "text": "Epsilon"
+  },
+  "Epsilon+Mountain Range": {
+    "emoji": "🅰️",
+    "text": "M"
+  },
+  "Planet+Water": {
+    "emoji": "🌊",
+    "text": "Ocean"
+  },
+  "Earth+Steampunk": {
+    "emoji": "🤖",
+    "text": "Robot"
+  },
+  "Ocean+Steampunk": {
+    "emoji": "🏴‍☠️",
+    "text": "Steampunk Pirate"
+  },
+  "Ocean+Steampunk Pirate": {
+    "emoji": "🐳",
+    "text": "Captain Nemo"
+  },
+  "Robot+Steampunk Pirate": {
+    "emoji": "🤖",
+    "text": "Steampunk Robot"
+  },
+  "Captain Nemo+Dust": {
+    "emoji": "🐠",
+    "text": "Nemo"
+  },
+  "Steampunk Pirate+Steampunk Robot": {
+    "emoji": "🤖",
+    "text": "Steampunk Pirate Robot"
+  },
+  "Nemo+Steampunk Pirate Robot": {
+    "emoji": "🆎",
+    "text": "N"
+  },
+  "Mountain+Wind": {
+    "emoji": "🌨️",
+    "text": "Avalanche"
+  },
+  "Earth+Tsunami": {
+    "emoji": "🏝️",
+    "text": "Island"
+  },
+  "Island+Wave": {
+    "emoji": "🏄",
+    "text": "Surf"
+  },
+  "Earth+No": {
+    "emoji": "🅾️",
+    "text": "O"
+  },
+  "Pencil+Tornado": {
+    "emoji": "📔",
+    "text": "Pencil Sharpener"
+  },
+  "F+Pencil Sharpener": {
+    "emoji": "🅿️",
+    "text": "P"
+  },
+  "Planet+Train": {
+    "emoji": "🌌",
+    "text": "Solar System"
+  },
+  "Locomotive+Solar System": {
+    "emoji": "🖖",
+    "text": "Star Trek"
+  },
+  "Star Trek+Water": {
+    "emoji": "🖖",
+    "text": "Star Trek: The Next Generation"
+  },
+  "Fire+Star Trek: The Next Generation": {
+    "emoji": "🔍",
+    "text": "Q"
+  },
+  "Paper+Water": {
+    "emoji": "🚤",
+    "text": "Boat"
+  },
+  "Boat+Smoke": {
+    "emoji": "🏴‍☠️",
+    "text": "Pirate"
+  },
+  "Alphabet+Pirate": {
+    "emoji": "®",
+    "text": "R"
+  },
+  "Earth+Werewolf": {
+    "emoji": "🐺",
+    "text": "Wolf"
+  },
+  "Wolf+Wolf": {
+    "emoji": "🐺",
+    "text": "Wolf Pack"
+  },
+  "Ash+Ocean": {
+    "emoji": "🧂",
+    "text": "Salt"
+  },
+  "Lake+Salt": {
+    "emoji": "🌊",
+    "text": "Dead Sea"
+  },
+  "Dead Sea+Mountain": {
+    "emoji": "💩",
+    "text": "Sodom"
+  },
+  "Sodom+Wolf Pack": {
+    "emoji": "🅾️",
+    "text": "S"
+  },
+  "Dandelion+Earth": {
+    "emoji": "🌸",
+    "text": "Flower"
+  },
+  "Car+Flower": {
+    "emoji": "💐",
+    "text": "Carnation"
+  },
+  "Carnation+Tea": {
+    "emoji": "🅱️",
+    "text": "T"
+  },
+  "Ocean+Plant": {
+    "emoji": "🐠",
+    "text": "Coral"
+  },
+  "America+Coral": {
+    "emoji": "🌴",
+    "text": "Coral Gables"
+  },
+  "Fire+USA": {
+    "emoji": "⬜",
+    "text": "Flag"
+  },
+  "America+Coral Gables": {
+    "emoji": "🐊",
+    "text": "University of Miami"
+  },
+  "Flag+University of Miami": {
+    "emoji": "🅰️",
+    "text": "U"
+  },
+  "Alphabet+Venus Flytrap": {
+    "emoji": "🅱️",
+    "text": "V"
+  },
+  "Swamp+Wine": {
+    "emoji": "🌙",
+    "text": "Moonshine"
+  },
+  "Weed+Weed": {
+    "emoji": "🌳",
+    "text": "Bush"
+  },
+  "Bush+Wine": {
+    "emoji": "🍺",
+    "text": "Drunk"
+  },
+  "Drunk+Moonshine": {
+    "emoji": "🐷",
+    "text": "Hillbilly"
+  },
+  "Bush+Hillbilly": {
+    "emoji": "🅰️",
+    "text": "W"
+  },
+  "Earth+Paper": {
+    "emoji": "🗺️",
+    "text": "Map"
+  },
+  "Map+Water": {
+    "emoji": "💎",
+    "text": "Treasure"
+  },
+  "Map+Treasure": {
+    "emoji": "❌",
+    "text": "X"
+  },
+  "Wind+X": {
+    "emoji": "🅾️",
+    "text": "Y"
+  },
+  "X+Y": {
+    "emoji": "🅰️",
+    "text": "Z"
+  },
+  "Mountain Range+Truck": {
+    "emoji": "🚚",
+    "text": "Semi"
+  },
+  "A+Semi": {
+    "emoji": "&",
+    "text": "Ampersand"
+  },
+  "Ampersand+Mountain": {
+    "emoji": "💫",
+    "text": "&"
+  },
+  "Beach+Fire": {
+    "emoji": "☀️",
+    "text": "Sun"
+  },
+  "Beach+Sun": {
+    "emoji": "🏖️",
+    "text": "Vacation"
+  },
+  "Dust+Vacation": {
+    "emoji": "👦",
+    "text": "Dustin"
+  },
+  "Beach+Dustin": {
+    "emoji": "🎃",
+    "text": "Stranger Things"
+  },
+  "Fire+Stranger Things": {
+    "emoji": "️⃣",
+    "text": "Eleven"
+  },
+  "Eleven+Eleven": {
+    "emoji": "💲",
+    "text": "Twenty-Two"
+  },
+  "Twenty-Two+Vacation": {
+    "emoji": "👴",
+    "text": "Retirement"
+  },
+  "Eleven+Retirement": {
+    "emoji": "⬜",
+    "text": "66"
+  },
+  "66+Retirement": {
+    "emoji": "⬜",
+    "text": "67"
+  },
+  "Weed+Wine": {
+    "emoji": "🍷",
+    "text": "Hangover"
+  },
+  "Vampire+Weed": {
+    "emoji": "🧮",
+    "text": "Count"
+  },
+  "Hangover+Number": {
+    "emoji": "1️⃣",
+    "text": "1"
+  },
+  "Earth+Solar": {
+    "emoji": "🪐",
+    "text": "Planet"
+  },
+  "Smoke+Stone": {
+    "emoji": "🗽",
+    "text": "Statue"
+  },
+  "Statue+Steam": {
+    "emoji": "🤖",
+    "text": "Robot"
+  },
+  "Robot+Statue": {
+    "emoji": "🤖",
+    "text": "Terminator"
+  },
+  "Glass+Lake": {
+    "emoji": "🪞",
+    "text": "Mirror"
+  },
+  "Lake+Mirror": {
+    "emoji": "🌼",
+    "text": "Narcissus"
+  },
+  "Dust+Narcissus": {
+    "emoji": "🤳",
+    "text": "Narcissism"
+  },
+  "Lava+Stone": {
+    "emoji": "🔪",
+    "text": "Obsidian"
+  },
+  "Obsidian+Stone": {
+    "emoji": "🗡️",
+    "text": "Blade"
+  },
+  "Blade+Wind": {
+    "emoji": "🌬️",
+    "text": "Fan"
+  },
+  "Fan+Obsidian": {
+    "emoji": "🤓",
+    "text": "Fanboy"
+  },
+  "Fanboy+Sand": {
+    "emoji": "🏖️",
+    "text": "Sandman"
+  },
+  "Obsidian+Sandman": {
+    "emoji": "😱",
+    "text": "Nightmare"
+  },
+  "Blade+Nightmare": {
+    "emoji": "👹",
+    "text": "Freddy Krueger"
+  },
+  "Fire+Fire": {
+    "emoji": "🌋",
+    "text": "Volcano"
+  },
+  "Smoke+Statue": {
+    "emoji": "🌋",
+    "text": "Ozymandias"
+  },
+  "Fog+Ozymandias": {
+    "emoji": "👑",
+    "text": "King"
+  },
+  "Earth+Glass": {
+    "emoji": "🍾",
+    "text": "Bottle"
+  },
+  "Beach+Bottle": {
+    "emoji": "💬",
+    "text": "Message"
+  },
+  "Message+Solar": {
+    "emoji": "📱",
+    "text": "SMS"
+  },
+  "Beach+SMS": {
+    "emoji": "🍆",
+    "text": "Sext"
+  },
+  "Sext+Sext": {
+    "emoji": "👶👶👶",
+    "text": "Sextuplet"
+  },
+  "Narcissism+Sextuplet": {
+    "emoji": "🐙",
+    "text": "Octomom"
+  },
+  "Hot Air Balloon+Terminator": {
+    "emoji": "🤖",
+    "text": "Terminator 2"
+  },
+  "Hot Air Balloon+Terminator 2": {
+    "emoji": "🤖",
+    "text": "Terminator 3"
+  },
+  "Sand+Stone": {
+    "emoji": "🗿",
+    "text": "Pyramid"
+  },
+  "Pyramid+Terminator": {
+    "emoji": "🏺",
+    "text": "Tomb Raider"
+  },
+  "Fire+Tomb Raider": {
+    "emoji": "🏹",
+    "text": "Lara Croft"
+  },
+  "Dandelion+Volcano": {
+    "emoji": "🎆",
+    "text": "Fireworks"
+  },
+  "Bush+Fireworks": {
+    "emoji": "🇺🇸",
+    "text": "President"
+  },
+  "Tree+Wind": {
+    "emoji": "🍃",
+    "text": "Leaf"
+  },
+  "Dust+Leaf": {
+    "emoji": "💩",
+    "text": "Compost"
+  },
+  "Compost+Volcano": {
+    "emoji": "🌱",
+    "text": "Fertile"
+  },
+  "Ocean+Terminator": {
+    "emoji": "🐙",
+    "text": "Cthulhu"
+  },
+  "Fireworks+Plant": {
+    "emoji": "🌸",
+    "text": "Fire Flower"
+  },
+  "Boulder+Fire Flower": {
+    "emoji": "🐸",
+    "text": "Bowser"
+  },
+  "Bowser+Fire Flower": {
+    "emoji": "🔥",
+    "text": "Bowser Fire"
+  },
+  "Mountain+Steampunk Pirate": {
+    "emoji": "🧊",
+    "text": "Yeti"
+  },
+  "Planet+Steampunk Pirate": {
+    "emoji": "🌌",
+    "text": "Steampunk Planet"
+  },
+  "Steampunk Planet+Yeti": {
+    "emoji": "🐻",
+    "text": "Steampunk Yeti"
+  },
+  "Glass+Mountain": {
+    "emoji": "💎",
+    "text": "Crystal"
+  },
+  "Crystal+Smoke": {
+    "emoji": "🔮",
+    "text": "Crystal Ball"
+  },
+  "Narcissism+Weed": {
+    "emoji": "🐻",
+    "text": "Kanye West"
+  },
+  "Kanye West+Statue": {
+    "emoji": "💄",
+    "text": "Kim Kardashian"
+  },
+  "Freddy Krueger+Kim Kardashian": {
+    "emoji": "🤡",
+    "text": "Freddy Kardashian"
+  },
+  "Fire Flower+King": {
+    "emoji": "🍄",
+    "text": "Mario"
+  },
+  "Engine+Mario": {
+    "emoji": "🏎️",
+    "text": "Mario Kart"
+  },
+  "Mario Kart+Wind": {
+    "emoji": "🏎️",
+    "text": "Mario Kart 8"
+  },
+  "Freddy Kardashian+Mario Kart 8": {
+    "emoji": "🚗👻",
+    "text": "Freddy Kart 8"
+  },
+  "Freddy Kart 8+Robot": {
+    "emoji": "🏎️",
+    "text": "Freddy Kart 8 Deluxe"
+  },
+  "Hot Air Balloon+Terminator 3": {
+    "emoji": "🤖",
+    "text": "Terminator 4"
+  },
+  "Freddy Kart 8 Deluxe+Terminator 4": {
+    "emoji": "🏎️",
+    "text": "Freddy Kart 4"
+  },
+  "Fire+Terminator 4": {
+    "emoji": "🤖",
+    "text": "Terminator 5"
+  },
+  "Fire+Terminator 5": {
+    "emoji": "🤖",
+    "text": "Terminator 6"
+  },
+  "Fire+Terminator 6": {
+    "emoji": "🤖",
+    "text": "Terminator 7"
+  },
+  "Terminator+Terminator 7": {
+    "emoji": "🤖",
+    "text": "Terminator 8"
+  },
+  "Solar+Terminator 8": {
+    "emoji": "🤖",
+    "text": "Terminator 9"
+  },
+  "Terminator+Terminator 9": {
+    "emoji": "🤖",
+    "text": "Terminator 10"
+  },
+  "Terminator 10+Terminator 10": {
+    "emoji": "🤖",
+    "text": "Terminator 20"
+  },
+  "Terminator 20+Terminator 3": {
+    "emoji": "🤖",
+    "text": "Terminator 23"
+  },
+  "Terminator 23+Terminator 4": {
+    "emoji": "🤖",
+    "text": "Terminator 27"
+  },
+  "Freddy Kart 4+Terminator 27": {
+    "emoji": "🏎️",
+    "text": "Freddy Kart 27"
+  },
+  "Steampunk Planet+Terminator": {
+    "emoji": "🤖",
+    "text": "Steampunk Terminator"
+  },
+  "Freddy Kart 27+Steampunk Terminator": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 27"
+  },
+  "Terminator 20+Terminator 9": {
+    "emoji": "🤖",
+    "text": "Terminator 29"
+  },
+  "Steampunk Freddy Kart 27+Terminator 29": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 29"
+  },
+  "Freddy Kart 8+Kanye West": {
+    "emoji": "🏎️",
+    "text": "Freddy Kart 88"
+  },
+  "Steampunk Terminator+Terminator 10": {
+    "emoji": "🤖",
+    "text": "Terminator 100"
+  },
+  "Freddy Kart 88+Terminator 100": {
+    "emoji": "🏎️",
+    "text": "Freddy Kart 188"
+  },
+  "Freddy Kart 188+Steampunk Terminator": {
+    "emoji": "🚂🕰️",
+    "text": "Steampunk Freddy Kart 188"
+  },
+  "Steampunk Freddy Kart 188+Steampunk Freddy Kart 29": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 117"
+  },
+  "Mario Kart 8+Octomom": {
+    "emoji": "🏎️🍄🏁",
+    "text": "Mario Kart 16"
+  },
+  "Freddy Kart 88+Mario Kart 16": {
+    "emoji": "🏎️",
+    "text": "Freddy Kart 104"
+  },
+  "Terminator 5+Terminator 8": {
+    "emoji": "🤖",
+    "text": "Terminator 13"
+  },
+  "Terminator 13+Terminator 23": {
+    "emoji": "🤖",
+    "text": "Terminator 36"
+  },
+  "Terminator 36+Terminator 9": {
+    "emoji": "🤖",
+    "text": "Terminator 45"
+  },
+  "Avalanche+President": {
+    "emoji": "🐸",
+    "text": "Snowden"
+  },
+  "Hot Air Balloon+Snowden": {
+    "emoji": "👁️",
+    "text": "Edward Snowden"
+  },
+  "Edward Snowden+Lara Croft": {
+    "emoji": "🎨",
+    "text": "Edward Craft"
+  },
+  "Edward Craft+President": {
+    "emoji": "👩‍🏫",
+    "text": "President Craft"
+  },
+  "Mario Kart 8+President Craft": {
+    "emoji": "🏎️",
+    "text": "President Kart"
+  },
+  "Terminator 10+Terminator 20": {
+    "emoji": "🤖",
+    "text": "Terminator 30"
+  },
+  "Edward Snowden+Kim Kardashian": {
+    "emoji": "💅",
+    "text": "Edward Kardashian"
+  },
+  "Fertile+Mario Kart 8": {
+    "emoji": "👶",
+    "text": "Baby Daisy"
+  },
+  "Baby Daisy+Freddy Kart 88": {
+    "emoji": "👶",
+    "text": "Baby Daisy Kart"
+  },
+  "Baby Daisy Kart+Edward Kardashian": {
+    "emoji": "👶✨",
+    "text": "Baby Daisy Kartashian"
+  },
+  "Terminator 13+Terminator 6": {
+    "emoji": "🤖",
+    "text": "Terminator 19"
+  },
+  "Cthulhu+Mario Kart": {
+    "emoji": "🐙",
+    "text": "Cthulhu Kart"
+  },
+  "Baby Daisy Kartashian+Cthulhu Kart": {
+    "emoji": "👶🐙✨",
+    "text": "Baby Cthulhu Kartashian"
+  },
+  "Baby Cthulhu Kartashian+Baby Daisy Kartashian": {
+    "emoji": "👶🐙🌼",
+    "text": "Baby Cthulhu Daisy Kartashian"
+  },
+  "Bowser Fire+Mario Kart": {
+    "emoji": "🏎️",
+    "text": "Bowser Kart"
+  },
+  "Baby Daisy Kart+Bowser Kart": {
+    "emoji": "🚗🐲",
+    "text": "Baby Bowser Kart"
+  },
+  "Baby Bowser Kart+Baby Cthulhu Kartashian": {
+    "emoji": "👶🏎️✨",
+    "text": "Baby Bowser Kartashian"
+  },
+  "Steampunk Freddy Kart 29+Terminator": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 30"
+  },
+  "Baby Bowser Kartashian+Steampunk Freddy Kart 30": {
+    "emoji": "🕰️🚗✨",
+    "text": "Steampunk Freddy Kart 31"
+  },
+  "Crystal Ball+Terminator 45": {
+    "emoji": "🤖",
+    "text": "Terminator 46"
+  },
+  "Terminator 20+Terminator 46": {
+    "emoji": "🤖",
+    "text": "Terminator 66"
+  },
+  "Terminator 23+Terminator 66": {
+    "emoji": "🤖",
+    "text": "Terminator 89"
+  },
+  "Freddy Kart 8+Terminator 89": {
+    "emoji": "🏎️",
+    "text": "Freddy Kart 89"
+  },
+  "Freddy Kart 89+Terminator 13": {
+    "emoji": "🏎️",
+    "text": "Freddy Kart 102"
+  },
+  "Terminator 19+Terminator 30": {
+    "emoji": "🤖",
+    "text": "Terminator 49"
+  },
+  "Freddy Kart 102+Terminator 49": {
+    "emoji": "🏎️",
+    "text": "Freddy Kart 151"
+  },
+  "Freddy Kart 151+Steampunk Freddy Kart 117": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 151"
+  },
+  "Terminator 13+Terminator 9": {
+    "emoji": "🤖",
+    "text": "Terminator 22"
+  },
+  "Terminator 2+Terminator 46": {
+    "emoji": "🤖",
+    "text": "Terminator 48"
+  },
+  "President Kart+Terminator 48": {
+    "emoji": "🇰🇷",
+    "text": "President Kart 48"
+  },
+  "Freddy Kart 104+President Kart 48": {
+    "emoji": "🏎️",
+    "text": "Freddy Kart 152"
+  },
+  "Freddy Kart 152+Steampunk Freddy Kart 117": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 152"
+  },
+  "Freddy Kart 88+Terminator 22": {
+    "emoji": "🏎️",
+    "text": "Freddy Kart 110"
+  },
+  "Freddy Kart 110+Terminator 5": {
+    "emoji": "🏎️",
+    "text": "Freddy Kart 115"
+  },
+  "Freddy Kart 115+Terminator 19": {
+    "emoji": "🏎️",
+    "text": "Freddy Kart 119"
+  },
+  "Baby Cthulhu Daisy Kartashian+Freddy Kart 119": {
+    "emoji": "🏎️",
+    "text": "Freddy Kart 120"
+  },
+  "Steampunk Freddy Kart 152+Steampunk Freddy Kart 31": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 183"
+  },
+  "Freddy Kart 120+Steampunk Freddy Kart 152": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 120"
+  },
+  "Steampunk Freddy Kart 120+Steampunk Freddy Kart 183": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 243"
+  },
+  "Steampunk Freddy Kart 117+Steampunk Freddy Kart 243": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 350"
+  },
+  "Steampunk Freddy Kart 31+Steampunk Freddy Kart 350": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 381"
+  },
+  "Steampunk Freddy Kart 120+Steampunk Freddy Kart 381": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 501"
+  },
+  "Steampunk Freddy Kart 350+Steampunk Freddy Kart 501": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 851"
+  },
+  "Steampunk Freddy Kart 152+Steampunk Freddy Kart 152": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 153"
+  },
+  "Steampunk Freddy Kart 120+Steampunk Freddy Kart 851": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 971"
+  },
+  "Steampunk Freddy Kart 501+Steampunk Freddy Kart 971": {
+    "emoji": "🕰️🚗",
+    "text": "Steampunk Freddy Kart 1472"
+  },
+  "Steampunk Freddy Kart 381+Steampunk Freddy Kart 501": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 882"
+  },
+  "Freddy Kart 152+Steampunk Freddy Kart 151": {
+    "emoji": "🏎️",
+    "text": "Freddy Kart 153"
+  },
+  "Freddy Kart 153+Steampunk Freddy Kart 31": {
+    "emoji": "🕰️🚗✨",
+    "text": "Steampunk Freddy Kart 184"
+  },
+  "Freddy Kart 151+Steampunk Freddy Kart 501": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 652"
+  },
+  "Steampunk Freddy Kart 120+Steampunk Freddy Kart 151": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 181"
+  },
+  "Steampunk Freddy Kart 117+Steampunk Freddy Kart 181": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 118"
+  },
+  "Steampunk Freddy Kart 152+Steampunk Freddy Kart 882": {
+    "emoji": "🚂✨",
+    "text": "Steampunk Freddy Kart 1000"
+  },
+  "Freddy Kart 120+Steampunk Freddy Kart 1000": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 1200"
+  },
+  "Steampunk Freddy Kart 181+Steampunk Freddy Kart 183": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 182"
+  },
+  "Steampunk Freddy Kart 182+Steampunk Freddy Kart 501": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 683"
+  },
+  "Steampunk Freddy Kart 118+Steampunk Freddy Kart 120": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 121"
+  },
+  "Steampunk Freddy Kart 121+Steampunk Freddy Kart 851": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 972"
+  },
+  "Steampunk Freddy Kart 381+Steampunk Freddy Kart 972": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 1353"
+  },
+  "Steampunk Freddy Kart 1353+Steampunk Freddy Kart 683": {
+    "emoji": "🕰️🚗✨",
+    "text": "Steampunk Freddy Kart 2036"
+  },
+  "Steampunk Freddy Kart 1200+Steampunk Freddy Kart 2036": {
+    "emoji": "🕰️🚗✨",
+    "text": "Steampunk Freddy Kart 3000"
+  },
+  "Steampunk Freddy Kart 1000+Steampunk Freddy Kart 972": {
+    "emoji": "🕰️🚗✨",
+    "text": "Steampunk Freddy Kart 1972"
+  },
+  "Steampunk Freddy Kart 1972+Steampunk Freddy Kart 3000": {
+    "emoji": "🕰️🚗✨",
+    "text": "Steampunk Freddy Kart 2000"
+  },
+  "Steampunk Freddy Kart 152+Steampunk Freddy Kart 182": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 167"
+  },
+  "Steampunk Freddy Kart 153+Steampunk Freddy Kart 167": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 168"
+  },
+  "Steampunk Freddy Kart 1353+Steampunk Freddy Kart 1472": {
+    "emoji": "🕰️🚗✨",
+    "text": "Steampunk Freddy Kart 1591"
+  },
+  "Steampunk Freddy Kart 1591+Steampunk Freddy Kart 168": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 169"
+  },
+  "Steampunk Freddy Kart 169+Steampunk Freddy Kart 2000": {
+    "emoji": "🕰️🚗✨",
+    "text": "Steampunk Freddy Kart 2016"
+  },
+  "Steampunk Freddy Kart 1000+Steampunk Freddy Kart 381": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 1381"
+  },
+  "Steampunk Freddy Kart 1381+Steampunk Freddy Kart 882": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 2203"
+  },
+  "Steampunk Freddy Kart 1200+Steampunk Freddy Kart 683": {
+    "emoji": "🚂🕰️✨",
+    "text": "Steampunk Freddy Kart 1883"
+  },
+  "Steampunk Freddy Kart 1883+Steampunk Freddy Kart 2203": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 2003"
+  },
+  "Steampunk Freddy Kart 1972+Steampunk Freddy Kart 2003": {
+    "emoji": "🕰️🚗✨",
+    "text": "Steampunk Freddy Kart 2012"
+  },
+  "Steampunk Freddy Kart 2012+Wave": {
+    "emoji": "🕰️🚗✨",
+    "text": "Steampunk Freddy Kart 2013"
+  },
+  "Steampunk Freddy Kart 2203+Steampunk Freddy Kart 882": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 1001"
+  },
+  "Steampunk Freddy Kart 1000+Steampunk Freddy Kart 184": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 1000000"
+  },
+  "Steampunk Freddy Kart 1000000+Steampunk Freddy Kart 2203": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 3300"
+  },
+  "Steampunk Freddy Kart 1001+Steampunk Freddy Kart 3300": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 4301"
+  },
+  "Steampunk Freddy Kart 1472+Steampunk Freddy Kart 2203": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 3675"
+  },
+  "Steampunk Freddy Kart 1353+Steampunk Freddy Kart 972": {
+    "emoji": "🕰️🚗✨",
+    "text": "Steampunk Freddy Kart 2325"
+  },
+  "Steampunk Freddy Kart 2325+Steampunk Freddy Kart 3675": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 6000"
+  },
+  "Steampunk Freddy Kart 4301+Steampunk Freddy Kart 6000": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 10301"
+  },
+  "Steampunk Freddy Kart 2003+Steampunk Freddy Kart 6000": {
+    "emoji": "🚗⚙️✨",
+    "text": "Steampunk Freddy Kart 8000"
+  },
+  "Steampunk Freddy Kart 168+Steampunk Freddy Kart 971": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 1139"
+  },
+  "Steampunk Freddy Kart 1139+Steampunk Freddy Kart 652": {
+    "emoji": "🕰️🚗🔧",
+    "text": "Steampunk Freddy Kart 1791"
+  },
+  "Steampunk Freddy Kart 1000000+Steampunk Freddy Kart 1791": {
+    "emoji": "🕰️🚗✨",
+    "text": "Steampunk Freddy Kart 10000000"
+  },
+  "Steampunk Freddy Kart 10000000+Steampunk Freddy Kart 1001": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 10000001"
+  },
+  "Steampunk Freddy Kart 10000001+Steampunk Freddy Kart 8000": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 10000009"
+  },
+  "Steampunk Freddy Kart 10000009+Steampunk Freddy Kart 10000009": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 10000010"
+  },
+  "Steampunk Freddy Kart 2012+Steampunk Freddy Kart 2013": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 2014"
+  },
+  "Steampunk Freddy Kart 2014+Steampunk Freddy Kart 4301": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 4302"
+  },
+  "Steampunk Freddy Kart 10000001+Steampunk Freddy Kart 2016": {
+    "emoji": "🕰️🚗✨",
+    "text": "Steampunk Freddy Kart 2017"
+  },
+  "Steampunk Freddy Kart 2013+Steampunk Freddy Kart 2017": {
+    "emoji": "🕰️🚗✨",
+    "text": "Steampunk Freddy Kart 2018"
+  },
+  "Steampunk Freddy Kart 2018+Steampunk Yeti": {
+    "emoji": "🕰️🚗✨",
+    "text": "Steampunk Freddy Kart 2019"
+  },
+  "Steampunk Freddy Kart 10000001+Steampunk Freddy Kart 2019": {
+    "emoji": "🕰️🚗✨",
+    "text": "Steampunk Freddy Kart 2020"
+  },
+  "Steampunk Freddy Kart 10301+Steampunk Freddy Kart 2020": {
+    "emoji": "🕰️🚗✨",
+    "text": "Steampunk Freddy Kart 3030"
+  },
+  "Steampunk Freddy Kart 2020+Steampunk Freddy Kart 3030": {
+    "emoji": "🕰️🚗✨",
+    "text": "Steampunk Freddy Kart 20203030"
+  },
+  "Steampunk Freddy Kart 2019+Steampunk Freddy Kart 20203030": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 2021"
+  },
+  "Steampunk Freddy Kart 10000010+Steampunk Freddy Kart 2021": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 3031"
+  },
+  "Steampunk Freddy Kart 2020+Steampunk Freddy Kart 4302": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 6302"
+  },
+  "Steampunk Freddy Kart 3030+Steampunk Freddy Kart 6302": {
+    "emoji": "🛠️🚗✨",
+    "text": "Steampunk Freddy Kart 9332"
+  },
+  "Steampunk Freddy Kart 3031+Steampunk Freddy Kart 9332": {
+    "emoji": "🕰️🚗✨",
+    "text": "Steampunk Freddy Kart 12345"
+  },
+  "Weed+Wind": {
+    "emoji": "🪁",
+    "text": "Kite"
+  },
+  "Plant+Weed": {
+    "emoji": "🥘",
+    "text": "Pot"
+  },
+  "Kite+Pot": {
+    "emoji": "🥔",
+    "text": "Potato"
+  },
+  "Fire+Potato": {
+    "emoji": "🍟",
+    "text": "Chip"
+  },
+  "Chip+Pot": {
+    "emoji": "🌮",
+    "text": "Chipotle"
+  },
+  "Earth+Sandstorm": {
+    "emoji": "🌵",
+    "text": "Dune"
+  },
+  "Dune+Robot": {
+    "emoji": "🪨",
+    "text": "Sandcrawler"
+  },
+  "Robot+Sandcrawler": {
+    "emoji": "🤖",
+    "text": "R2-D2"
+  },
+  "Cloud+Computer": {
+    "emoji": "☁️",
+    "text": "Cloud Computing"
+  },
+  "Cloud Computing+Lake": {
+    "emoji": "📊🏞️",
+    "text": "Data Lake"
+  },
+  "Data Lake+System": {
+    "emoji": "📊",
+    "text": "Data Warehouse"
+  },
+  "Data Warehouse+Lens": {
+    "emoji": "📊",
+    "text": "Business Intelligence"
+  },
+  "Glass+Water": {
+    "emoji": "🍷",
+    "text": "Wine"
+  },
+  "Balloon+System": {
+    "emoji": "🎈",
+    "text": "Hot Air"
+  },
+  "Hot Air+Werewolf": {
+    "emoji": "🐻",
+    "text": "Hairy"
+  },
+  "Hairy+Wine": {
+    "emoji": "🐻",
+    "text": "Furry"
+  },
+  "Business Intelligence+Furry": {
+    "emoji": "🦊",
+    "text": "Data Fox"
+  },
+  "Smoke+Weed": {
+    "emoji": "💨",
+    "text": "High"
+  },
+  "Balloon+Wine": {
+    "emoji": "🎉",
+    "text": "Party"
+  },
+  "High+Party": {
+    "emoji": "🎓",
+    "text": "College"
+  },
+  "College+High": {
+    "emoji": "🏫",
+    "text": "High School"
+  },
+  "Steam+Surfer": {
+    "emoji": "🚂",
+    "text": "Steamroller"
+  },
+  "Earth+Steamroller": {
+    "emoji": "🌎",
+    "text": "Flat Earth"
+  },
+  "Steamroller+Steamroller": {
+    "emoji": "🛣️",
+    "text": "Road"
+  },
+  "Flat Earth+Road": {
+    "emoji": "🚗",
+    "text": "Road Trip"
+  },
+  "Flat Earth+Road Trip": {
+    "emoji": "🚗",
+    "text": "Flat Tire"
+  },
+  "Road+Road Trip": {
+    "emoji": "🏖️",
+    "text": "Vacation"
+  },
+  "Earth+Flat Tire": {
+    "emoji": "💉",
+    "text": "Puncture"
+  },
+  "Puncture+Vacation": {
+    "emoji": "❓",
+    "text": "Punctuation"
+  },
+  "High School+Punctuation": {
+    "emoji": "🏫",
+    "text": "High, School!"
+  },
+  "High, School!+Punctuation": {
+    "emoji": "🏫",
+    "text": "High School!"
+  },
+  "High School!+Punctuation": {
+    "emoji": "🏫",
+    "text": "High School!?"
+  },
+  "Dust+Wine": {
+    "emoji": "🍅",
+    "text": "Vinegar"
+  },
+  "Fire+Vinegar": {
+    "emoji": "🍅",
+    "text": "Ketchup"
+  },
+  "Fire+Ketchup": {
+    "emoji": "🌶️",
+    "text": "Hot Sauce"
+  },
+  "Glass+Hot Sauce": {
+    "emoji": "🪞",
+    "text": "Mirror"
+  },
+  "Mirror+Volcano": {
+    "emoji": "👯",
+    "text": "Echo"
+  },
+  "Echo+Hot Sauce": {
+    "emoji": "👋",
+    "text": "Yo"
+  },
+  "Plant+Wave": {
+    "emoji": "🌊",
+    "text": "Seaweed"
+  },
+  "Fire+Seaweed": {
+    "emoji": "🍣",
+    "text": "Sushi"
+  },
+  "Forest+Sushi": {
+    "emoji": "🎋",
+    "text": "Bamboo"
+  },
+  "Bamboo+Wind": {
+    "emoji": "🎶",
+    "text": "Flute"
+  },
+  "Bamboo+Sushi": {
+    "emoji": "🥢",
+    "text": "Chopsticks"
+  },
+  "Chopsticks+Flute": {
+    "emoji": "🤹",
+    "text": "Yo-Yo"
+  }
+}
