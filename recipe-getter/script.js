@@ -7,9 +7,9 @@ function saveRecipes(recipes) {
     localStorage.setItem("recipes", JSON.stringify(recipes, null, 2));
 }
 
-function buildURL(safeItem) {
-    const target = `https://infinibrowser.wiki/api/recipe?id=${safeItem}`;
-    return "https://corsproxy.io/?" + encodeURIComponent(target);
+function buildURL(item) {
+    const target = `https://infinibrowser.wiki/api/recipe?id=${item}`;
+    return "https://thingproxy.freeboard.io/fetch/" + encodeURIComponent(target);
 }
 
 async function fetchRecipes(item) {
