@@ -100,25 +100,16 @@ document.getElementById("copyBtn").onclick = () => {
 // Live recipe counter (bottom right)
 // =========================
 
-const counterBox = document.createElement("div");
-counterBox.style.position = "fixed";
-counterBox.style.bottom = "20px";
-counterBox.style.right = "20px";
-counterBox.style.background = "rgba(0,0,0,0.6)";
-counterBox.style.padding = "10px 14px";
-counterBox.style.borderRadius = "6px";
-counterBox.style.color = "white";
-counterBox.style.fontFamily = "Arial, sans-serif";
-counterBox.style.fontSize = "14px";
-counterBox.style.zIndex = "9999";
-document.body.appendChild(counterBox);
-
-function updateCounter() {
-    const recipes = loadRecipes();
-    const count = Object.keys(recipes).length;
-    counterBox.textContent = `Recipe Count: ${count}`;
+// Count how many times `"emoji"` appears in the JSON string
+function countRecipesByEmoji() {
+    const raw = localStorage.getItem("recipes") || "";
+    return (raw.match(/"emoji"/g) || []).length;
 }
 
-// Update every 300ms
+function updateCounter() {
+    const count = countRecipesByEmoji();
+    document.getElementById("counterBox").textContent = `Recipe Count: ${count}`;
+}
+
 setInterval(updateCounter, 300);
 updateCounter();
