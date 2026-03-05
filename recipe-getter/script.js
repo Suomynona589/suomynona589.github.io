@@ -36,6 +36,90 @@ async function fetchRecipes(item) {
 }
 
 // =========================
+// Normal fetch mode
+// =========================
+
+async function handleSingleFetch(item, status) {
+    const data = await fetchRecipes(item);
+    const steps = data.steps || [];
+
+    let recipes = loadRecipes();
+    let added = 0;
+    let addedList = [];
+
+    steps.forEach(step => {
+        const key = `${step.a.id}+${step.b.id}`;
+        if (!recipes[key]) {
+            recipes[key] = {
+                emoji: step.result.emoji,
+                text: step.result.id
+            };
+            added++;
+            addedList.push(`${step.result.emoji} ${step.result.id}`);
+        }
+    });
+
+    saveRecipes(recipes);
+
+    if (added === 0) {
+        status.textContent = "Done. No new recipes were added.";
+    } else {
+        status.textContent =
+            `Done. Added ${added} new recipe(s):\n` +
+            addedList.join("\n");
+    }
+}
+
+// =========================
+// Number_Spam mode
+// =========================
+
+async function handleNumberSpam(status) {
+    status.textContent = "Starting Number_Spam (0–999)...";
+
+    let recipes = loadRecipes();
+    let totalAdded = 0;
+    let addedList = [];
+
+    function delay(ms) {
+        return new Promise(res => setTimeout(res, ms));
+    }
+
+    for (let i = 0; i <= 999; i++) {
+        try {
+            const data = await fetchRecipes(i);
+            const steps = data.steps || [];
+
+            steps.forEach(step => {
+                const key = `${step.a.id}+${step.b.id}`;
+                if (!recipes[key]) {
+                    recipes[key] = {
+                        emoji: step.result.emoji,
+                        text: step.result.id
+                    };
+                    totalAdded++;
+                    addedList.push(`${step.result.emoji} ${step.result.id}`);
+                }
+            });
+
+            saveRecipes(recipes);
+        } catch (err) {
+            console.error("Error on number", i, err);
+        }
+
+        await delay(250); // 250ms between fetches
+    }
+
+    if (totalAdded === 0) {
+        status.textContent = "Done. No new recipes were added.";
+    } else {
+        status.textContent =
+            `Done. Added ${totalAdded} new recipe(s):\n` +
+            addedList.join("\n");
+    }
+}
+
+// =========================
 // Fetch button logic
 // =========================
 
@@ -48,38 +132,14 @@ document.getElementById("fetchBtn").onclick = async () => {
         return;
     }
 
+    if (item === "Number_Spam") {
+        handleNumberSpam(status);
+        return;
+    }
+
     status.textContent = "Fetching...";
-
     try {
-        const data = await fetchRecipes(item);
-        const steps = data.steps || [];
-
-        let recipes = loadRecipes();
-        let added = 0;
-        let addedList = [];
-
-        steps.forEach(step => {
-            const key = `${step.a.id}+${step.b.id}`;
-            if (!recipes[key]) {
-                recipes[key] = {
-                    emoji: step.result.emoji,
-                    text: step.result.id
-                };
-                added++;
-                addedList.push(`${step.result.emoji} ${step.result.id}`);
-            }
-        });
-
-        saveRecipes(recipes);
-
-        if (added === 0) {
-            status.textContent = "Done. No new recipes were added.";
-        } else {
-            status.textContent =
-                `Done. Added ${added} new recipe(s):\n` +
-                addedList.join("\n");
-        }
-
+        await handleSingleFetch(item, status);
     } catch (err) {
         status.textContent = "Error: " + err.message;
         console.error(err);
@@ -100,7 +160,6 @@ document.getElementById("copyBtn").onclick = () => {
 // Live recipe counter (bottom right)
 // =========================
 
-// Count how many times `"emoji"` appears in the JSON string
 function countRecipesByEmoji() {
     const raw = localStorage.getItem("recipes") || "";
     return (raw.match(/"emoji"/g) || []).length;
