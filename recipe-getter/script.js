@@ -11,8 +11,9 @@ async function fetchRecipes(item) {
     const api = `https://infinibrowser.wiki/api/recipe?id=${encodeURIComponent(item)}`;
 
     // CORS bypass
+    const safeItem = encodeURIComponent(item);
     const url = "https://corsproxy.io/?" + encodeURIComponent(
-  `https://infinibrowser.wiki/api/recipe?id=${item}`
+  `https://infinibrowser.wiki/api/recipe?id=${safeItem}`
 );
 
     const res = await fetch(url);
