@@ -29630,5 +29630,13 @@
   "\"?;\"+\"43\"": {
     "emoji": "🤔",
     "text": "\"43;?\""
+  },
+  "Clay+Water": {
+    "emoji": "🏺",
+    "text": "Pottery"
+  },
+  "Salt+Water": {
+    "emoji": "🧂",
+    "text": "Brine"
   }
 }
