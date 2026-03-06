@@ -46122,5 +46122,505 @@
   "Odin+Crayon": {
     "emoji": "🍜",
     "text": "Crayon Shin-chan"
+  },
+  "Mission+Mudslide": {
+    "emoji": "",
+    "text": "Nothing"
+  },
+  "Mission+Incense": {
+    "emoji": "🙏",
+    "text": "Missionary"
+  },
+  "Mission+Weed": {
+    "emoji": "🌿",
+    "text": "Marijuana"
+  },
+  "Mission+Ship": {
+    "emoji": "🚀",
+    "text": "Spaceship"
+  },
+  "Mission+Horror": {
+    "emoji": "👻",
+    "text": "Exorcism"
+  },
+  "Mission+Genie": {
+    "emoji": "🌠",
+    "text": "Wish"
+  },
+  "Mission+Plane": {
+    "emoji": "🕵️‍♀",
+    "text": "Spy"
+  },
+  "Mission+Knife": {
+    "emoji": "🔪",
+    "text": "Assassin"
+  },
+  "Mission+Cheesecake": {
+    "emoji": "",
+    "text": "Nothing"
+  },
+  "Mission+Oasis": {
+    "emoji": "🏜️",
+    "text": "Oasis"
+  },
+  "Mission+Tumor": {
+    "emoji": "♋",
+    "text": "Cancer"
+  },
+  "Mission+Black Hole": {
+    "emoji": "💥",
+    "text": "Mission Impossible"
+  },
+  "Mission+Wreck": {
+    "emoji": "",
+    "text": "Nothing"
+  },
+  "Mission+Sharknado": {
+    "emoji": "🌪️",
+    "text": "Sharknado 2"
+  },
+  "Mission+Crocodile": {
+    "emoji": "",
+    "text": "Nothing"
+  },
+  "Mission+Torch": {
+    "emoji": "🗽",
+    "text": "Statue"
+  },
+  "Mission+River": {
+    "emoji": "🚶‍♂️",
+    "text": "Expedition"
+  },
+  "Mission+Statue of Liberty": {
+    "emoji": "🕵️‍♀",
+    "text": "Spy"
+  },
+  "Mission+Coconut": {
+    "emoji": "🙏",
+    "text": "Missionary"
+  },
+  "Mission+Post Office": {
+    "emoji": "📬",
+    "text": "Mailman"
+  },
+  "Mission+Telescope": {
+    "emoji": "🌌",
+    "text": "Hubble"
+  },
+  "Mission+St": {
+    "emoji": "🎯",
+    "text": "Mission Statement"
+  },
+  "Mission+Period": {
+    "emoji": "🌌",
+    "text": "Space"
+  },
+  "Mission+Christmas Tree": {
+    "emoji": "🎄",
+    "text": "Christmas Mission"
+  },
+  "Mission+Pirate": {
+    "emoji": "🧑‍✈️",
+    "text": "Captain"
+  },
+  "Mission+Obamacare": {
+    "emoji": "🚀",
+    "text": "Missionacare"
+  },
+  "Mission+Tiamat": {
+    "emoji": "🐉",
+    "text": "Tiamat"
+  },
+  "Mission+Foghorn": {
+    "emoji": "🐓",
+    "text": "Leghorn"
+  },
+  "Mission+Rambo": {
+    "emoji": "💥",
+    "text": "War"
+  },
+  "Mission+House": {
+    "emoji": "⛪",
+    "text": "Church"
+  },
+  "Mission+Katana": {
+    "emoji": "🥷",
+    "text": "Ninja"
+  },
+  "Mission+Dandelion Patch": {
+    "emoji": "🌼",
+    "text": "Dandelion"
+  },
+  "Mission+Pizza": {
+    "emoji": "🚚",
+    "text": "Delivery"
+  },
+  "Mission+Pickle": {
+    "emoji": "🌱",
+    "text": "Dill"
+  },
+  "Mission+Ball": {
+    "emoji": "🌌",
+    "text": "Space"
+  },
+  "Mission+Dessert": {
+    "emoji": "🙏",
+    "text": "Missionary"
+  },
+  "Mission+Pilot": {
+    "emoji": "🚀",
+    "text": "Astronaut"
+  },
+  "Mission+Hades": {
+    "emoji": "🙏",
+    "text": "Missionary"
+  },
+  "Mission+Pencil": {
+    "emoji": "🕵️‍♀",
+    "text": "Spy"
+  },
+  "Mission+President": {
+    "emoji": "🕵️‍♀",
+    "text": "Spy"
+  },
+  "Mission+Them": {
+    "emoji": "🙋‍♂️",
+    "text": "Themselves"
+  },
+  "Mission+Lotus": {
+    "emoji": "🧘‍♂️",
+    "text": "Buddha"
+  },
+  "Mission+Compass": {
+    "emoji": "🚶‍♂️",
+    "text": "Expedition"
+  },
+  "Mission+Baseball": {
+    "emoji": "🙏",
+    "text": "Missionary"
+  },
+  "Mission+Hitler": {
+    "emoji": "💔",
+    "text": "Holocaust"
+  },
+  "Mission+Eruption": {
+    "emoji": "🌋",
+    "text": "Volcano"
+  },
+  "Mission+Haunted House": {
+    "emoji": "👻",
+    "text": "Ghost"
+  },
+  "Mission+Arrow": {
+    "emoji": "🏹",
+    "text": "Quest"
+  },
+  "Mission+Confession": {
+    "emoji": "🙏",
+    "text": "Missionary"
+  },
+  "Mission+Canada": {
+    "emoji": "🚶‍♂️",
+    "text": "Expedition"
+  },
+  "Mission+Jedi": {
+    "emoji": "🌌",
+    "text": "Luke"
+  },
+  "Mission+Potato": {
+    "emoji": "🥔",
+    "text": "Spud"
+  },
+  "Mission+Tsunami": {
+    "emoji": "🌊",
+    "text": "Tsunami"
+  },
+  "Mission+Signal": {
+    "emoji": "🚀",
+    "text": "Mission Control"
+  },
+  "Mission+Paradox": {
+    "emoji": "",
+    "text": "Nothing"
+  },
+  "Mission+Trump": {
+    "emoji": "✅",
+    "text": "Mission Accomplished"
+  },
+  "Mission+Chili": {
+    "emoji": "🌮",
+    "text": "Chimichanga"
+  },
+  "Mission+Zeus": {
+    "emoji": "🌕",
+    "text": "Apollo"
+  },
+  "Mission+Dog": {
+    "emoji": "🕵️‍♀",
+    "text": "Spy"
+  },
+  "Mission+Punchline": {
+    "emoji": "🤪",
+    "text": "Joke"
+  },
+  "Mission+Jonah": {
+    "emoji": "🐳",
+    "text": "Whale"
+  },
+  "Mission+Smell": {
+    "emoji": "🕵️‍♀",
+    "text": "Spy"
+  },
+  "Mission+Gamer": {
+    "emoji": "🏹",
+    "text": "Quest"
+  },
+  "Mission+Earthquake": {
+    "emoji": "💥",
+    "text": "Mission Impossible"
+  },
+  "Mission+Galaxy": {
+    "emoji": "🌌",
+    "text": "Space"
+  },
+  "Mission+Gordon Ramsay": {
+    "emoji": "🍳",
+    "text": "Hell’s Kitchen"
+  },
+  "Mission+Miracle": {
+    "emoji": "🙏",
+    "text": "Missionary"
+  },
+  "Mission+Present": {
+    "emoji": "🎄",
+    "text": "Christmas"
+  },
+  "Mission+Retweet": {
+    "emoji": "🙏",
+    "text": "Missionary"
+  },
+  "Mission+Sober": {
+    "emoji": "🚫🍺",
+    "text": "Sobriety"
+  },
+  "Mission+Fishbowl": {
+    "emoji": "🐠",
+    "text": "Aquarium"
+  },
+  "Mission+Satellite": {
+    "emoji": "🕵️‍♀",
+    "text": "Spy"
+  },
+  "Mission+Priest": {
+    "emoji": "🙏",
+    "text": "Missionary"
+  },
+  "Mission+Earth": {
+    "emoji": "🪐",
+    "text": "Mars"
+  },
+  "Mission+Alien": {
+    "emoji": "🪐",
+    "text": "Mars"
+  },
+  "Mission+Soup": {
+    "emoji": "",
+    "text": "Nothing"
+  },
+  "Mission+One": {
+    "emoji": "",
+    "text": "Nothing"
+  },
+  "Mission+MrBeast": {
+    "emoji": "🌎",
+    "text": "Mrbeast"
+  },
+  "Mission+Obama": {
+    "emoji": "💣",
+    "text": "Osama"
+  },
+  "Mission+Vampire": {
+    "emoji": "🦇",
+    "text": "Batman"
+  },
+  "Mission+Shooting": {
+    "emoji": "🎯",
+    "text": "Sniper"
+  },
+  "Mission+Poseidon": {
+    "emoji": "🌊",
+    "text": "Atlantis"
+  },
+  "Mission+Atlas": {
+    "emoji": "",
+    "text": "Nothing"
+  },
+  "Mission+China": {
+    "emoji": "🙏",
+    "text": "Missionary"
+  },
+  "Mission+Titanic": {
+    "emoji": "🌊",
+    "text": "Iceberg"
+  },
+  "Mission+Christmas": {
+    "emoji": "🎅",
+    "text": "Santa"
+  },
+  "Mission+Farm": {
+    "emoji": "🙏",
+    "text": "Missionary"
+  },
+  "Mission+Fruit": {
+    "emoji": "",
+    "text": "Nothing"
+  },
+  "Mission+Hero": {
+    "emoji": "🏹",
+    "text": "Quest"
+  },
+  "Mission+Jackpot": {
+    "emoji": "💵",
+    "text": "Money"
+  },
+  "Mission+Porcupine": {
+    "emoji": "🖋️",
+    "text": "Quill"
+  },
+  "Mission+James Bond": {
+    "emoji": "🕵️",
+    "text": "007"
+  },
+  "Mission+Fossil": {
+    "emoji": "🦖",
+    "text": "Dinosaur"
+  },
+  "Mission+Glasses": {
+    "emoji": "🕵️‍♀",
+    "text": "Spy"
+  },
+  "Mission+Salad": {
+    "emoji": "🐒",
+    "text": "Caesar"
+  },
+  "Mission+Captain": {
+    "emoji": "🌌",
+    "text": "Space"
+  },
+  "Mission+Universe": {
+    "emoji": "🌌",
+    "text": "Space"
+  },
+  "Mission+Movie": {
+    "emoji": "💥",
+    "text": "Mission Impossible"
+  },
+  "Mission+T-Rex": {
+    "emoji": "🦖",
+    "text": "Dinosaur"
+  },
+  "Mission+Thor": {
+    "emoji": "⛈️",
+    "text": "Thunder"
+  },
+  "Mission+Gravity": {
+    "emoji": "🌕",
+    "text": "Apollo"
+  },
+  "Mission+Country": {
+    "emoji": "🌌",
+    "text": "Space"
+  },
+  "Mission+Ice Cream": {
+    "emoji": "💥",
+    "text": "Mission Impossible"
+  },
+  "Mission+Sushi": {
+    "emoji": "",
+    "text": "Nothing"
+  },
+  "Mission+Jetea": {
+    "emoji": "",
+    "text": "Nothing"
+  },
+  "Mission+Mud": {
+    "emoji": "🙏",
+    "text": "Missionary"
+  },
+  "Mission+Diarrhea": {
+    "emoji": "🙏",
+    "text": "Missionary"
+  },
+  "Mission+Lens": {
+    "emoji": "🕵️‍♀",
+    "text": "Spy"
+  },
+  "Mission+Planet": {
+    "emoji": "🪐",
+    "text": "Mars"
+  },
+  "Mission+Brazil": {
+    "emoji": "🌴",
+    "text": "Rio"
+  },
+  "Mission+Sin": {
+    "emoji": "🙏",
+    "text": "Missionary"
+  },
+  "Mission+Tomb": {
+    "emoji": "🏴‍☠️",
+    "text": "Raider"
+  },
+  "Mission+Happiness": {
+    "emoji": "🏖️",
+    "text": "Vacation"
+  },
+  "Mission+Africa": {
+    "emoji": "🐘",
+    "text": "Safari"
+  },
+  "Mission+Lawnmower": {
+    "emoji": "",
+    "text": "Nothing"
+  },
+  "Mission+Mirage": {
+    "emoji": "🏜️",
+    "text": "Desert"
+  },
+  "Mission+U-Boat": {
+    "emoji": "🚤",
+    "text": "Submarine"
+  },
+  "Mission+Brick": {
+    "emoji": "⛪",
+    "text": "Church"
+  },
+  "Mission+Jungle": {
+    "emoji": "🌴",
+    "text": "Tarzan"
+  },
+  "Mission+Sea Monster": {
+    "emoji": "🐙",
+    "text": "Kraken"
+  },
+  "Mission+Bible": {
+    "emoji": "🙏",
+    "text": "Missionary"
+  },
+  "Mission+Joker": {
+    "emoji": "🦇",
+    "text": "Batman"
+  },
+  "Mission+Steampunk": {
+    "emoji": "🚢",
+    "text": "Steamship"
+  },
+  "Mission+Cruise": {
+    "emoji": "🎬",
+    "text": "Tom Cruise"
+  },
+  "Mission+Flamenco": {
+    "emoji": "🦩",
+    "text": "Flamingo"
   }
 }
