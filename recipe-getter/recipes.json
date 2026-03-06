@@ -44966,5 +44966,205 @@
   "Fire+Kobe": {
     "emoji": "🏀",
     "text": "Bryant"
+  },
+  "Bird+Earth": {
+    "emoji": "🐔",
+    "text": "Chicken"
+  },
+  "Lightning+Pot": {
+    "emoji": "🧪",
+    "text": "Alchemy"
+  },
+  "Nautilus+Water": {
+    "emoji": "🐚",
+    "text": "Shell"
+  },
+  "Shell+Wind": {
+    "emoji": "🐚",
+    "text": "Conch"
+  },
+  "Cloud+Planet": {
+    "emoji": "🌌",
+    "text": "Sky"
+  },
+  "Fire+Pancakes": {
+    "emoji": "🍰",
+    "text": "Firecakes"
+  },
+  "Avalanche+Continent": {
+    "emoji": "🧊",
+    "text": "Ice Age"
+  },
+  "Ice+Water": {
+    "emoji": "🌊",
+    "text": "Iceberg"
+  },
+  "Iceberg+Smog": {
+    "emoji": "🐻",
+    "text": "Polar Bear"
+  },
+  "Hamster+Polar Bear": {
+    "emoji": "🐹",
+    "text": "Hamster Bear"
+  },
+  "Fire Dance+Pizza": {
+    "emoji": "🍕",
+    "text": "Fire Pizza"
+  },
+  "S’more+Wind": {
+    "emoji": "🍫",
+    "text": "Smore"
+  },
+  "Amber+Water": {
+    "emoji": "🥃",
+    "text": "Whiskey"
+  },
+  "Stone+Whiskey": {
+    "emoji": "🥃",
+    "text": "Scotch"
+  },
+  "Cloud+Lightning": {
+    "emoji": "⛈️",
+    "text": "Thunder"
+  },
+  "Steam+Thunder": {
+    "emoji": "⛈️",
+    "text": "Thunderstorm"
+  },
+  "Lotus+Storm": {
+    "emoji": "👹",
+    "text": "Kali"
+  },
+  "Clean+Wind": {
+    "emoji": "💨",
+    "text": "Breeze"
+  },
+  "Drink+Earth": {
+    "emoji": "☕️",
+    "text": "Coffee"
+  },
+  "Breeze+Coffee": {
+    "emoji": "😎",
+    "text": "Cool"
+  },
+  "Coffee+Cool": {
+    "emoji": "☕️",
+    "text": "Iced Coffee"
+  },
+  "Cool+Iced Coffee": {
+    "emoji": "☕️",
+    "text": "Ice Coffee"
+  },
+  "Pepper+Steam": {
+    "emoji": "🥩",
+    "text": "Pepper Steak"
+  },
+  "Pepper Steak+Smoke": {
+    "emoji": "🥩",
+    "text": "Smoked Pepper Steak"
+  },
+  "Smoked Pepper Steak+Water": {
+    "emoji": "🍲",
+    "text": "Smoked Pepper Steak Soup"
+  },
+  "Obsidian+Train": {
+    "emoji": "🛤️",
+    "text": "Minecart"
+  },
+  "Flying Starfish+Steam": {
+    "emoji": "⛵️",
+    "text": "Sailor"
+  },
+  "Flying Starfish+Sailor": {
+    "emoji": "🌙",
+    "text": "Sailor Moon"
+  },
+  "Earth+Sailor Moon": {
+    "emoji": "🌎",
+    "text": "Sailor Earth"
+  },
+  "Airplane+Steam": {
+    "emoji": "✈️",
+    "text": "Jet"
+  },
+  "Airplane+Jet": {
+    "emoji": "🥊",
+    "text": "Fighter"
+  },
+  "Fighter+Mud": {
+    "emoji": "🏹",
+    "text": "Gladiator"
+  },
+  "Hourglass+Microscope": {
+    "emoji": "🔬",
+    "text": "Science"
+  },
+  "Ship+Wave": {
+    "emoji": "🏴‍☠️",
+    "text": "Pirate"
+  },
+  "Ship+Tsunami": {
+    "emoji": "🚢",
+    "text": "Titanic"
+  },
+  "Pirate+Tsunami": {
+    "emoji": "🏴‍☠️",
+    "text": "Pirate Ship"
+  },
+  "Pirate Ship+Titanic": {
+    "emoji": "🏴‍☠️",
+    "text": "Pirates of the Caribbean"
+  },
+  "Pirates of the Caribbean+Water": {
+    "emoji": "🏴‍☠️",
+    "text": "Pirates Of The Caribbean"
+  },
+  "Explosion+Radio": {
+    "emoji": "📻",
+    "text": "Boombox"
+  },
+  "Boombox+Explosion": {
+    "emoji": "🎸",
+    "text": "Bass"
+  },
+  "Fire Flower+Frog": {
+    "emoji": "🐸",
+    "text": "Fire Frog"
+  },
+  "Fire Frog+Water": {
+    "emoji": "🐸",
+    "text": "Boiled Frog"
+  },
+  "Clay+Volcano": {
+    "emoji": "🏺",
+    "text": "Ceramic"
+  },
+  "Soil+Soil": {
+    "emoji": "💩",
+    "text": "Dirt"
+  },
+  "Bullet+Fire": {
+    "emoji": "🔫",
+    "text": "Gun"
+  },
+  "Roast Duck+Wind": {
+    "emoji": "🦆",
+    "text": "Flying Roast Duck"
+  },
+  "Ice+Iceberg": {
+    "emoji": "🐧",
+    "text": "Penguin"
+  },
+  "Fog+Penguin": {
+    "emoji": "🌲",
+    "text": "Lost"
+  },
+  "Lost+Wind": {
+    "emoji": "🔜",
+    "text": "Direction"
+  },
+  "Direction+Earth": {
+    "emoji": "🧭",
+    "text": "North"
   }
 }
