@@ -44810,5 +44810,61 @@
   "\"\u001b[0;31mhi Videotex [0x0b]\u001b+Prepend Ansi Escape": {
     "emoji": "👋",
     "text": "\u001b[0;31mhi Videotex [0x0b]\u001b"
+  },
+  "Moon+Water": {
+    "emoji": "🌊",
+    "text": "Tide"
+  },
+  "Fire+Virus": {
+    "emoji": "🤒",
+    "text": "Flu"
+  },
+  "Fire+House": {
+    "emoji": "🔥",
+    "text": "Fireplace"
+  },
+  "Fire+Fireplace": {
+    "emoji": "🌡️",
+    "text": "Warmth"
+  },
+  "Warmth+Warmth": {
+    "emoji": "🔥",
+    "text": "Heat"
+  },
+  "Angel+Smoke": {
+    "emoji": "😈",
+    "text": "Devil"
+  },
+  "Fire+Malaria": {
+    "emoji": "🤒",
+    "text": "Fever"
+  },
+  "Fireworks+Water": {
+    "emoji": "💦",
+    "text": "Splash"
+  },
+  "Airship+Earth": {
+    "emoji": "🚢",
+    "text": "Landship"
+  },
+  "Sandwich+Wine": {
+    "emoji": "🧺",
+    "text": "Picnic"
+  },
+  "Picnic+Wine": {
+    "emoji": "🏀",
+    "text": "Basket"
+  },
+  "Fire+Gold": {
+    "emoji": "👑",
+    "text": "Midas"
+  },
+  "Fire+Loch Ness Monster": {
+    "emoji": "🐙",
+    "text": "Sea Monster"
+  },
+  "Earth+Fishbowl": {
+    "emoji": "🐠",
+    "text": "Aquarium"
   }
 }
