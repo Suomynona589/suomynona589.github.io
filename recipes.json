@@ -68202,5 +68202,505 @@
   "Elon Musk+Furry Grimes": {
     "emoji": "👶🤖",
     "text": "Baby X Æ A-12"
+  },
+  "Lost+Lost": {
+    "emoji": "🔍",
+    "text": "Hidden"
+  },
+  "Hidden+Wind": {
+    "emoji": "🤫",
+    "text": "Secret"
+  },
+  "Secret+Smoke": {
+    "emoji": "👁️",
+    "text": "Conspiracy"
+  },
+  "Fog+Ghost": {
+    "emoji": "👻",
+    "text": "Foggy Ghost"
+  },
+  "Foggy Ghost+Island": {
+    "emoji": "🌲",
+    "text": "Lost"
+  },
+  "Hawaii+Lost": {
+    "emoji": "🌴",
+    "text": "LOST"
+  },
+  "Glass+Statue": {
+    "emoji": "🏺",
+    "text": "Vase"
+  },
+  "Statue+Vase": {
+    "emoji": "🎨",
+    "text": "Art"
+  },
+  "\"quotation Mark\"+Lost": {
+    "emoji": "🗺️",
+    "text": "\"Lost\""
+  },
+  "Ozymandias+Planet": {
+    "emoji": "🪐",
+    "text": "Mars"
+  },
+  "\"Lost\"+U+005F": {
+    "emoji": "🧭",
+    "text": "lost"
+  },
+  "Cloud+Sandal": {
+    "emoji": "👢",
+    "text": "Ugg"
+  },
+  "Tea+Ugg": {
+    "emoji": "🤗",
+    "text": "Hug"
+  },
+  "Dragon+Hug": {
+    "emoji": "🤗",
+    "text": "Hugon"
+  },
+  "Ash+Dandelion": {
+    "emoji": "🌠",
+    "text": "Wish"
+  },
+  "Re-Tea+Wish": {
+    "emoji": "🌟",
+    "text": "Re-wish"
+  },
+  "Cloud+Sea Serpent": {
+    "emoji": "🐙",
+    "text": "Kraken"
+  },
+  "Hugon+Hurricane": {
+    "emoji": "🤗",
+    "text": "Hugo"
+  },
+  "\"hi tree\"+Hugo": {
+    "emoji": "👋",
+    "text": "\"hi Hugo\""
+  },
+  "Dust+No": {
+    "emoji": "👍",
+    "text": "Yes"
+  },
+  "Re-wish+Yes": {
+    "emoji": "👑",
+    "text": "Reyes"
+  },
+  "\"hi Hugo\"+Reyes": {
+    "emoji": "👋",
+    "text": "\"hi Hugo Reyes\""
+  },
+  "Clean+Kraken": {
+    "emoji": "🐙",
+    "text": "Octopus"
+  },
+  "Dragon+University of Miami": {
+    "emoji": "🅰️",
+    "text": "The U"
+  },
+  "\"hi Hugo Reyes\"+Remove The Hi": {
+    "emoji": "🧑‍🦰",
+    "text": "Hugo Reyes"
+  },
+  "Monster+Train": {
+    "emoji": "🦖",
+    "text": "Godzilla"
+  },
+  "Dandelion+Godzilla": {
+    "emoji": "🌺",
+    "text": "Flowerzilla"
+  },
+  "Train Station+Zephyr": {
+    "emoji": "🚆",
+    "text": "Zephyr Train"
+  },
+  "Cinder+Zephyr Train": {
+    "emoji": "👠",
+    "text": "Cinderella"
+  },
+  "Cinderella+Train": {
+    "emoji": "👸",
+    "text": "Princess"
+  },
+  "Princess+Zephyr Train": {
+    "emoji": "🌲",
+    "text": "Princess Mononoke"
+  },
+  "Dandelion+Princess Mononoke": {
+    "emoji": "🐰",
+    "text": "Totoro"
+  },
+  "Flowerzilla+Totoro": {
+    "emoji": "🦙",
+    "text": "Totorilla"
+  },
+  "Funnel Cake+Swamp": {
+    "emoji": "🐊",
+    "text": "Gator"
+  },
+  "Coconut+Swamp": {
+    "emoji": "🐒",
+    "text": "Monkey"
+  },
+  "Monkey+Volcano": {
+    "emoji": "🦍",
+    "text": "Gorilla"
+  },
+  "Gator+Gorilla": {
+    "emoji": "🐊",
+    "text": "Gatorilla"
+  },
+  "Seaweed+Sushi": {
+    "emoji": "🎰",
+    "text": "Roll"
+  },
+  "Dust+Roll": {
+    "emoji": "🍔",
+    "text": "Bun"
+  },
+  "Bun+Dust": {
+    "emoji": "🌯",
+    "text": "Burrito"
+  },
+  "Ash+Funnel Cake": {
+    "emoji": "🌶️",
+    "text": "Cinnamon"
+  },
+  "Cinnamon+Funnel Cake": {
+    "emoji": "🌯",
+    "text": "Churro"
+  },
+  "Carnivore+Churro": {
+    "emoji": "🐐",
+    "text": "Chupacabra"
+  },
+  "Chupacabra+Churro": {
+    "emoji": "🐐👻",
+    "text": "Chupacaburro"
+  },
+  "Burrito+Phoenix": {
+    "emoji": "🌯",
+    "text": "Quesadilla"
+  },
+  "Apocalypse+Tractor": {
+    "emoji": "🚜",
+    "text": "Tractorpocalypse"
+  },
+  "Chupacabra+Tractorpocalypse": {
+    "emoji": "🚜🐐",
+    "text": "Chupacabra Tractor"
+  },
+  "Sushi+Water": {
+    "emoji": "🐟",
+    "text": "Fish"
+  },
+  "Burrito+Pikachu": {
+    "emoji": "🌮",
+    "text": "Churrochu"
+  },
+  "Chupacaburro+Churrochu": {
+    "emoji": "🦙",
+    "text": "Chupacaburrochu"
+  },
+  "Earth+Whale": {
+    "emoji": "🏝️",
+    "text": "Island"
+  },
+  "Cuba+Pikachu": {
+    "emoji": "🧀",
+    "text": "Che"
+  },
+  "Che+Churro": {
+    "emoji": "🍢",
+    "text": "Chechurro"
+  },
+  "Chechurro+Chupacaburrochu": {
+    "emoji": "🤔",
+    "text": "Chupacaburrochurro"
+  },
+  "Hot Fudge+Water": {
+    "emoji": "🥛",
+    "text": "Chocolate Milk"
+  },
+  "Chocolate Milk+Quesadilla": {
+    "emoji": "🌯",
+    "text": "Chocadilla"
+  },
+  "Chocadilla+Churro": {
+    "emoji": "🤤",
+    "text": "Churrochadilla"
+  },
+  "Island+Wine": {
+    "emoji": "🎉",
+    "text": "Party"
+  },
+  "Chupacabra+Party": {
+    "emoji": "🐐",
+    "text": "Chupacabration"
+  },
+  "Chupacabration+Churrochadilla": {
+    "emoji": "🧛‍♂️",
+    "text": "Chupacabrationilla"
+  },
+  "Chupacabrationilla+Chupacaburrochurro": {
+    "emoji": "🧛‍♂️",
+    "text": "Chupacabrationillachurro"
+  },
+  "Chupacabra Tractor+Chupacabrationillachurro": {
+    "emoji": "👹🚜🍩",
+    "text": "Chupacabra Tractorillachurro"
+  },
+  "Chupacabra Tractorillachurro+Ice Cream": {
+    "emoji": "🍦",
+    "text": "Chupacabra Tractorillachurro Sundae"
+  },
+  "Benjamin Franklin+Patrick": {
+    "emoji": "👋",
+    "text": "Pat"
+  },
+  "Flour+Tornado": {
+    "emoji": "🌪️",
+    "text": "Twister"
+  },
+  "Pat+Twister": {
+    "emoji": "🧶",
+    "text": "Mat"
+  },
+  "Mat+Pat": {
+    "emoji": "🧠",
+    "text": "Matpat"
+  },
+  "Dragon+Gator": {
+    "emoji": "🐉",
+    "text": "Dragonator"
+  },
+  "Dragonator+Island": {
+    "emoji": "🌋",
+    "text": "Mata Nui"
+  },
+  "Fire+Mata Nui": {
+    "emoji": "🌊",
+    "text": "Toa"
+  },
+  "Dust+Toa": {
+    "emoji": "🌌",
+    "text": "Mata"
+  },
+  "Art+Mata": {
+    "emoji": "🦁🎶",
+    "text": "Matata"
+  },
+  "Steam+Zoo": {
+    "emoji": "🐘",
+    "text": "Elephant"
+  },
+  "Lion+Wind": {
+    "emoji": "🦁",
+    "text": "Simba"
+  },
+  "Elephant+Simba": {
+    "emoji": "🦁",
+    "text": "Hakuna Matata"
+  },
+  "Glass+Pluto": {
+    "emoji": "💥",
+    "text": "Kryptonite"
+  },
+  "Car+Curiosity": {
+    "emoji": "🚑",
+    "text": "Accident"
+  },
+  "A+Birth Control": {
+    "emoji": "🔤",
+    "text": "A.B.C."
+  },
+  "A.B.C.+Apostrophe": {
+    "emoji": "🔤",
+    "text": "Abc's"
+  },
+  "\"A\"+Kryptonite": {
+    "emoji": "👌",
+    "text": "\"K\""
+  },
+  "Parting+Vacuum": {
+    "emoji": "🌌",
+    "text": "Space"
+  },
+  "A.B.C.+Quotation": {
+    "emoji": "\"“”\"",
+    "text": "Quotation Marks"
+  },
+  "“C”+Apostrophe": {
+    "emoji": "👍",
+    "text": "‘c"
+  },
+  "‘c+Book": {
+    "emoji": "🇨",
+    "text": "‘c’"
+  },
+  "‘c’+\"K\"": {
+    "emoji": "👌",
+    "text": "‘k’"
+  },
+  "‘k’+\"A\"": {
+    "emoji": "👍",
+    "text": "‘ak’"
+  },
+  "‘ak’+\"Hi \"": {
+    "emoji": "🌞",
+    "text": "hakuna matata"
+  },
+  "Dandelion+Movie": {
+    "emoji": "🦁",
+    "text": "Lion King"
+  },
+  "Lion King+Movie": {
+    "emoji": "🦁",
+    "text": "The Lion King"
+  },
+  "Ash+Theater": {
+    "emoji": "😂",
+    "text": "Comedy"
+  },
+  "Comedy+The Lion King": {
+    "emoji": "🦁",
+    "text": "The Lion King 1 1/2"
+  },
+  "Art+Wind": {
+    "emoji": "🌬️",
+    "text": "Fan"
+  },
+  "Art+Fan": {
+    "emoji": "🎨",
+    "text": "Fanart"
+  },
+  "Fanart+Mud": {
+    "emoji": "💩",
+    "text": "Muddy Fanart"
+  },
+  "Muddy Fanart+Water": {
+    "emoji": "🌈",
+    "text": "Clean Fanart"
+  },
+  "Clean Fanart+Mud": {
+    "emoji": "🤢",
+    "text": "Dirty Fanart"
+  },
+  "Art+Dirty Fanart": {
+    "emoji": "🔞",
+    "text": "Rule 34"
+  },
+  "Fog+Rule 34": {
+    "emoji": "🚺🚹",
+    "text": "Rule 63"
+  },
+  "Rule 63+The Lion King 1 1/2": {
+    "emoji": "🦁👑",
+    "text": "The Lion Queen 1 1/2"
+  },
+  "Comedy+Fan": {
+    "emoji": "📖",
+    "text": "Fanfiction"
+  },
+  "Fanfiction+The Lion Queen 1 1/2": {
+    "emoji": "🦁👑",
+    "text": "The Lion Queen 1 1/2: Hakuna Matata"
+  },
+  "Ash+Movie": {
+    "emoji": "👠",
+    "text": "Cinderella"
+  },
+  "Cinderella+The Lion King": {
+    "emoji": "🦁",
+    "text": "The Lion Queen"
+  },
+  "The Lion King+The Lion Queen": {
+    "emoji": "🦁",
+    "text": "The Lion King 2"
+  },
+  "The Lion King 2+Water": {
+    "emoji": "🦁",
+    "text": "The Lion King 2: Simba’s Pride"
+  },
+  "Chili+Chili": {
+    "emoji": "🌶️",
+    "text": "Chili Pepper"
+  },
+  "Chili Pepper+Movie": {
+    "emoji": "🔞",
+    "text": "Rated R"
+  },
+  "Rated R+Wine": {
+    "emoji": "🍷🔞",
+    "text": "Rated W"
+  },
+  "Rated W+The Lion King 2: Simba’s Pride": {
+    "emoji": "🦁",
+    "text": "The Lion King 3: Hakuna Matata"
+  },
+  "Hakuna Matata+Plural": {
+    "emoji": "🦁",
+    "text": "Hakuna Matatas"
+  },
+  "Plant+Steamroller": {
+    "emoji": "🍊",
+    "text": "Pulp"
+  },
+  "Movie+Pulp": {
+    "emoji": "📚",
+    "text": "Fiction"
+  },
+  "Fiction+Fiction": {
+    "emoji": "📖",
+    "text": "Fanfiction"
+  },
+  "Fanfiction+The Lion King 2": {
+    "emoji": "🦁",
+    "text": "The Lion King 3"
+  },
+  "Rule 63+The Lion King 3": {
+    "emoji": "🦁👑",
+    "text": "The Lion Queen 3"
+  },
+  "Fanfiction+The Lion Queen 3": {
+    "emoji": "🦁👑",
+    "text": "The Lion Queen 3: Hakuna Matata"
+  },
+  "Hangover+Plant": {
+    "emoji": "💊",
+    "text": "Aspirin"
+  },
+  "Aspirin+Hate": {
+    "emoji": "😮",
+    "text": "Aspirate"
+  },
+  "/pol/+Food": {
+    "emoji": "🍔🍟🍕",
+    "text": "/ck/"
+  },
+  "/ck/+/ck/": {
+    "emoji": "🔫",
+    "text": "/k/"
+  },
+  "Hate+Rocket": {
+    "emoji": "💣",
+    "text": "Missile"
+  },
+  "/pol/+Wind": {
+    "emoji": "🌀",
+    "text": "Hurricane"
+  },
+  "\"A\"+Aspirate": {
+    "emoji": "😆",
+    "text": "\"ha\""
+  },
+  "\"ha\"+/k/": {
+    "emoji": "🤔",
+    "text": "\"hak\""
+  },
+  "\"hak\"+Mrs.": {
+    "emoji": "🦁",
+    "text": "\"hakuna matata\""
   }
 }
