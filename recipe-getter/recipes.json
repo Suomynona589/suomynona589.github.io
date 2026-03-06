@@ -44866,5 +44866,105 @@
   "Earth+Fishbowl": {
     "emoji": "🐠",
     "text": "Aquarium"
+  },
+  "Shark+Sushi": {
+    "emoji": "👨‍🍳",
+    "text": "Chef"
+  },
+  "Earth+Wine": {
+    "emoji": "🍇",
+    "text": "Vineyard"
+  },
+  "Eruption+Steam": {
+    "emoji": "🌋",
+    "text": "Geyser"
+  },
+  "Brine+Water": {
+    "emoji": "🌊",
+    "text": "Salt Water"
+  },
+  "Pottery+Water": {
+    "emoji": "🏺",
+    "text": "Vase"
+  },
+  "Fire+Submarine": {
+    "emoji": "🔥",
+    "text": "Fireball"
+  },
+  "Fish+Sushi": {
+    "emoji": "🍣",
+    "text": "Sashimi"
+  },
+  "Fire+Newfie": {
+    "emoji": "🔥",
+    "text": "Firefie"
+  },
+  "Fire+Great Wall of China": {
+    "emoji": "🚧",
+    "text": "Firewall"
+  },
+  "Flying Soggy Toast+Wind": {
+    "emoji": "🍞",
+    "text": "Flying Dry Toast"
+  },
+  "Flying Dry Toast+Steam": {
+    "emoji": "💨",
+    "text": "Flying Steam Toast"
+  },
+  "Flu+Water": {
+    "emoji": "💦",
+    "text": "Fluoride"
+  },
+  "Fluoride+Water": {
+    "emoji": "🦷",
+    "text": "Toothpaste"
+  },
+  "Titan+Toothpaste": {
+    "emoji": "🦷",
+    "text": "Colgate"
+  },
+  "Fire+Love": {
+    "emoji": "💓",
+    "text": "Passion"
+  },
+  "Dog+Fire": {
+    "emoji": "🌭",
+    "text": "Hot Dog"
+  },
+  "Ash+Hot Dog": {
+    "emoji": "🐶",
+    "text": "Fire Dog"
+  },
+  "Engine+Pancake": {
+    "emoji": "🥞",
+    "text": "Pancakes"
+  },
+  "Pancakes+Water": {
+    "emoji": "🥞",
+    "text": "Soggy Pancakes"
+  },
+  "Soggy Pancakes+Wind": {
+    "emoji": "🥞",
+    "text": "Flying Pancakes"
+  },
+  "Christmas Tree+Mountain": {
+    "emoji": "🎅",
+    "text": "Santa"
+  },
+  "Phoenix+Santa": {
+    "emoji": "🦌",
+    "text": "Rudolph"
+  },
+  "Lake+Los Angeles": {
+    "emoji": "🏀",
+    "text": "Lakers"
+  },
+  "Fire+Lakers": {
+    "emoji": "🐍",
+    "text": "Kobe"
+  },
+  "Fire+Kobe": {
+    "emoji": "🏀",
+    "text": "Bryant"
   }
 }
