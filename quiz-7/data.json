@@ -1,0 +1,54 @@
+{
+  "title": "Gravity Falls Quiz",
+  "questions": [
+    {
+      "q": "In Scary-oke, what did Dipper discover about the Journal?",
+      "choices": [
+        "Who the author was",
+        "There was invisible ink",
+        "The author created the monsters",
+        "He found another journal"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "What did Wendy do every year instead of Christmas?",
+      "choices": [
+        "Trained for the apocalypse",
+        "Hanukkah",
+        "Nothing"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "Who was the author of the Journals?",
+      "choices": [
+        "Grunkle Stan",
+        "Old Man McGucket",
+        "Nobody knows",
+        "Ford Pines"
+      ],
+      "answer": 3
+    },
+    {
+      "q": "Who was the founder of Gravity Falls?",
+      "choices": [
+        "Nathaniel Northwest",
+        "Silas Pines",
+        "Quentin Trembley",
+        "Eustace Befufftlefumpter"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "Who became the new mayor after Mayor Befufftlefumpter died?",
+      "choices": [
+        "Grunkle Stan",
+        "Bud Gleeful",
+        "Daniel Corduroy",
+        "Tyler Cutebiker"
+      ],
+      "answer": 3
+    }
+  ]
+}
