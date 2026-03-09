@@ -143,6 +143,13 @@ main {
   object-fit: cover;
 }
 
+.quiz-thumb.gf {
+  width: 110%;
+  height: auto;
+  margin-top: 30px;
+  margin-left: -10px;
+}
+
 .quiz-info {
   padding: 10px;
 }
