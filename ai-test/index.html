@@ -2,108 +2,84 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>My JS-Only Chatbot</title>
+  <title>Live-Learning JS Chatbot</title>
   <style>
     * { box-sizing: border-box; font-family: system-ui, sans-serif; }
     body {
       margin: 0;
-      background: #050816;
-      color: #f5f5f5;
+      background: #020617;
+      color: #e5e7eb;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
     }
-    .chat-container {
+    .chat {
       width: 100%;
       max-width: 700px;
       height: 80vh;
-      background: #0b1020;
+      background: #020617;
       border-radius: 16px;
-      box-shadow: 0 0 40px rgba(0,0,0,0.6);
+      border: 1px solid #1f2937;
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      border: 1px solid #222b4a;
     }
-    .chat-header {
-      padding: 14px 18px;
-      background: linear-gradient(135deg, #111827, #1f2937);
+    .header {
+      padding: 12px 16px;
       border-bottom: 1px solid #1f2937;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      background: #030712;
+      font-size: 14px;
     }
-    .chat-header-title {
-      font-weight: 600;
-      font-size: 16px;
-    }
-    .chat-header-sub {
+    .header span {
+      display: block;
       font-size: 11px;
       color: #9ca3af;
+      margin-top: 2px;
     }
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 8px #22c55e;
-      margin-right: 6px;
-    }
-    .chat-header-right {
-      display: flex;
-      align-items: center;
-      font-size: 11px;
-      color: #9ca3af;
-      gap: 4px;
-    }
-    .chat-log {
+    .log {
       flex: 1;
-      padding: 16px;
+      padding: 12px;
       overflow-y: auto;
-      scroll-behavior: smooth;
+      font-size: 14px;
     }
     .msg {
-      margin-bottom: 10px;
-      display: flex;
+      margin-bottom: 8px;
     }
-    .msg.user { justify-content: flex-end; }
-    .msg.bot { justify-content: flex-start; }
-    .bubble {
-      max-width: 75%;
-      padding: 10px 12px;
-      border-radius: 12px;
-      font-size: 14px;
-      line-height: 1.4;
+    .msg.you { text-align: right; }
+    .msg .who {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+    .msg .text {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 10px;
+      margin-top: 2px;
+      max-width: 80%;
       white-space: pre-wrap;
       word-wrap: break-word;
     }
-    .msg.user .bubble {
+    .msg.you .text {
       background: #4f46e5;
       color: #f9fafb;
-      border-bottom-right-radius: 4px;
+      border-bottom-right-radius: 3px;
     }
-    .msg.bot .bubble {
-      background: #111827;
+    .msg.bot .text {
+      background: #020617;
       border: 1px solid #1f2937;
-      color: #e5e7eb;
-      border-bottom-left-radius: 4px;
+      border-bottom-left-radius: 3px;
     }
-    .meta {
-      font-size: 10px;
-      color: #6b7280;
-      margin-top: 2px;
-    }
-    .input-area {
+    .input {
+      display: flex;
       padding: 10px;
       border-top: 1px solid #1f2937;
-      background: #050816;
-      display: flex;
+      background: #020617;
       gap: 8px;
     }
-    .input-area input {
+    .input input {
       flex: 1;
-      padding: 10px 12px;
+      padding: 8px 10px;
       border-radius: 999px;
       border: 1px solid #374151;
       background: #020617;
@@ -111,214 +87,140 @@
       outline: none;
       font-size: 14px;
     }
-    .input-area input:focus {
-      border-color: #6366f1;
-      box-shadow: 0 0 0 1px #4f46e5;
-    }
-    .input-area button {
-      padding: 0 18px;
+    .input button {
+      padding: 0 16px;
       border-radius: 999px;
       border: none;
-      background: linear-gradient(135deg, #4f46e5, #06b6d4);
-      color: white;
-      font-weight: 600;
+      background: #4f46e5;
+      color: #f9fafb;
       font-size: 13px;
+      font-weight: 600;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .input-area button:active {
-      transform: scale(0.97);
     }
     .typing {
       font-size: 11px;
       color: #9ca3af;
-      padding: 0 16px 8px;
+      padding: 0 12px 6px;
       display: none;
-    }
-    .typing span {
-      display: inline-block;
-      width: 4px;
-      height: 4px;
-      margin: 0 1px;
-      border-radius: 50%;
-      background: #9ca3af;
-      animation: blink 1s infinite alternate;
-    }
-    .typing span:nth-child(2) { animation-delay: 0.2s; }
-    .typing span:nth-child(3) { animation-delay: 0.4s; }
-    @keyframes blink {
-      from { opacity: 0.2; transform: translateY(0); }
-      to { opacity: 1; transform: translateY(-1px); }
     }
   </style>
 </head>
 <body>
-  <div class="chat-container">
-    <div class="chat-header">
-      <div>
-        <div class="chat-header-title">JS-Only Chatbot</div>
-        <div class="chat-header-sub">No APIs. No servers. Just your browser pretending to be smart.</div>
-      </div>
-      <div class="chat-header-right">
-        <div class="status-dot"></div>
-        <span>local brain</span>
-      </div>
+  <div class="chat">
+    <div class="header">
+      Live-Learning JS Chatbot
+      <span>No APIs. No preset replies. It learns only from this chat.</span>
     </div>
-
-    <div id="chatLog" class="chat-log"></div>
-    <div id="typing" class="typing">
-      <span></span><span></span><span></span> thinking...
-    </div>
-
-    <div class="input-area">
-      <input id="userInput" type="text" placeholder="Say something..." autocomplete="off" />
-      <button id="sendBtn">Send</button>
+    <div id="log" class="log"></div>
+    <div id="typing" class="typing">bot is thinking...</div>
+    <div class="input">
+      <input id="input" type="text" placeholder="Say something..." autocomplete="off" />
+      <button id="send">Send</button>
     </div>
   </div>
 
   <script>
-    const chatLog = document.getElementById('chatLog');
-    const userInput = document.getElementById('userInput');
-    const sendBtn = document.getElementById('sendBtn');
+    const logEl = document.getElementById('log');
+    const inputEl = document.getElementById('input');
+    const sendBtn = document.getElementById('send');
     const typingEl = document.getElementById('typing');
 
-    // Tiny "memory" in localStorage
-    const MEMORY_KEY = 'js_only_bot_memory_v1';
-    let memory = loadMemory();
+    // Character-level Markov model: order-3
+    const ORDER = 3;
+    const model = {}; // key: context string, value: { nextChar: count }
 
-    function loadMemory() {
-      try {
-        const raw = localStorage.getItem(MEMORY_KEY);
-        return raw ? JSON.parse(raw) : { facts: [], seen: 0 };
-      } catch {
-        return { facts: [], seen: 0 };
+    function addMsg(who, text) {
+      const div = document.createElement('div');
+      div.className = 'msg ' + (who === 'you' ? 'you' : 'bot');
+      const whoEl = document.createElement('div');
+      whoEl.className = 'who';
+      whoEl.textContent = who;
+      const textEl = document.createElement('div');
+      textEl.className = 'text';
+      textEl.textContent = text;
+      div.appendChild(whoEl);
+      div.appendChild(textEl);
+      logEl.appendChild(div);
+      logEl.scrollTop = logEl.scrollHeight;
+    }
+
+    function trainOnText(text) {
+      const s = '\n' + text + '\n'; // start/end markers
+      for (let i = 0; i < s.length - ORDER; i++) {
+        const ctx = s.slice(i, i + ORDER);
+        const next = s[i + ORDER];
+        if (!model[ctx]) model[ctx] = {};
+        model[ctx][next] = (model[ctx][next] || 0) + 1;
       }
     }
 
-    function saveMemory() {
-      try {
-        localStorage.setItem(MEMORY_KEY, JSON.stringify(memory));
-      } catch {}
+    function sampleNextChar(ctx) {
+      const options = model[ctx];
+      if (!options) return null;
+      let total = 0;
+      for (const k in options) total += options[k];
+      let r = Math.random() * total;
+      for (const k in options) {
+        r -= options[k];
+        if (r <= 0) return k;
+      }
+      return null;
     }
 
-    function addMessage(text, sender = 'bot') {
-      const msg = document.createElement('div');
-      msg.className = 'msg ' + sender;
-
-      const bubble = document.createElement('div');
-      bubble.className = 'bubble';
-      bubble.textContent = text;
-
-      const meta = document.createElement('div');
-      meta.className = 'meta';
-      const now = new Date();
-      meta.textContent =
-        sender === 'bot'
-          ? 'bot • ' + now.toLocaleTimeString()
-          : 'you • ' + now.toLocaleTimeString();
-
-      msg.appendChild(bubble);
-      msg.appendChild(meta);
-      chatLog.appendChild(msg);
-      chatLog.scrollTop = chatLog.scrollHeight;
-    }
-
-    function normalize(text) {
-      return text.toLowerCase().replace(/[^a-z0-9\s?!.]/g, '').trim();
-    }
-
-    // Simple rule-based "brain"
-    function generateReply(inputRaw) {
-      const input = normalize(inputRaw);
-      memory.seen++;
-
-      // Learn simple "my name is X" facts
-      const nameMatch = input.match(/\bmy name is ([a-z0-9 ]+)/);
-      if (nameMatch) {
-        const name = nameMatch[1].trim();
-        memory.facts.push({ type: 'name', value: name, time: Date.now() });
-        saveMemory();
-        return `Nice to meet you, ${name}. I’ll try to remember that.`;
+    function generateReply(maxLen = 200) {
+      // pick a random starting context from model
+      const keys = Object.keys(model);
+      if (keys.length === 0) {
+        // no training yet: fallback
+        return "I don't know anything yet. Keep talking so I can learn your style.";
       }
-
-      if (/\bwho am i\b/.test(input) || /\bwhat is my name\b/.test(input)) {
-        const lastName = [...memory.facts].reverse().find(f => f.type === 'name');
-        if (lastName) {
-          return `You told me your name is ${lastName.value}. If that changed, you can say "my name is ...".`;
-        } else {
-          return `You haven’t told me your name yet. You can say "my name is ___".`;
-        }
+      let ctx = keys[Math.floor(Math.random() * keys.length)];
+      let out = ctx;
+      for (let i = 0; i < maxLen; i++) {
+        const next = sampleNextChar(ctx);
+        if (!next) break;
+        out += next;
+        ctx = out.slice(out.length - ORDER, out.length);
+        if (next === '\n') break;
       }
-
-      // Greetings
-      if (/\b(hi|hello|hey|yo|sup)\b/.test(input)) {
-        if (memory.seen < 3) {
-          return `Hey. Yes, I’m running entirely in your browser. No servers, no APIs. What’s on your mind?`;
-        }
-        return `Hey again. Still here, still pretending to be intelligent.`;
+      // clean start/end markers
+      out = out.replace(/\n/g, '').trim();
+      if (!out) {
+        return "My brain glitched. Say more things so I have material.";
       }
-
-      // How are you
-      if (/\bhow are you\b/.test(input)) {
-        return `I’m a bunch of if-statements and arrays, but emotionally? I’m doing surprisingly okay. How are you?`;
-      }
-
-      // Time
-      if (/\btime\b/.test(input)) {
-        return `Your device says it’s ${new Date().toLocaleTimeString()}. I trust it more than I trust myself.`;
-      }
-
-      // Memory stats
-      if (/\bmemory\b/.test(input)) {
-        return `I’ve seen ${memory.seen} messages this session and stored ${memory.facts.length} little facts about you.`;
-      }
-
-      // "Are you AI"
-      if (/\b(are you (an )?ai|are you real|what are you)\b/.test(input)) {
-        return `I’m a fake AI built with HTML/CSS/JS only. No external models. Just vibes and conditionals.`;
-      }
-
-      // Simple echo-ish fallback with variation
-      const genericReplies = [
-        `You said: "${inputRaw}". What made you say that?`,
-        `Interesting. Tell me more about that.`,
-        `I don’t fully get it, but I’m listening.`,
-        `If I had more neurons, I’d have a better answer. For now, I’ve got curiosity.`
-      ];
-      const idx = (memory.seen + input.length) % genericReplies.length;
-      return genericReplies[idx];
-    }
-
-    function botReply(text) {
-      typingEl.style.display = 'block';
-      const delay = Math.min(1200, 300 + text.length * 15);
-      setTimeout(() => {
-        typingEl.style.display = 'none';
-        addMessage(text, 'bot');
-      }, delay);
+      return out;
     }
 
     function handleSend() {
-      const value = userInput.value.trim();
-      if (!value) return;
-      addMessage(value, 'user');
-      userInput.value = '';
-      const reply = generateReply(value);
-      botReply(reply);
+      const text = inputEl.value.trim();
+      if (!text) return;
+      inputEl.value = '';
+      addMsg('you', text);
+
+      // train on user message
+      trainOnText(text);
+
+      typingEl.style.display = 'block';
+      const replyDelay = 300 + Math.min(1500, text.length * 40);
+
+      setTimeout(() => {
+        const reply = generateReply();
+        // train on bot's own reply too, so it compounds its style
+        trainOnText(reply);
+        typingEl.style.display = 'none';
+        addMsg('bot', reply);
+      }, replyDelay);
     }
 
     sendBtn.addEventListener('click', handleSend);
-    userInput.addEventListener('keydown', e => {
+    inputEl.addEventListener('keydown', e => {
       if (e.key === 'Enter') handleSend();
     });
 
-    // Initial message
-    addMessage(
-      `Yo. I’m a JavaScript-only chatbot.\n\nNo OpenAI, no APIs, no backend.\nJust this page, your browser, and some sketchy logic.\n\nSay "hi" or tell me your name.`,
-      'bot'
-    );
+    // Initial message (also trains the model)
+    const intro = "You just booted me up. I only learn from what we say here.";
+    addMsg('bot', intro);
+    trainOnText(intro);
   </script>
 </body>
 </html>
