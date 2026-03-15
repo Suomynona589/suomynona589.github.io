@@ -4,6 +4,5 @@ count++
 sessionStorage.setItem("refreshCount", count)
 document.getElementById("score").textContent = count
 
-document.getElementById("refreshBtn").onclick = () => {
-    setTimeout(() => location.reload(), 1200)
+document.getElementById("refreshBtn").onclick = () => { location.reload()
 }
