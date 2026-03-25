@@ -2,61 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Little Rubik's Cube Solver</title>
+  <title>Rubiks Cube Solver Thing</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div id="app">
-    <h1>Little Rubik's Cube Solver</h1>
+    <h1>Rubiks Cube Solver Thing</h1>
 
     <div id="palette">
-      <span class="palette-label">Pick a color:</span>
-      <button class="color-btn" data-color="U" style="background:#ffff00;">U (Yellow)</button>
-      <button class="color-btn" data-color="D" style="background:#ffffff; color:#000;">D (White)</button>
-      <button class="color-btn" data-color="F" style="background:#00aa00;">F (Green)</button>
-      <button class="color-btn" data-color="B" style="background:#0000ff;">B (Blue)</button>
-      <button class="color-btn" data-color="R" style="background:#ff0000;">R (Red)</button>
-      <button class="color-btn" data-color="L" style="background:#ff8800;">L (Orange)</button>
-      <span class="palette-label small">
-        (Yellow ↔ White, Green ↔ Blue, Red ↔ Orange)
-      </span>
+      <button class="color-btn" data-color="U" style="background:#ffff00;">U</button>
+      <button class="color-btn" data-color="D" style="background:#ffffff; color:#000;">D</button>
+      <button class="color-btn" data-color="F" style="background:#00aa00;">F</button>
+      <button class="color-btn" data-color="B" style="background:#0000ff;">B</button>
+      <button class="color-btn" data-color="R" style="background:#ff0000;">R</button>
+      <button class="color-btn" data-color="L" style="background:#ff8800;">L</button>
     </div>
 
     <div id="cube-wrapper">
-      <div id="cube-container">
-        <!-- Faces will be injected by script.js -->
-      </div>
-    </div>
-
-    <div id="instructions">
-      <p>
-        Click a color above, then click tiles on the cube to paint them.
-      </p>
-      <p>
-        Arrow keys while painting:
-        <strong>←</strong> moves cube right,
-        <strong>→</strong> moves cube left,
-        <strong>↑</strong> moves cube down,
-        <strong>↓</strong> moves cube up.
-      </p>
+      <div id="cube-container"></div>
     </div>
 
     <div id="state-panel">
-      <h2>Cube state string</h2>
-      <p class="hint">
-        This is a 54‑character state like:
-        <code>055055011223000000333333555444444551224224334211211211</code>
-      </p>
       <textarea id="state-output" readonly></textarea>
-      <button id="copy-state">Copy state</button>
+      <button id="copy-state">Copy</button>
     </div>
 
     <div id="solver-panel">
-      <h2>Solver</h2>
-      <p class="hint">
-        Click “Solve” to get a simple move sequence in the format:
-        <code>{"status":"success","moves":"B' D'"}</code>
-      </p>
       <button id="solve-btn">Solve</button>
       <pre id="solver-result"></pre>
     </div>
