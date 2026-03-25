@@ -1,0 +1,200 @@
+/* style.css */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #ffffff;
+  color: #111111;
+}
+
+#app {
+  max-width: 960px;
+  margin: 20px auto 40px;
+  padding: 0 16px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+h2 {
+  margin: 16px 0 8px;
+}
+
+#palette {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.palette-label {
+  font-weight: 600;
+}
+
+.palette-label.small {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.color-btn {
+  border: 2px solid #000000;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  min-width: 70px;
+}
+
+.color-btn.active {
+  box-shadow: 0 0 0 3px #000000;
+}
+
+#cube-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+  min-height: 260px;
+  overflow: hidden;
+}
+
+#cube-container {
+  transition: transform 0.15s ease-out;
+}
+
+.cube-net {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cube-row {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+
+.face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.face.spacer {
+  width: 120px;
+  height: 120px;
+}
+
+.face-title {
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+}
+
+.face-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 36px);
+  grid-template-rows: repeat(3, 36px);
+  gap: 2px;
+}
+
+.tile {
+  width: 36px;
+  height: 36px;
+  background: #000000;
+  border: 2px solid #ffffff;
+  cursor: pointer;
+}
+
+#instructions {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+#instructions p + p {
+  margin-top: 4px;
+}
+
+#state-panel,
+#solver-panel {
+  margin-top: 16px;
+}
+
+#state-output {
+  width: 100%;
+  min-height: 60px;
+  margin-top: 4px;
+  padding: 6px;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+#copy-state {
+  margin-top: 6px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #000000;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+
+#copy-state:hover {
+  background: #e5e5e5;
+}
+
+#solve-btn {
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid #000000;
+  background: #f5f5f5;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+#solve-btn:hover {
+  background: #e5e5e5;
+}
+
+#solver-result {
+  margin-top: 8px;
+  padding: 8px;
+  background: #f7f7f7;
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+}
+
+.hint {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+  .face-grid {
+    grid-template-columns: repeat(3, 28px);
+    grid-template-rows: repeat(3, 28px);
+  }
+
+  .tile {
+    width: 28px;
+    height: 28px;
+  }
+
+  .face.spacer {
+    width: 96px;
+    height: 96px;
+  }
+}
