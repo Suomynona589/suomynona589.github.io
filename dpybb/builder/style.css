@@ -34,6 +34,11 @@ body {
     flex: 1;
     background: #181818;
     padding: 20px;
+    display: flex;
+}
+
+#content {
+    flex: 1;
 }
 
 #empty-wrap {
@@ -57,5 +62,62 @@ body {
     border-radius: 6px;
     font-weight: bold;
     cursor: pointer;
+    color: black;
+}
+
+#popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#popup-box {
+    background: #222;
+    padding: 20px;
+    border-radius: 8px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#popup-title {
+    font-size: 18px;
+}
+
+#popup-input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background: #333;
+    color: white;
+}
+
+#popup-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+#popup-cancel,
+#popup-create {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#popup-cancel {
+    background: #444;
+    color: white;
+}
+
+#popup-create {
+    background: #4a7;
     color: black;
 }
