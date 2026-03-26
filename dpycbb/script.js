@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
   async function handleTranslate() {
     terminal.textContent = "";
 
-    var token = tokenInput.value.trim();
+    var token = localStorage.getItem("botToken") || "";
     var source = editor.value;
 
     if (!token) {
