@@ -11,34 +11,43 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("botToken", tokenInput.value);
   });
 
-  function logToTerminal(text) {
-    terminal.textContent += text + "\n";
-    terminal.scrollTop = terminal.scrollHeight;
+  function log(text) {
+    terminal.textContent = text;
   }
 
   async function handleTranslate() {
     terminal.textContent = "";
+
     var token = tokenInput.value.trim();
     var source = editor.value;
 
     if (!token) {
-      logToTerminal("No token provided.");
+      log("No token provided.");
       return;
     }
 
     if (!source.trim()) {
-      logToTerminal("No script provided.");
+      log("No script provided.");
       return;
     }
 
-    var pythonCode = Translator.translate(source, token);
+    translateBtn.disabled = true;
+
+    var ctx = {
+      message: null,
+      interaction: null
+    };
+
+    var pythonCode = Translator.translate(source, token, ctx);
 
     try {
       await navigator.clipboard.writeText(pythonCode);
-      logToTerminal("Translation complete. Python code copied to clipboard.");
+      alert("Python code copied to clipboard.");
     } catch (e) {
-      logToTerminal("Failed to copy to clipboard.");
+      log("Failed to copy to clipboard.");
     }
+
+    translateBtn.disabled = false;
   }
 
   translateBtn.addEventListener("click", handleTranslate);
