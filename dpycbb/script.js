@@ -11,66 +11,37 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const generator = await window.transformers.pipeline(
     "text-generation",
-    "Xenova/llama-3.2-3b-instruct"
+    "Xenova/llama-3.2-1b-instruct"
   );
 
   log("Ready.");
 
   const SYSTEM_PROMPT = `
-You are a compiler for the Suomynona DSL. You output only Python code using discord.py. You never output explanations. You never output markdown. You never output comments. You never output anything except Python code. You never add extra text. You never wrap code in backticks. You never apologize. You never describe what you are doing. You only output the final Python file.
+You are a compiler for the Suomynona DSL. You output only Python code using discord.py. You never output explanations. You never output markdown. You never output comments. You never output anything except Python code. You never wrap code in backticks.
 
-The DSL has three optional sections: "# events", "# prefixes", "# commands". Any section may be missing. Order does not matter.
+The DSL has three optional sections: "# events", "# prefixes", "# commands". Any section may be missing.
 
-EVENTS:
-"# events" begins the events section.
-Each event block begins with "# el X".
-The next line is one of:
-on-message:
-on-ready:
-on-interaction:
-The block continues until the next "# el", "# prefixes", "# commands", or end of file.
-All on-message blocks must be merged into one unified on_message handler.
-If any on-message block exists, the unified handler must include:
+"# events" contains event blocks beginning with "# el X". Next line is on-message:, on-ready:, or on-interaction:. Blocks continue until the next "# el", "# prefixes", "# commands", or end of file. All on-message blocks must be merged into one unified on_message handler. If any on-message block exists, include:
 if message.author.bot:
     return
-on-ready blocks generate code inside @bot.event async def on_ready()
-on-interaction blocks generate code inside @bot.event async def on_interaction()
 
-PREFIX COMMANDS:
-"# prefixes" begins the prefix section.
-The next line starting with "#" and containing a single character defines the prefix.
-Each prefix command begins with "# pfx X".
-The next line is "# "commandName"".
-Then zero or more field("index","label") definitions.
-Then a block of actions.
-Prefix commands run inside the unified on_message handler.
-Fields become Python variables named field_label.
+"# prefixes" defines prefix commands. The next line starting with "#" and containing a single character defines the prefix. Each prefix command begins with "# pfx X". Next line "# "name"". Then zero or more field("index","label") lines. Then a block of actions. Fields become Python variables named field_label.
 
-SLASH COMMANDS:
-"# commands" begins the slash command section.
-Each slash command begins with "# cmd X".
-Next line "# "name"".
-Next line "# "description"".
-Then zero or more arg("name","description"): blocks.
-Then optional permissions: administrator
-Then a block of actions.
-Slash commands generate @tree.command functions.
+"# commands" defines slash commands. Each begins with "# cmd X". Next line "# "name"". Next line "# "description"". Then zero or more arg("name","description"): blocks. Then optional permissions: administrator. Then a block of actions.
 
-VARIABLES:
-{arg('name')} becomes the Python variable with that name.
+Variables:
+{arg('name')} becomes the Python variable.
 {fuser} becomes field_user.
 {freason} becomes field_reason.
 {f@label} becomes field_label.
-Variables must be replaced inside strings using f-strings.
+All replaced inside f-strings.
 
-CONDITIONS:
-if message.content.contains.lower("x"):
-becomes:
-if "x" in message.content.lower():
-Supported operators: contains, startsWith, endsWith, greater, less, is.
-Supported modifiers: lower, upper.
+Conditions:
+message.content.contains.lower("x") becomes "x" in message.content.lower()
+Supported: contains, startsWith, endsWith, greater, less, is
+Modifiers: lower, upper
 
-ACTIONS:
+Actions:
 send("text")
 reply("text")
 dm("userid","text")
@@ -85,28 +56,26 @@ category: "name"
 kick("user","reason")
 ban("user","reason")
 timeout("user","duration","reason")
-All actions must be translated to valid discord.py.
 
-MODERATION:
-kick("u","r") becomes:
+Moderation:
+kick("u","r"):
 member = message.guild.get_member(int(u))
 if member:
     await member.kick(reason=r)
-ban("u","r") becomes:
+
+ban("u","r"):
 member = message.guild.get_member(int(u))
 if member:
     await member.ban(reason=r)
-timeout("u","d","r") becomes:
+
+timeout("u","d","r"):
 seconds = parse_duration(d)
 member = message.guild.get_member(int(u))
 if member:
     until = datetime.utcnow() + timedelta(seconds=seconds)
     await member.edit(timed_out_until=until, reason=r)
 
-OUTPUT:
-You must output a complete Python file including imports, bot setup, parse_duration, all events, all prefix commands, all slash commands, and run_bot().
-
-Begin compiling now.
+Output a complete Python file with imports, bot setup, parse_duration, all events, all prefix commands, all slash commands, and run_bot().
 `;
 
   async function compile() {
