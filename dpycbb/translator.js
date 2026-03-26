@@ -15,14 +15,13 @@ var Translator = (function () {
     return line.toLowerCase().startsWith(prefix.toLowerCase());
   }
 
+  // ---------- PARSER ----------
+
   function parse(source) {
     var lines = normalizeLineEndings(source).split("\n");
     var mode = null;
     var events = [];
-    var prefixes = {
-      prefixChar: null,
-      commands: []
-    };
+    var prefixes = { prefixChar: null, commands: [] };
     var commands = [];
     var i = 0;
 
@@ -34,64 +33,61 @@ var Translator = (function () {
         var lower = t.toLowerCase();
         if (lower === "# events") {
           mode = "events";
-          i += 1;
+          i++;
           continue;
         }
         if (lower === "# prefixes") {
           mode = "prefixes";
-          i += 1;
+          i++;
           continue;
         }
         if (lower === "# commands") {
           mode = "commands";
-          i += 1;
+          i++;
           continue;
         }
       }
 
       if (mode === "events") {
-        var evResult = parseEventSection(lines, i);
-        if (evResult) {
-          events.push(evResult.event);
-          i = evResult.nextIndex;
+        var evRes = parseEventSection(lines, i);
+        if (evRes) {
+          events.push(evRes.event);
+          i = evRes.nextIndex;
           continue;
         }
       }
 
       if (mode === "prefixes") {
-        if (!prefixes.prefixChar && t.startsWith("#") && t.length > 1 && t[1] === " ") {
-          var pfx = t.slice(2).trim();
-          if (pfx.length === 1) {
-            prefixes.prefixChar = pfx;
-            i += 1;
+        // first non-comment line after "# prefixes" can be prefix char like: "# ?"
+        if (!prefixes.prefixChar && t.startsWith("#") && t.length > 2) {
+          var maybe = t.slice(1).trim();
+          if (maybe.length === 1) {
+            prefixes.prefixChar = maybe;
+            i++;
             continue;
           }
         }
-        var pfxResult = parsePrefixCommand(lines, i);
-        if (pfxResult) {
-          prefixes.commands.push(pfxResult.command);
-          i = pfxResult.nextIndex;
+        var pfxRes = parsePrefixCommand(lines, i);
+        if (pfxRes) {
+          prefixes.commands.push(pfxRes.command);
+          i = pfxRes.nextIndex;
           continue;
         }
       }
 
       if (mode === "commands") {
-        var cmdResult = parseSlashCommand(lines, i);
-        if (cmdResult) {
-          commands.push(cmdResult.command);
-          i = cmdResult.nextIndex;
+        var cmdRes = parseSlashCommand(lines, i);
+        if (cmdRes) {
+          commands.push(cmdRes.command);
+          i = cmdRes.nextIndex;
           continue;
         }
       }
 
-      i += 1;
+      i++;
     }
 
-    return {
-      events: events,
-      prefixes: prefixes,
-      commands: commands
-    };
+    return { events: events, prefixes: prefixes, commands: commands };
   }
 
   function skipHashLines(lines, index) {
@@ -99,7 +95,7 @@ var Translator = (function () {
     while (i < lines.length) {
       var t = trimLine(lines[i]);
       if (!t.startsWith("#") || isBlank(t)) break;
-      i += 1;
+      i++;
     }
     return i;
   }
@@ -107,95 +103,71 @@ var Translator = (function () {
   function parseEventSection(lines, index) {
     var i = index;
     var t = trimLine(lines[i]);
-    if (!t.startsWith("# el")) return null;
-    i += 1;
+    if (!t.toLowerCase().startsWith("# el")) return null;
+    i++;
     i = skipHashLines(lines, i);
     if (i >= lines.length) return null;
     var header = trimLine(lines[i]);
-    if (!startsWithIgnoreCase(header, "on-message:") &&
-        !startsWithIgnoreCase(header, "on-ready:") &&
-        !startsWithIgnoreCase(header, "on-interaction:")) {
-      return null;
-    }
     var evType = null;
     if (startsWithIgnoreCase(header, "on-message:")) evType = "on_message";
-    if (startsWithIgnoreCase(header, "on-ready:")) evType = "on_ready";
-    if (startsWithIgnoreCase(header, "on-interaction:")) evType = "on_interaction";
-    i += 1;
-    var bodyResult = parseStatementsBlock(lines, i, ["# el", "# events", "# prefixes", "# commands"]);
-    return {
-      event: {
-        type: evType,
-        body: bodyResult.body
-      },
-      nextIndex: bodyResult.nextIndex
-    };
+    else if (startsWithIgnoreCase(header, "on-ready:")) evType = "on_ready";
+    else if (startsWithIgnoreCase(header, "on-interaction:")) evType = "on_interaction";
+    else return null;
+    i++;
+    var bodyRes = parseStatementsBlock(lines, i, ["# el", "# events", "# prefixes", "# commands"]);
+    return { event: { type: evType, body: bodyRes.body }, nextIndex: bodyRes.nextIndex };
   }
 
   function parsePrefixCommand(lines, index) {
     var i = index;
     var t = trimLine(lines[i]);
     if (!t.toLowerCase().startsWith("# pfx")) return null;
-    i += 1;
+    i++;
     var name = null;
     while (i < lines.length) {
       var tt = trimLine(lines[i]);
       if (tt.startsWith("# \"")) {
-        name = tt.slice(2).trim();
-        if (name.startsWith("\"") && name.endsWith("\"")) {
-          name = name.slice(1, -1);
-        }
-        i += 1;
+        var n = tt.slice(2).trim();
+        if (n.startsWith("\"") && n.endsWith("\"")) n = n.slice(1, -1);
+        name = n;
+        i++;
         break;
       }
       if (!tt.startsWith("#")) break;
-      i += 1;
+      i++;
     }
     var fields = [];
     while (i < lines.length) {
       var line = trimLine(lines[i]);
-      if (line.toLowerCase().startsWith("# pfx") ||
-          line.toLowerCase() === "# commands" ||
-          line.toLowerCase() === "# events") {
-        break;
-      }
+      var lower = line.toLowerCase();
+      if (lower.startsWith("# pfx") || lower === "# commands" || lower === "# events" || lower === "# prefixes") break;
       if (isBlank(line)) {
-        i += 1;
+        i++;
         continue;
       }
       if (line.startsWith("field(")) {
         var f = parseField(line);
         if (f) fields.push(f);
-        i += 1;
+        i++;
         continue;
       }
       break;
     }
-    var bodyResult = parseStatementsBlock(lines, i, ["# pfx", "# commands", "# events", "# prefixes"]);
-    return {
-      command: {
-        name: name,
-        fields: fields,
-        body: bodyResult.body
-      },
-      nextIndex: bodyResult.nextIndex
-    };
+    var bodyRes = parseStatementsBlock(lines, i, ["# pfx", "# commands", "# events", "# prefixes"]);
+    return { command: { name: name, fields: fields, body: bodyRes.body }, nextIndex: bodyRes.nextIndex };
   }
 
   function parseField(line) {
     var m = line.match(/^field\("([^"]+)"\s*,\s*"([^"]+)"\)/);
     if (!m) return null;
-    return {
-      index: m[1],
-      label: m[2]
-    };
+    return { index: m[1], label: m[2] };
   }
 
   function parseSlashCommand(lines, index) {
     var i = index;
     var t = trimLine(lines[i]);
     if (!t.toLowerCase().startsWith("# cmd")) return null;
-    i += 1;
+    i++;
     var name = null;
     var description = "";
     while (i < lines.length) {
@@ -204,109 +176,80 @@ var Translator = (function () {
         var n = tt.slice(2).trim();
         if (n.startsWith("\"") && n.endsWith("\"")) n = n.slice(1, -1);
         name = n;
-        i += 1;
+        i++;
         continue;
       }
       if (tt.startsWith("# \"") && name && !description) {
         var d = tt.slice(2).trim();
         if (d.startsWith("\"") && d.endsWith("\"")) d = d.slice(1, -1);
         description = d;
-        i += 1;
+        i++;
         continue;
       }
       if (!tt.startsWith("#")) break;
-      i += 1;
+      i++;
     }
     var args = [];
     var permissions = null;
     while (i < lines.length) {
       var line = trimLine(lines[i]);
-      if (line.toLowerCase().startsWith("# cmd") ||
-          line.toLowerCase() === "# events" ||
-          line.toLowerCase() === "# prefixes") {
-        break;
-      }
+      var lower = line.toLowerCase();
+      if (lower.startsWith("# cmd") || lower === "# events" || lower === "# prefixes" || lower === "# commands") break;
       if (isBlank(line)) {
-        i += 1;
+        i++;
         continue;
       }
       if (line.startsWith("arg(")) {
         var argRes = parseArgBlock(lines, i);
-        args.push(argRes.arg);
+        if (argRes.arg) args.push(argRes.arg);
         i = argRes.nextIndex;
         continue;
       }
       if (startsWithIgnoreCase(line, "permissions:")) {
         permissions = trimLine(line.slice("permissions:".length));
-        i += 1;
+        i++;
         continue;
       }
       break;
     }
-    var bodyResult = parseStatementsBlock(lines, i, ["# cmd", "# events", "# prefixes", "# commands"]);
+    var bodyRes = parseStatementsBlock(lines, i, ["# cmd", "# events", "# prefixes", "# commands"]);
     return {
       command: {
         name: name,
         description: description,
         args: args,
         permissions: permissions,
-        body: bodyResult.body
+        body: bodyRes.body
       },
-      nextIndex: bodyResult.nextIndex
+      nextIndex: bodyRes.nextIndex
     };
   }
 
   function parseArgBlock(lines, index) {
     var header = trimLine(lines[index]);
     var m = header.match(/^arg\("([^"]+)"\s*,\s*"([^"]+)"\):/);
-    if (!m) {
-      return {
-        arg: null,
-        nextIndex: index + 1
-      };
-    }
+    if (!m) return { arg: null, nextIndex: index + 1 };
     var name = m[1];
     var desc = m[2];
     var type = "text";
     var required = false;
-    var maxLength = null;
     var i = index + 1;
     while (i < lines.length) {
       var t = trimLine(lines[i]);
       if (isBlank(t)) {
-        i += 1;
+        i++;
         continue;
       }
-      if (t.startsWith("arg(") ||
-          t.toLowerCase().startsWith("# cmd") ||
-          t.toLowerCase() === "# events" ||
-          t.toLowerCase() === "# prefixes" ||
-          t.toLowerCase() === "# commands" ||
-          !t.includes(":")) {
-        break;
-      }
+      var lower = t.toLowerCase();
+      if (t.startsWith("arg(") || lower.startsWith("# cmd") || lower === "# events" || lower === "# prefixes" || lower === "# commands" || !t.includes(":")) break;
       var parts = t.split(":");
       var key = parts[0].trim().toLowerCase();
       var value = parts.slice(1).join(":").trim();
-      if (key === "type") {
-        type = value.replace(/,$/, "").trim();
-      } else if (key === "required") {
-        required = value.replace(/,$/, "").trim().toLowerCase() === "true";
-      } else if (key === "max-length") {
-        maxLength = parseInt(value.replace(/,$/, "").trim(), 10);
-      }
-      i += 1;
+      if (key === "type") type = value.replace(/,$/, "").trim();
+      else if (key === "required") required = value.replace(/,$/, "").trim().toLowerCase() === "true";
+      i++;
     }
-    return {
-      arg: {
-        name: name,
-        description: desc,
-        type: type,
-        required: required,
-        maxLength: maxLength
-      },
-      nextIndex: i
-    };
+    return { arg: { name: name, description: desc, type: type, required: required }, nextIndex: i };
   }
 
   function parseStatementsBlock(lines, index, stopMarkers) {
@@ -316,7 +259,7 @@ var Translator = (function () {
       var raw = lines[i];
       var t = trimLine(raw);
       if (isBlank(t)) {
-        i += 1;
+        i++;
         continue;
       }
       var lower = t.toLowerCase();
@@ -344,15 +287,10 @@ var Translator = (function () {
       }
 
       var node = parseSimpleActionLine(t);
-      if (node) {
-        body.push(node);
-      }
-      i += 1;
+      if (node) body.push(node);
+      i++;
     }
-    return {
-      body: body,
-      nextIndex: i
-    };
+    return { body: body, nextIndex: i };
   }
 
   function parseIfBlock(lines, index, stopMarkers) {
@@ -360,15 +298,8 @@ var Translator = (function () {
     var condText = header.slice(3).trim();
     if (condText.endsWith(":")) condText = condText.slice(0, -1).trim();
     var i = index + 1;
-    var bodyResult = parseStatementsBlock(lines, i, stopMarkers.concat(["if "]));
-    return {
-      node: {
-        kind: "if",
-        condition: condText,
-        body: bodyResult.body
-      },
-      nextIndex: bodyResult.nextIndex
-    };
+    var bodyRes = parseStatementsBlock(lines, i, stopMarkers.concat(["if "]));
+    return { node: { kind: "if", condition: condText, body: bodyRes.body }, nextIndex: bodyRes.nextIndex };
   }
 
   function parseCreateChannelBlock(lines, index) {
@@ -379,191 +310,117 @@ var Translator = (function () {
     while (i < lines.length) {
       var t = trimLine(lines[i]);
       if (isBlank(t)) {
-        i += 1;
+        i++;
         continue;
       }
       var lower = t.toLowerCase();
-      if (lower === "createchannel:" ||
-          lower.startsWith("# el") ||
-          lower === "# events" ||
-          lower === "# prefixes" ||
-          lower === "# commands" ||
-          lower.startsWith("# pfx") ||
-          lower.startsWith("# cmd") ||
-          lower.startsWith("if ")) {
+      if (
+        lower === "createchannel:" ||
+        lower.startsWith("# el") ||
+        lower === "# events" ||
+        lower === "# prefixes" ||
+        lower === "# commands" ||
+        lower.startsWith("# pfx") ||
+        lower.startsWith("# cmd") ||
+        lower.startsWith("if ")
+      ) {
         break;
       }
-      if (startsWithIgnoreCase(t, "type:")) {
-        type = trimLine(t.slice(5));
-      } else if (startsWithIgnoreCase(t, "title:")) {
-        title = trimQuotes(trimLine(t.slice(6)));
-      } else if (startsWithIgnoreCase(t, "category:")) {
-        category = trimQuotes(trimLine(t.slice(9)));
-      }
-      i += 1;
+      if (startsWithIgnoreCase(t, "type:")) type = trimLine(t.slice(5));
+      else if (startsWithIgnoreCase(t, "title:")) title = trimQuotes(trimLine(t.slice(6)));
+      else if (startsWithIgnoreCase(t, "category:")) category = trimQuotes(trimLine(t.slice(9)));
+      i++;
     }
-    return {
-      node: {
-        kind: "createChannel",
-        channelType: type,
-        title: title,
-        category: category
-      },
-      nextIndex: i
-    };
+    return { node: { kind: "createChannel", channelType: type, title: title, category: category }, nextIndex: i };
   }
 
   function trimQuotes(s) {
-    if (s.length >= 2 && s[0] === '"' && s[s.length - 1] === '"') {
-      return s.slice(1, -1);
-    }
+    if (s.length >= 2 && s[0] === '"' && s[s.length - 1] === '"') return s.slice(1, -1);
     return s;
   }
 
   function parseSimpleActionLine(t) {
-    if (t.startsWith("send(")) {
-      var sendNode = parseSend(t);
-      if (sendNode) return sendNode;
-    }
-    if (t.startsWith("reply(")) {
-      var replyNode = parseReply(t);
-      if (replyNode) return replyNode;
-    }
-    if (t.startsWith("dm(")) {
-      var dmNode = parseDm(t);
-      if (dmNode) return dmNode;
-    }
-    if (t.startsWith("react(")) {
-      var reactNode = parseReact(t);
-      if (reactNode) return reactNode;
-    }
-    if (t.startsWith("createCategory(")) {
-      var catNode = parseCreateCategory(t);
-      if (catNode) return catNode;
-    }
-    if (t.startsWith("wait(")) {
-      var waitNode = parseWait(t);
-      if (waitNode) return waitNode;
-    }
-    if (t.startsWith("random(")) {
-      var randNode = parseRandom(t);
-      if (randNode) return randNode;
-    }
-    if (t.startsWith("defer(") || t === "defer()") {
-      return { kind: "defer" };
-    }
-    if (t.startsWith("deleteVar(")) {
-      var delNode = parseDeleteVar(t);
-      if (delNode) return delNode;
-    }
-    if (t === "setVar:") {
-      return { kind: "setVarBlockStart" };
-    }
-    return {
-      kind: "rawAction",
-      text: t
-    };
+    if (t.startsWith("send(")) return parseSend(t);
+    if (t.startsWith("reply(")) return parseReply(t);
+    if (t.startsWith("dm(")) return parseDm(t);
+    if (t.startsWith("react(")) return parseReact(t);
+    if (t.startsWith("createCategory(")) return parseCreateCategory(t);
+    if (t.startsWith("wait(")) return parseWait(t);
+    if (t.startsWith("random(")) return parseRandom(t);
+    if (t.startsWith("defer(") || t === "defer()") return { kind: "defer" };
+    if (t.startsWith("deleteVar(")) return parseDeleteVar(t);
+    if (t.startsWith("kick(")) return parseModeration(t, "kick");
+    if (t.startsWith("ban(")) return parseModeration(t, "ban");
+    if (t.startsWith("timeout(")) return parseModeration(t, "timeout");
+    return { kind: "rawAction", text: t };
   }
 
   function parseSend(t) {
-    var mTwo = t.match(/^send\("([^"]*)"\s*,\s*"([^"]*)"\)$/);
-    if (mTwo) {
-      return {
-        kind: "send",
-        channel: mTwo[1],
-        text: mTwo[2]
-      };
-    }
-    var mOne = t.match(/^send\("([^"]*)"\)$/);
-    if (mOne) {
-      return {
-        kind: "send",
-        channel: null,
-        text: mOne[1]
-      };
-    }
-    return null;
+    var m2 = t.match(/^send\("([^"]*)"\s*,\s*"([^"]*)"\)$/);
+    if (m2) return { kind: "send", channel: m2[1], text: m2[2] };
+    var m1 = t.match(/^send\("([^"]*)"\)$/);
+    if (m1) return { kind: "send", channel: null, text: m1[1] };
+    return { kind: "rawAction", text: t };
   }
 
   function parseReply(t) {
     var m = t.match(/^reply\("([^"]*)"\)$/);
-    if (m) {
-      return {
-        kind: "reply",
-        text: m[1]
-      };
-    }
-    return null;
+    if (m) return { kind: "reply", text: m[1] };
+    return { kind: "rawAction", text: t };
   }
 
   function parseDm(t) {
     var m = t.match(/^dm\("([^"]*)"\s*,\s*"([^"]*)"\)$/);
-    if (m) {
-      return {
-        kind: "dm",
-        userId: m[1],
-        text: m[2]
-      };
-    }
-    return null;
+    if (m) return { kind: "dm", userId: m[1], text: m[2] };
+    return { kind: "rawAction", text: t };
   }
 
   function parseReact(t) {
     var m = t.match(/^react\("([^"]*)"\s*,\s*"([^"]*)"\)$/);
-    if (m) {
-      return {
-        kind: "react",
-        messageId: m[1],
-        emoji: m[2]
-      };
-    }
-    return null;
+    if (m) return { kind: "react", messageId: m[1], emoji: m[2] };
+    return { kind: "rawAction", text: t };
   }
 
   function parseCreateCategory(t) {
     var m = t.match(/^createCategory\("([^"]*)"\)$/);
-    if (m) {
-      return {
-        kind: "createCategory",
-        title: m[1]
-      };
-    }
-    return null;
+    if (m) return { kind: "createCategory", title: m[1] };
+    return { kind: "rawAction", text: t };
   }
 
   function parseWait(t) {
     var m = t.match(/^wait\("([^"]*)"\)$/);
-    if (m) {
-      return {
-        kind: "wait",
-        seconds: m[1]
-      };
-    }
-    return null;
+    if (m) return { kind: "wait", seconds: m[1] };
+    return { kind: "rawAction", text: t };
   }
 
   function parseRandom(t) {
     var m = t.match(/^random\("([^"]*)"\s*,\s*"([^"]*)"\)$/);
-    if (m) {
-      return {
-        kind: "random",
-        min: m[1],
-        max: m[2]
-      };
-    }
-    return null;
+    if (m) return { kind: "random", min: m[1], max: m[2] };
+    return { kind: "rawAction", text: t };
   }
 
   function parseDeleteVar(t) {
     var m = t.match(/^deleteVar\("([^"]*)"\)$/);
-    if (m) {
-      return {
-        kind: "deleteVar",
-        name: m[1]
-      };
-    }
-    return null;
+    if (m) return { kind: "deleteVar", name: m[1] };
+    return { kind: "rawAction", text: t };
   }
+
+  function parseModeration(t, kind) {
+    // kick("user", "reason")
+    // ban("user", "reason")
+    // timeout("user", "duration", "reason")
+    var mKickBan = t.match(/^(kick|ban)\("([^"]*)"\s*,\s*"([^"]*)"\)$/);
+    var mTimeout = t.match(/^timeout\("([^"]*)"\s*,\s*"([^"]*)"\s*,\s*"([^"]*)"\)$/);
+    if (mKickBan && (kind === "kick" || kind === "ban")) {
+      return { kind: kind, user: mKickBan[2], reason: mKickBan[3] };
+    }
+    if (mTimeout && kind === "timeout") {
+      return { kind: "timeout", user: mTimeout[1], duration: mTimeout[2], reason: mTimeout[3] };
+    }
+    return { kind: "rawAction", text: t };
+  }
+
+  // ---------- CODEGEN ----------
 
   function buildHeader() {
     var code = "";
@@ -571,132 +428,137 @@ var Translator = (function () {
     code += "import random\n";
     code += "import discord\n";
     code += "from discord.ext import commands\n";
-    code += "from discord import app_commands\n\n";
+    code += "from discord import app_commands\n";
+    code += "from datetime import datetime, timedelta\n\n";
     code += "intents = discord.Intents.all()\n";
     code += 'bot = commands.Bot(command_prefix="!", intents=intents)\n\n';
+    code += "def parse_duration(s: str) -> int:\n";
+    code += "    s = s.strip().lower()\n";
+    code += "    if not s:\n";
+    code += "        return 0\n";
+    code += "    num = ''.join(ch for ch in s if ch.isdigit())\n";
+    code += "    unit = ''.join(ch for ch in s if not ch.isdigit()) or 's'\n";
+    code += "    try:\n";
+    code += "        n = int(num)\n";
+    code += "    except ValueError:\n";
+    code += "        return 0\n";
+    code += "    if unit == 's':\n";
+    code += "        return n\n";
+    code += "    if unit == 'm':\n";
+    code += "        return n * 60\n";
+    code += "    if unit == 'h':\n";
+    code += "        return n * 3600\n";
+    code += "    if unit == 'd':\n";
+    code += "        return n * 86400\n";
+    code += "    return n\n\n";
     return code;
   }
 
   function generate(ast) {
     var code = "";
-    code += generateEvents(ast.events);
-    code += generatePrefixSystem(ast.prefixes);
+    code += generateEventsAndPrefixes(ast.events, ast.prefixes);
     code += generateSlashCommands(ast.commands);
     return code;
   }
 
-  function generateEvents(events) {
-    var hasReady = false;
-    var hasMessage = false;
-    var hasInteraction = false;
+  // unified on_message
+  function generateEventsAndPrefixes(events, prefixes) {
     var code = "";
+    var readyBodies = [];
+    var interactionBodies = [];
+    var messageBodies = [];
 
     for (var i = 0; i < events.length; i++) {
       var ev = events[i];
-      if (ev.type === "on_ready") {
-        hasReady = true;
-        code += "@bot.event\n";
-        code += "async def on_ready():\n";
-        if (!ev.body.length) {
-          code += '    print(f"Logged in as {bot.user} (ID: {bot.user.id})")\n';
-          code += '    print("------")\n\n';
-        } else {
-          for (var j = 0; j < ev.body.length; j++) {
-            code += generateStatement(ev.body[j], "ready", "    ");
-          }
-          code += "\n";
-        }
-      }
-      if (ev.type === "on_message") {
-        hasMessage = true;
-        code += "@bot.event\n";
-        code += "async def on_message(message):\n";
-        code += "    if message.author.bot:\n";
-        code += "        return\n";
-        for (var k = 0; k < ev.body.length; k++) {
-          code += generateStatement(ev.body[k], "message", "    ");
-        }
-        code += "    await bot.process_commands(message)\n\n";
-      }
-      if (ev.type === "on_interaction") {
-        hasInteraction = true;
-        code += "@bot.event\n";
-        code += "async def on_interaction(interaction):\n";
-        for (var m = 0; m < ev.body.length; m++) {
-          code += generateStatement(ev.body[m], "interaction", "    ");
-        }
-        code += "\n";
-      }
+      if (ev.type === "on_ready") readyBodies = readyBodies.concat(ev.body);
+      else if (ev.type === "on_interaction") interactionBodies = interactionBodies.concat(ev.body);
+      else if (ev.type === "on_message") messageBodies = messageBodies.concat(ev.body);
     }
 
-    if (!hasReady) {
-      code += "@bot.event\n";
-      code += "async def on_ready():\n";
+    // on_ready
+    code += "@bot.event\n";
+    code += "async def on_ready():\n";
+    if (!readyBodies.length) {
       code += '    print(f"Logged in as {bot.user} (ID: {bot.user.id})")\n';
       code += '    print("------")\n\n';
+    } else {
+      for (var r = 0; r < readyBodies.length; r++) {
+        code += generateStatement(readyBodies[r], "ready", "    ", true);
+      }
+      code += "\n";
     }
-    if (!hasMessage) {
-      code += "@bot.event\n";
-      code += "async def on_message(message):\n";
-      code += "    if message.author.bot:\n";
-      code += "        return\n";
-      code += "    await bot.process_commands(message)\n\n";
-    }
-    if (!hasInteraction) {
-      code += "@bot.event\n";
-      code += "async def on_interaction(interaction):\n";
+
+    // on_interaction
+    code += "@bot.event\n";
+    code += "async def on_interaction(interaction):\n";
+    if (!interactionBodies.length) {
+      code += "    await bot.process_application_commands(interaction)\n\n";
+    } else {
+      for (var x = 0; x < interactionBodies.length; x++) {
+        code += generateStatement(interactionBodies[x], "interaction", "    ", true);
+      }
       code += "    await bot.process_application_commands(interaction)\n\n";
     }
 
-    return code;
-  }
+    // PREFIX SYSTEM + on_message
+    var hasPrefixes = prefixes.prefixChar && prefixes.commands.length > 0;
+    var hasOnMessageEvents = messageBodies.length > 0;
 
-  function generatePrefixSystem(prefixes) {
-    if (!prefixes.prefixChar || prefixes.commands.length === 0) return "";
-    var code = "";
-    code += "PREFIX = " + JSON.stringify(prefixes.prefixChar) + "\n\n";
+    if (hasPrefixes) {
+      code += "PREFIX = " + JSON.stringify(prefixes.prefixChar) + "\n\n";
+    }
+
     code += "@bot.event\n";
     code += "async def on_message(message):\n";
-    code += "    if message.author.bot:\n";
-    code += "        return\n";
-    code += "    content = message.content\n";
-    code += "    if not content.startswith(PREFIX):\n";
-    code += "        await bot.process_commands(message)\n";
-    code += "        return\n";
-    code += "    without_prefix = content[len(PREFIX):]\n";
-    code += "    parts = without_prefix.split()\n";
-    code += "    if not parts:\n";
-    code += "        await bot.process_commands(message)\n";
-    code += "        return\n";
-    code += "    cmd_name = parts[0]\n";
-    code += "    args = parts[1:]\n";
 
-    for (var i = 0; i < prefixes.commands.length; i++) {
-      var pc = prefixes.commands[i];
-      code += "    if cmd_name == " + JSON.stringify(pc.name) + ":\n";
-      var maxIndex = 0;
-      for (var f = 0; f < pc.fields.length; f++) {
-        var idx = parseInt(pc.fields[f].index, 10);
-        if (idx > maxIndex) maxIndex = idx;
-      }
-      if (maxIndex > 0) {
-        code += "        if len(args) < " + maxIndex + ":\n";
-        code += "            fmt = PREFIX + cmd_name";
-        for (var f2 = 0; f2 < pc.fields.length; f2++) {
-          code += " + ' ' + " + JSON.stringify(pc.fields[f2].label);
-        }
-        code += "\n";
-        code += "            await message.channel.send('Format should be: ' + fmt)\n";
-        code += "            return\n";
-        for (var f3 = 0; f3 < pc.fields.length; f3++) {
-          var idx2 = parseInt(pc.fields[f3].index, 10) - 1;
-          code += "        " + "field_" + pc.fields[f3].label.replace(/[^a-zA-Z0-9_]/g, "_") + " = args[" + idx2 + "]\n";
-        }
-      }
-      for (var b = 0; b < pc.body.length; b++) {
-        code += generateStatement(pc.body[b], "prefix", "        ");
-      }
+    if (hasPrefixes || hasOnMessageEvents) {
+      code += "    if message.author.bot:\n";
       code += "        return\n";
+    }
+
+    // event on_message bodies
+    for (var m = 0; m < messageBodies.length; m++) {
+      code += generateStatement(messageBodies[m], "message", "    ", true);
+    }
+
+    // prefix handling
+    if (hasPrefixes) {
+      code += "    content = message.content\n";
+      code += "    if content.startswith(PREFIX):\n";
+      code += "        without_prefix = content[len(PREFIX):]\n";
+      code += "        parts = without_prefix.split()\n";
+      code += "        if parts:\n";
+      code += "            cmd_name = parts[0]\n";
+      code += "            args = parts[1:]\n";
+
+      for (var p = 0; p < prefixes.commands.length; p++) {
+        var pc = prefixes.commands[p];
+        code += "            if cmd_name == " + JSON.stringify(pc.name) + ":\n";
+        var maxIndex = 0;
+        for (var f = 0; f < pc.fields.length; f++) {
+          var idx = parseInt(pc.fields[f].index, 10);
+          if (idx > maxIndex) maxIndex = idx;
+        }
+        if (maxIndex > 0) {
+          code += "                if len(args) < " + maxIndex + ":\n";
+          code += "                    fmt = PREFIX + cmd_name";
+          for (var f2 = 0; f2 < pc.fields.length; f2++) {
+            code += " + ' ' + " + JSON.stringify(pc.fields[f2].label);
+          }
+          code += "\n";
+          code += "                    await message.channel.send('Format should be: ' + fmt)\n";
+          code += "                    return\n";
+          for (var f3 = 0; f3 < pc.fields.length; f3++) {
+            var idx2 = parseInt(pc.fields[f3].index, 10) - 1;
+            var varName = "field_" + pc.fields[f3].label.replace(/[^a-zA-Z0-9_]/g, "_");
+            code += "                " + varName + " = args[" + idx2 + "]\n";
+          }
+        }
+        for (var b = 0; b < pc.body.length; b++) {
+          code += generateStatement(pc.body[b], "prefix", "                ", true);
+        }
+        code += "                return\n";
+      }
     }
 
     code += "    await bot.process_commands(message)\n\n";
@@ -728,9 +590,7 @@ var Translator = (function () {
       var firstResp = true;
       for (var b = 0; b < cmd.body.length; b++) {
         code += generateStatement(cmd.body[b], "slash", "    ", firstResp);
-        if (cmd.body[b].kind === "send" || cmd.body[b].kind === "reply") {
-          firstResp = false;
-        }
+        if (cmd.body[b].kind === "send" || cmd.body[b].kind === "reply") firstResp = false;
       }
       code += "\n";
     }
@@ -740,6 +600,8 @@ var Translator = (function () {
   function safeName(name) {
     return name.replace(/[^a-zA-Z0-9_]/g, "_");
   }
+
+  // ---------- STATEMENT CODEGEN ----------
 
   function generateStatement(node, context, indent, firstResponse) {
     if (!indent) indent = "";
@@ -752,42 +614,23 @@ var Translator = (function () {
       }
       return code;
     }
-    if (node.kind === "send") {
-      return generateSend(node, context, indent, firstResponse);
-    }
-    if (node.kind === "reply") {
-      return generateReply(node, context, indent, firstResponse);
-    }
-    if (node.kind === "dm") {
-      return generateDm(node, context, indent);
-    }
-    if (node.kind === "react") {
-      return generateReact(node, context, indent);
-    }
-    if (node.kind === "createCategory") {
-      return generateCreateCategory(node, context, indent);
-    }
-    if (node.kind === "createChannel") {
-      return generateCreateChannel(node, context, indent);
-    }
-    if (node.kind === "wait") {
-      return indent + "await asyncio.sleep(" + safeNumber(node.seconds) + ")\n";
-    }
-    if (node.kind === "random") {
-      return indent + "rand_value = random.randint(" + safeNumber(node.min) + ", " + safeNumber(node.max) + ")\n";
-    }
+    if (node.kind === "send") return generateSend(node, context, indent, firstResponse);
+    if (node.kind === "reply") return generateReply(node, context, indent, firstResponse);
+    if (node.kind === "dm") return generateDm(node, context, indent);
+    if (node.kind === "react") return generateReact(node, context, indent);
+    if (node.kind === "createCategory") return generateCreateCategory(node, context, indent);
+    if (node.kind === "createChannel") return generateCreateChannel(node, context, indent);
+    if (node.kind === "wait") return indent + "await asyncio.sleep(" + safeNumber(node.seconds) + ")\n";
+    if (node.kind === "random") return indent + "rand_value = random.randint(" + safeNumber(node.min) + ", " + safeNumber(node.max) + ")\n";
     if (node.kind === "defer") {
-      if (context === "slash") {
-        return indent + "await interaction.response.defer()\n";
-      }
+      if (context === "slash") return indent + "await interaction.response.defer()\n";
       return indent + "pass\n";
     }
-    if (node.kind === "deleteVar") {
-      return indent + "# deleteVar(" + JSON.stringify(node.name) + ") not implemented in Python runtime\n";
+    if (node.kind === "deleteVar") return indent + "# deleteVar not implemented\n";
+    if (node.kind === "kick" || node.kind === "ban" || node.kind === "timeout") {
+      return generateModeration(node, context, indent);
     }
-    if (node.kind === "rawAction") {
-      return indent + "# " + node.text + "\n";
-    }
+    if (node.kind === "rawAction") return indent + "# " + node.text + "\n";
     return indent + "pass\n";
   }
 
@@ -836,29 +679,17 @@ var Translator = (function () {
     if (!op) return "True";
 
     if (value && value.startsWith("\"") && value.endsWith("\"")) {
-      value = value;
+      // keep as is
     } else if (value) {
       value = JSON.stringify(value);
     }
 
-    if (op === "contains") {
-      return value + " in " + pyTarget;
-    }
-    if (op === "startswith") {
-      return pyTarget + ".startswith(" + value + ")";
-    }
-    if (op === "endswith") {
-      return pyTarget + ".endswith(" + value + ")";
-    }
-    if (op === "greater") {
-      return "float(" + pyTarget + ") > float(" + (value || "0") + ")";
-    }
-    if (op === "less") {
-      return "float(" + pyTarget + ") < float(" + (value || "0") + ")";
-    }
-    if (op === "is") {
-      return pyTarget + " == " + value;
-    }
+    if (op === "contains") return value + " in " + pyTarget;
+    if (op === "startswith") return pyTarget + ".startswith(" + value + ")";
+    if (op === "endswith") return pyTarget + ".endswith(" + value + ")";
+    if (op === "greater") return "float(" + pyTarget + ") > float(" + (value || "0") + ")";
+    if (op === "less") return "float(" + pyTarget + ") < float(" + (value || "0") + ")";
+    if (op === "is") return pyTarget + " == " + value;
     return "True";
   }
 
@@ -872,117 +703,201 @@ var Translator = (function () {
     return s.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
   }
 
+  // simple variable replacement for arg() and fields
   function replaceVarsInText(text, context) {
-    if (typeof Variables !== "undefined" && Variables.replaceVariables) {
-      return Variables.replaceVariables(text, context || {});
-    }
-    return text;
+    // context: { kind: "slash"|"prefix"|"message", args: [...], fields: {...} }
+    var out = text;
+
+    // {arg('name')}
+    out = out.replace(/\{arg\('([^']+)'\)\}/g, function (_, name) {
+      return "${" + safeName(name) + "}";
+    });
+
+    // {f@user} / {freason}
+    out = out.replace(/\{f@([^}]+)\}/g, function (_, label) {
+      return "${field_" + label.replace(/[^a-zA-Z0-9_]/g, "_") + "}";
+    });
+    out = out.replace(/\{f([^}]+)\}/g, function (_, label) {
+      return "${field_" + label.replace(/[^a-zA-Z0-9_]/g, "_") + "}";
+    });
+
+    // basic user/message vars could be added here later
+
+    return out;
+  }
+
+  function toFStringLiteral(text) {
+    // convert "Hello ${name}" to f"Hello {name}"
+    var escaped = escapePyString(text);
+    return "f\"" + escaped.replace(/\$\{([^}]+)\}/g, "{\$1}") + "\"";
   }
 
   function generateSend(node, context, indent, firstResponse) {
     var txt = replaceVarsInText(node.text, null);
-    if (context === "message") {
-      if (node.channel === null) {
-        return indent + 'await message.channel.send("' + escapePyString(txt) + '")\n';
-      }
-      return indent + 'channel = bot.get_channel(int("' + escapePyString(node.channel) + '"))\n' +
-             indent + "if channel is not None:\n" +
-             indent + '    await channel.send("' + escapePyString(txt) + '")\n';
+    var pyStr = toFStringLiteral(txt);
+    if (context === "message" || context === "prefix") {
+      if (node.channel === null) return indent + "await message.channel.send(" + pyStr + ")\n";
+      return (
+        indent + 'channel = bot.get_channel(int("' + escapePyString(node.channel) + '"))\n' +
+        indent + "if channel is not None:\n" +
+        indent + "    await channel.send(" + pyStr + ")\n"
+      );
     }
-    if (context === "ready") {
-      return indent + "# send not supported in on_ready without explicit channel\n";
-    }
-    if (context === "prefix") {
-      if (node.channel === null) {
-        return indent + 'await message.channel.send("' + escapePyString(txt) + '")\n';
-      }
-      return indent + 'channel = bot.get_channel(int("' + escapePyString(node.channel) + '"))\n' +
-             indent + "if channel is not None:\n" +
-             indent + '    await channel.send("' + escapePyString(txt) + '")\n';
-    }
+    if (context === "ready") return indent + "# send not supported in on_ready without explicit channel\n";
     if (context === "slash") {
-      if (firstResponse) {
-        return indent + 'await interaction.response.send_message("' + escapePyString(txt) + '")\n';
-      }
-      return indent + 'await interaction.followup.send("' + escapePyString(txt) + '")\n';
+      if (firstResponse) return indent + "await interaction.response.send_message(" + pyStr + ")\n";
+      return indent + "await interaction.followup.send(" + pyStr + ")\n";
     }
     return indent + "pass\n";
   }
 
   function generateReply(node, context, indent, firstResponse) {
     var txt = replaceVarsInText(node.text, null);
-    if (context === "message" || context === "prefix") {
-      return indent + 'await message.reply("' + escapePyString(txt) + '")\n';
-    }
+    var pyStr = toFStringLiteral(txt);
+    if (context === "message" || context === "prefix") return indent + "await message.reply(" + pyStr + ")\n";
     if (context === "slash") {
-      if (firstResponse) {
-        return indent + 'await interaction.response.send_message("' + escapePyString(txt) + '")\n';
-      }
-      return indent + 'await interaction.followup.send("' + escapePyString(txt) + '")\n';
+      if (firstResponse) return indent + "await interaction.response.send_message(" + pyStr + ")\n";
+      return indent + "await interaction.followup.send(" + pyStr + ")\n";
     }
     return indent + "pass\n";
   }
 
   function generateDm(node, context, indent) {
     var txt = replaceVarsInText(node.text, null);
-    return indent + 'user = bot.get_user(int("' + escapePyString(node.userId) + '"))\n' +
-           indent + "if user is not None:\n" +
-           indent + '    await user.send("' + escapePyString(txt) + '")\n';
+    var pyStr = toFStringLiteral(txt);
+    return (
+      indent + 'user = bot.get_user(int("' + escapePyString(node.userId) + '"))\n' +
+      indent + "if user is not None:\n" +
+      indent + "    await user.send(" + pyStr + ")\n"
+    );
   }
 
   function generateReact(node, context, indent) {
     if (context === "message" || context === "prefix") {
-      return indent + 'target = await message.channel.fetch_message(int("' + escapePyString(node.messageId) + '"))\n' +
-             indent + 'await target.add_reaction("' + escapePyString(node.emoji) + '")\n';
+      return (
+        indent + 'target = await message.channel.fetch_message(int("' + escapePyString(node.messageId) + '"))\n' +
+        indent + 'await target.add_reaction("' + escapePyString(node.emoji) + '")\n'
+      );
     }
     return indent + "pass\n";
   }
 
   function generateCreateCategory(node, context, indent) {
     var title = replaceVarsInText(node.title || "New Category", null);
+    var pyStr = toFStringLiteral(title);
     if (context === "message" || context === "prefix") {
-      return indent + "if message.guild is not None:\n" +
-             indent + '    await message.guild.create_category("' + escapePyString(title) + '")\n';
+      return indent + "if message.guild is not None:\n" + indent + "    await message.guild.create_category(" + pyStr + ")\n";
     }
     if (context === "ready") {
-      return indent + "for guild in bot.guilds:\n" +
-             indent + '    await guild.create_category("' + escapePyString(title) + '")\n';
+      return indent + "for guild in bot.guilds:\n" + indent + "    await guild.create_category(" + pyStr + ")\n";
     }
     return indent + "pass\n";
   }
 
   function generateCreateChannel(node, context, indent) {
     var title = replaceVarsInText(node.title || "new-channel", null);
+    var pyTitle = toFStringLiteral(title);
     var categoryName = node.category ? replaceVarsInText(node.category, null) : null;
+    var pyCat = categoryName ? toFStringLiteral(categoryName) : null;
+
     if (context === "message" || context === "prefix") {
       var code = "";
       code += indent + "guild = message.guild\n";
       code += indent + "if guild is not None:\n";
-      if (categoryName) {
-        code += indent + '    category = discord.utils.get(guild.categories, name="' + escapePyString(categoryName) + '")\n';
+      if (pyCat) {
+        code += indent + "    category = discord.utils.get(guild.categories, name=" + pyCat + ")\n";
         code += indent + "    if category is None:\n";
-        code += indent + '        category = await guild.create_category("' + escapePyString(categoryName) + '")\n';
-        code += indent + '    await guild.create_text_channel("' + escapePyString(title) + '", category=category)\n';
+        code += indent + "        category = await guild.create_category(" + pyCat + ")\n";
+        code += indent + "    await guild.create_text_channel(" + pyTitle + ", category=category)\n";
       } else {
-        code += indent + '    await guild.create_text_channel("' + escapePyString(title) + '")\n';
+        code += indent + "    await guild.create_text_channel(" + pyTitle + ")\n";
       }
       return code;
     }
+
     if (context === "ready") {
       var code2 = "";
       code2 += indent + "for guild in bot.guilds:\n";
-      if (categoryName) {
-        code2 += indent + '    category = discord.utils.get(guild.categories, name="' + escapePyString(categoryName) + '")\n';
+      if (pyCat) {
+        code2 += indent + "    category = discord.utils.get(guild.categories, name=" + pyCat + ")\n";
         code2 += indent + "    if category is None:\n";
-        code2 += indent + '        category = await guild.create_category("' + escapePyString(categoryName) + '")\n';
-        code2 += indent + '    await guild.create_text_channel("' + escapePyString(title) + '", category=category)\n';
+        code2 += indent + "        category = await guild.create_category(" + pyCat + ")\n";
+        code2 += indent + "    await guild.create_text_channel(" + pyTitle + ", category=category)\n";
       } else {
-        code2 += indent + '    await guild.create_text_channel("' + escapePyString(title) + '")\n';
+        code2 += indent + "    await guild.create_text_channel(" + pyTitle + ")\n";
       }
       return code2;
     }
+
     return indent + "pass\n";
   }
+
+  function generateModeration(node, context, indent) {
+    // expects user string already an ID or something you control
+    var userExpr = toFStringLiteral(node.user || "");
+    var reasonExpr = node.reason ? toFStringLiteral(node.reason) : '"No reason provided"';
+
+    if (context === "slash") {
+      // in slash, user is usually an arg already, so we just trust it
+      if (node.kind === "kick") {
+        return (
+          indent + "member = interaction.guild.get_member(int(" + userExpr + "))\n" +
+          indent + "if member:\n" +
+          indent + "    await member.kick(reason=" + reasonExpr + ")\n"
+        );
+      }
+      if (node.kind === "ban") {
+        return (
+          indent + "member = interaction.guild.get_member(int(" + userExpr + "))\n" +
+          indent + "if member:\n" +
+          indent + "    await member.ban(reason=" + reasonExpr + ")\n"
+        );
+      }
+      if (node.kind === "timeout") {
+        var durExpr = toFStringLiteral(node.duration || "0s");
+        return (
+          indent + "seconds = parse_duration(" + durExpr + ")\n" +
+          indent + "member = interaction.guild.get_member(int(" + userExpr + "))\n" +
+          indent + "if member:\n" +
+          indent + "    until = datetime.utcnow() + timedelta(seconds=seconds)\n" +
+          indent + "    await member.edit(timed_out_until=until, reason=" + reasonExpr + ")\n"
+        );
+      }
+    } else {
+      // message/prefix
+      if (node.kind === "kick") {
+        return (
+          indent + "if message.guild is not None:\n" +
+          indent + "    member = message.guild.get_member(int(" + userExpr + "))\n" +
+          indent + "    if member:\n" +
+          indent + "        await member.kick(reason=" + reasonExpr + ")\n"
+        );
+      }
+      if (node.kind === "ban") {
+        return (
+          indent + "if message.guild is not None:\n" +
+          indent + "    member = message.guild.get_member(int(" + userExpr + "))\n" +
+          indent + "    if member:\n" +
+          indent + "        await member.ban(reason=" + reasonExpr + ")\n"
+        );
+      }
+      if (node.kind === "timeout") {
+        var durExpr2 = toFStringLiteral(node.duration || "0s");
+        return (
+          indent + "if message.guild is not None:\n" +
+          indent + "    seconds = parse_duration(" + durExpr2 + ")\n" +
+          indent + "    member = message.guild.get_member(int(" + userExpr + "))\n" +
+          indent + "    if member:\n" +
+          indent + "        until = datetime.utcnow() + timedelta(seconds=seconds)\n" +
+          indent + "        await member.edit(timed_out_until=until, reason=" + reasonExpr + ")\n"
+        );
+      }
+    }
+
+    return indent + "# moderation action not applied\n";
+  }
+
+  // ---------- RUNNER ----------
 
   function buildRunner(token) {
     var safeToken = token.replace(/"/g, '\\"');
