@@ -1,11 +1,12 @@
 (function() {
     const PREFIX = "LemonCube's Kite Command Share";
+    let alreadySent = false; // <--- NEW: only do Cloudflare once
 
     // Function to handle clipboard copying
     function copyToClipboard(text) {
         if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(text).then(() => {
-                alert('SUCCESS: The share ID has been copied to your clipboard!');
+                alert('SUCCESS! Share ID copied: ' + text);
             }).catch(err => {
                 console.error(PREFIX + ': Failed to copy text to clipboard:', err);
                 console.warn(PREFIX + ': FAILURE: Copy failed. Please copy the ID from the console manually:');
@@ -24,7 +25,8 @@
 
         window.fetch = async function(url, options) {
             try {
-                if (options && options.method && options.method.toUpperCase() === 'PATCH') {
+                if (!alreadySent && options && options.method && options.method.toUpperCase() === 'PATCH') {
+
                     let body = options.body;
 
                     // If body is a Request, read it
@@ -39,7 +41,10 @@
                     }
 
                     if (body) {
-                        console.log(PREFIX + ": Intercepted PATCH request. Sending to Cloudflare…");
+                        console.log(PREFIX + ": Intercepted PATCH. Sending to Cloudflare…");
+
+                        // Mark as used so it only runs once
+                        alreadySent = true;
 
                         // Send to Cloudflare Worker
                         const res = await fetch("https://rapid-boat-67a1.suomynona589.workers.dev/create", {
@@ -52,7 +57,12 @@
 
                         if (data && data.id) {
                             console.log(PREFIX + ": Cloudflare returned ID:", data.id);
+
+                            // Copy ID to clipboard
                             copyToClipboard(data.id);
+
+                            // Alert ID
+                            alert("Your Share ID is: " + data.id);
                         } else {
                             console.warn(PREFIX + ": Cloudflare returned invalid response:", data);
                             alert("Error: Cloudflare returned an invalid response.");
