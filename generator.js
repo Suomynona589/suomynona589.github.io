@@ -75,7 +75,7 @@
         console.log('--- ' + PREFIX + ' ---');
         console.log('Click \"Save Changes\" on your Kite command to generate the share ID.');
         console.log('');
-        alert(PREFIX + " is active! Click Save Changes to generate your share ID.");
+        alert(PREFIX + " is active! Click Save Changes to generate your share id.");
     } else {
         console.error(PREFIX + ": window.fetch not available.");
         alert("Error: fetch not available.");
