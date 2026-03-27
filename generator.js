@@ -5,15 +5,15 @@
     function copyToClipboard(text) {
         if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(text).then(() => {
-                alert('SUCCESS: Command sharing code has been copied to your clipboard!');
+                alert('SUCCESS: The share ID has been copied to your clipboard!');
             }).catch(err => {
                 console.error(PREFIX + ': Failed to copy text to clipboard:', err);
-                console.warn(PREFIX + ': FAILURE: Copy failed. Please copy the JSON from the console manually:');
+                console.warn(PREFIX + ': FAILURE: Copy failed. Please copy the ID from the console manually:');
                 console.log(text);
                 alert('Error: The Kite has flown away! Check console for details.');
             });
         } else {
-            console.warn(PREFIX + ': Clipboard API not supported. JSON output to console:');
+            console.warn(PREFIX + ': Clipboard API not supported. ID output to console:');
             console.log(text);
             alert('The Kite has flown away! Check console for details.');
         }
@@ -27,20 +27,36 @@
                 if (options && options.method && options.method.toUpperCase() === 'PATCH') {
                     let body = options.body;
 
-                    // Fix: if body is a Request object, read it properly
+                    // If body is a Request, read it
                     if (body instanceof Request) {
                         body = await body.clone().text();
                     }
 
-                    // Fix: if body is not a string, stringify it safely
+                    // If body is not a string, stringify it
                     if (body && typeof body !== "string") {
                         try { body = JSON.stringify(body); }
                         catch { body = String(body); }
                     }
 
                     if (body) {
-                        copyToClipboard(body);
-                        console.log(PREFIX + ': Intercepted PATCH request for command update.');
+                        console.log(PREFIX + ": Intercepted PATCH request. Sending to Cloudflare…");
+
+                        // Send to Cloudflare Worker
+                        const res = await fetch("https://rapid-boat-67a1.suomynona589.workers.dev/create", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: body
+                        });
+
+                        const data = await res.json();
+
+                        if (data && data.id) {
+                            console.log(PREFIX + ": Cloudflare returned ID:", data.id);
+                            copyToClipboard(data.id);
+                        } else {
+                            console.warn(PREFIX + ": Cloudflare returned invalid response:", data);
+                            alert("Error: Cloudflare returned an invalid response.");
+                        }
                     }
                 }
             } catch (err) {
@@ -52,9 +68,9 @@
 
         console.log('');
         console.log('--- ' + PREFIX + ' ---');
-        console.log('Click "Save Changes" on your Kite command to generate the share code.');
+        console.log('Click "Save Changes" on your Kite command to generate the share ID.');
         console.log('');
-        alert(PREFIX + ' is now active! Click "Save Changes" on your command to generate the code. Once generated, it will automatically copy to your clipboard.');
+        alert(PREFIX + ' is now active! Click "Save Changes" to generate and copy the share ID.');
     } else {
         alert('Error: The Kite has flown away! Check console for details.');
         console.error(PREFIX + ': window.fetch not available. Script failed to load.');
