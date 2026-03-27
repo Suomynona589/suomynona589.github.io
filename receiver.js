@@ -1,84 +1,172 @@
 (function() {
     const PREFIX = "LemonCube's Kite Command Share";
-    let alreadySent = false; // Only process the first PATCH
+    let storedPayload = null;
+    let capturedData = { name: null, description: null };
+    let isMonitoring = false;
 
-    // Clean clipboard function — no fallback alerts, no noise
-    function copyToClipboard(text) {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(text).catch(err => {
-                console.warn(PREFIX + ": Clipboard copy failed:", err);
+    // --- Setup Checks ---
+    const urlMatch = window.location.pathname.match(/\/apps\/([^\/]+)/);
+    if (!urlMatch) {
+        console.warn(PREFIX + ": Not on a valid Kite app page.");
+        return;
+    }
+    const appId = urlMatch[1];
+
+    // Determine API base (supports self-hosted)
+    const host = window.location.hostname;
+    const port = window.location.port ? `:${window.location.port}` : "";
+    const protocol = window.location.protocol;
+
+    const apiBase =
+        host === "kite.onl" || host === "www.kite.onl"
+            ? "https://api.kite.onl"
+            : `${protocol}//${host}${port}`;
+
+    // --- Step 1: Prompt for SHARE ID ---
+    const shareId = prompt(PREFIX + " activated!\n\nEnter the SHARE ID:");
+    if (!shareId) {
+        console.log(PREFIX + ": Cancelled.");
+        return;
+    }
+
+    // --- Step 2: Fetch JSON from Cloudflare Worker ---
+    fetch(`https://rapid-boat-67a1.suomynona589.workers.dev/${shareId}`)
+        .then(r => r.json())
+        .then(data => {
+            if (!data || !data.json) {
+                alert("Invalid ID or missing JSON.");
+                return;
+            }
+
+            storedPayload = JSON.stringify(data.json);
+
+            alert(
+                "Share code loaded!\n\n" +
+                "Now create a NEW command with ANY name.\n" +
+                "The script will automatically replace it with the shared command."
+            );
+        })
+        .catch(err => {
+            console.error(PREFIX + ": Failed to fetch share JSON:", err);
+            alert("Failed to fetch share JSON. Check console.");
+        });
+
+    // --- PATCH Sender ---
+    function sendPatchRequest(appId, commandId, name, description) {
+        let finalPayload;
+
+        try {
+            const parsed = JSON.parse(storedPayload);
+
+            parsed.flow_source.nodes = parsed.flow_source.nodes.map(node => {
+                if (node.type === "entry_command") {
+                    node.data.name = name;
+                    node.data.description = description;
+                }
+                return node;
             });
-        } else {
-            console.warn(PREFIX + ": Clipboard API not supported.");
+
+            finalPayload = JSON.stringify(parsed);
+        } catch (e) {
+            console.error(PREFIX + ": Failed to modify JSON:", e);
+            alert("Error modifying payload. Check console.");
+            return;
+        }
+
+        console.log(PREFIX + ": Sending PATCH to load command...");
+
+        fetch(`${apiBase}/v1/apps/${appId}/commands/${commandId}`, {
+            method: "PATCH",
+            headers: {
+                accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            credentials: "include",
+            body: finalPayload
+        })
+            .then(async res => {
+                if (!res.ok) {
+                    const errText = await res.text();
+                    throw new Error(`HTTP ${res.status}: ${errText}`);
+                }
+                return res.json();
+            })
+            .then(result => {
+                console.log(PREFIX + ": Success!", result);
+                alert(
+                    "Success! The shared command has been loaded onto your account.\n\n" +
+                    "Reload the page to view & edit it."
+                );
+            })
+            .catch(err => {
+                console.error(PREFIX + ": PATCH failed:", err);
+                alert("PATCH failed. Check console.");
+            });
+    }
+
+    // --- URL Monitoring ---
+    const urlIdPattern = new RegExp(`^/apps/${appId}/commands/([^/]+)`);
+
+    function checkAndPatch() {
+        const match = window.location.pathname.match(urlIdPattern);
+
+        if (match && capturedData.name) {
+            const newCommandId = match[1];
+
+            window.removeEventListener("popstate", checkAndPatch);
+            history.pushState = originalPushState;
+
+            setTimeout(() => {
+                sendPatchRequest(appId, newCommandId, capturedData.name, capturedData.description);
+            }, 800);
+
+            isMonitoring = false;
         }
     }
 
-    if (typeof window.fetch === 'function') {
-        const originalFetch = window.fetch;
+    const originalPushState = history.pushState;
+    history.pushState = function() {
+        originalPushState.apply(history, arguments);
+        if (isMonitoring) checkAndPatch();
+    };
+    window.addEventListener("popstate", checkAndPatch);
 
-        window.fetch = async function(url, options) {
+    // --- Fetch Interceptor (captures new command creation) ---
+    const originalFetch = window.fetch;
+    window.fetch = function(url, options) {
+        if (
+            options?.method?.toUpperCase() === "POST" &&
+            url.includes("/commands") &&
+            options.body
+        ) {
             try {
-                // Only first PATCH triggers Cloudflare
-                if (!alreadySent &&
-                    options &&
-                    options.method &&
-                    options.method.toUpperCase() === 'PATCH') {
+                const parsed = JSON.parse(options.body);
+                const entryNode = parsed.flow_source.nodes.find(
+                    node => node.type === "entry_command"
+                );
 
-                    alreadySent = true; // Set immediately to prevent duplicates
+                if (entryNode?.data.name) {
+                    console.log(PREFIX + ": New command detected. Capturing name/description...");
 
-                    let body = options.body;
+                    capturedData = {
+                        name: entryNode.data.name,
+                        description: entryNode.data.description || ""
+                    };
 
-                    // Handle Request object bodies
-                    if (body instanceof Request) {
-                        body = await body.clone().text();
-                    }
+                    isMonitoring = true;
 
-                    // Ensure body is a string
-                    if (body && typeof body !== "string") {
-                        try { body = JSON.stringify(body); }
-                        catch { body = String(body); }
-                    }
-
-                    if (body) {
-                        console.log(PREFIX + ": Sending to Cloudflare…");
-
-                        // Send to Cloudflare Worker
-                        const res = await fetch("https://rapid-boat-67a1.suomynona589.workers.dev/create", {
-                            method: "POST",
-                            headers: { "Content-Type": "application/json" },
-                            body: body
-                        });
-
-                        const data = await res.json();
-
-                        if (data && data.id) {
-                            console.log(PREFIX + ": Cloudflare returned ID:", data.id);
-
-                            // Copy ID to clipboard (quietly)
-                            copyToClipboard(data.id);
-
-                            // ALWAYS alert the ID
-                            alert("Your Share ID: " + data.id);
-                        } else {
-                            console.warn(PREFIX + ": Invalid Cloudflare response:", data);
-                            alert("Error: Cloudflare returned an invalid response.");
-                        }
-                    }
+                    return originalFetch(url, options).then(res => {
+                        checkAndPatch();
+                        return res;
+                    });
                 }
-            } catch (err) {
-                console.error(PREFIX + ": Error while intercepting PATCH:", err);
+            } catch (e) {
+                // ignore parse errors
             }
+        }
 
-            return originalFetch(url, options);
-        };
+        return originalFetch(url, options);
+    };
 
-        console.log('');
-        console.log('--- ' + PREFIX + ' ---');
-        console.log('Click \"Save Changes\" on your Kite command to generate the share ID.');
-        console.log('');
-        alert(PREFIX + " is active! Click Save Changes to generate your share ID.");
-    } else {
-        console.error(PREFIX + ": window.fetch not available.");
-        alert("Error: fetch not available.");
-    }
+    console.log(PREFIX + ": Receiver ready. Waiting for new command...");
 })();
