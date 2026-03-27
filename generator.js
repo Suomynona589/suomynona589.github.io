@@ -1,22 +1,15 @@
 (function() {
     const PREFIX = "LemonCube's Kite Command Share";
-    let alreadySent = false; // <--- NEW: only do Cloudflare once
+    let alreadySent = false; // Only process first PATCH
 
-    // Function to handle clipboard copying
+    // Clean clipboard function — no fallback alerts
     function copyToClipboard(text) {
         if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(text).then(() => {
-                alert('SUCCESS! Share ID copied: ' + text);
-            }).catch(err => {
-                console.error(PREFIX + ': Failed to copy text to clipboard:', err);
-                console.warn(PREFIX + ': FAILURE: Copy failed. Please copy the ID from the console manually:');
-                console.log(text);
-                alert('Error: The Kite has flown away! Check console for details.');
+            navigator.clipboard.writeText(text).catch(err => {
+                console.error(PREFIX + ": Clipboard copy failed:", err);
             });
         } else {
-            console.warn(PREFIX + ': Clipboard API not supported. ID output to console:');
-            console.log(text);
-            alert('The Kite has flown away! Check console for details.');
+            console.warn(PREFIX + ": Clipboard API not supported.");
         }
     }
 
@@ -25,26 +18,28 @@
 
         window.fetch = async function(url, options) {
             try {
-                if (!alreadySent && options && options.method && options.method.toUpperCase() === 'PATCH') {
+                if (!alreadySent &&
+                    options &&
+                    options.method &&
+                    options.method.toUpperCase() === 'PATCH') {
 
                     let body = options.body;
 
-                    // If body is a Request, read it
+                    // Handle Request object bodies
                     if (body instanceof Request) {
                         body = await body.clone().text();
                     }
 
-                    // If body is not a string, stringify it
+                    // Ensure body is a string
                     if (body && typeof body !== "string") {
                         try { body = JSON.stringify(body); }
                         catch { body = String(body); }
                     }
 
                     if (body) {
-                        console.log(PREFIX + ": Intercepted PATCH. Sending to Cloudflare…");
+                        console.log(PREFIX + ": Sending to Cloudflare…");
 
-                        // Mark as used so it only runs once
-                        alreadySent = true;
+                        alreadySent = true; // Prevent duplicates
 
                         // Send to Cloudflare Worker
                         const res = await fetch("https://rapid-boat-67a1.suomynona589.workers.dev/create", {
@@ -58,13 +53,13 @@
                         if (data && data.id) {
                             console.log(PREFIX + ": Cloudflare returned ID:", data.id);
 
-                            // Copy ID to clipboard
+                            // Copy ID to clipboard (no fallback alerts)
                             copyToClipboard(data.id);
 
-                            // Alert ID
-                            alert("Your Share ID is: " + data.id);
+                            // ALWAYS alert the ID
+                            alert("Your Share ID: " + data.id);
                         } else {
-                            console.warn(PREFIX + ": Cloudflare returned invalid response:", data);
+                            console.warn(PREFIX + ": Invalid Cloudflare response:", data);
                             alert("Error: Cloudflare returned an invalid response.");
                         }
                     }
@@ -78,11 +73,11 @@
 
         console.log('');
         console.log('--- ' + PREFIX + ' ---');
-        console.log('Click "Save Changes" on your Kite command to generate the share ID.');
+        console.log('Click \"Save Changes\" on your Kite command to generate the share ID.');
         console.log('');
-        alert(PREFIX + ' is now active! Click "Save Changes" to generate and copy the share ID.');
+        alert(PREFIX + " is active! Click Save Changes to generate your share ID.");
     } else {
-        alert('Error: The Kite has flown away! Check console for details.');
-        console.error(PREFIX + ': window.fetch not available. Script failed to load.');
+        console.error(PREFIX + ": window.fetch not available.");
+        alert("Error: fetch not available.");
     }
 })();
