@@ -1,6 +1,6 @@
 (function () {
     const PREFIX = "LemonCube's Kite Command Share";
-    const API = "https://rapid-boat-67a1.suomynona589.workers.dev/create/";
+    const API = "https://rapid-boat-67a1.suomynona589.workers.dev/create";
 
     async function uploadPayload(json) {
         try {
